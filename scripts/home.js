@@ -98,14 +98,15 @@ about_menu.addEventListener("mouseleave", () => {
 //inspect animation
 const inspect_container = document.getElementById("inspect");
 const inspect_images = [];
-for (let i = 1; i <= 134; i++) {
-    const img = document.createElement("img");
-    img.src = `../images/inspect/${i}.png`;
-    img.className = "inspect-img";
-    inspect_images.push(img);
-}
 document.addEventListener("keydown", async (e) => {
-    console.log("click");
+    if (inspect_images.length === 0) {
+        for (let i = 1; i <= 134; i++) {
+            const img = document.createElement("img");
+            img.src = `../images/inspect/${i}.png`;
+            img.className = "inspect-img";
+            inspect_images.push(img);
+        }
+    }
     if (e.key === "f") {
         console.log("clicked button");
         for (const inspect_image of inspect_images) {
