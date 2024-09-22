@@ -67,9 +67,9 @@ window.onclick = () => {
 
 
 //hover audios
-const blog_audio = new Audio("../audio/blog.m4a");
-const gallery_audio = new Audio("../audio/gallery.m4a");
-const about_audio = new Audio("../audio/about.m4a");
+const blog_audio = new Audio("../audio/blog.mp3");
+const gallery_audio = new Audio("../audio/gallery.mp3");
+const about_audio = new Audio("../audio/about.mp3");
 const blog_menu = document.getElementById("blog-menu");
 const gallery_menu = document.getElementById("gallery-menu");
 const about_menu = document.getElementById("about-menu");
