@@ -51,6 +51,9 @@ html {
 .menu-item-container {
     display: flex;
     align-items: center;
+    color: white;
+    text-decoration: none;
+    cursor: none;
 }
 
 .banana-bread {
