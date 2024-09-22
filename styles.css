@@ -38,6 +38,11 @@ html {
     font-size: 24pt;
 }
 
+.menu-item:hover {
+    text-decoration: underline;
+    background: #2e88a2;
+}
+
 @font-face {
     font-family: ArcadeClassic;
     src: url("./fonts/ARCADECLASSIC.TTF");
@@ -61,9 +66,53 @@ html {
 
 .crow-cursor {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     pointer-events: none;
     overflow: hidden;
     display: none;
+}
+
+#cockatoo {
+    width: 300px;
+    height: 160px;
+    padding-left: 25px;
+}
+
+#background_wrapper {
+    display: none;
+    justify-content: space-between;
+}
+
+#left_bar {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#right_bar {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cat {
+    width: 300px;
+    height: 160px;
+    padding-right: 25px;
+}
+
+#inspect {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 100;
+    cursor: none;
+}
+
+.inspect-img {
+    height: 80vh;
+    width: 50vw;
 }
