@@ -119,3 +119,12 @@ html {
     height: 80vh;
     width: 50vw;
 }
+
+#inspect_hint {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    font-family: ArcadeClassic, serif;
+    color: white;
+}
