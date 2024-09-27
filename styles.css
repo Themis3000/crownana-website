@@ -175,3 +175,18 @@ html {
 .tab-item:hover {
     background: rgba(119, 77, 82, 0.3);
 }
+
+.gallery-photo {
+    height: 250px;
+}
+
+.gallery-photo-entry {
+    padding-top: 15px;
+}
+
+#photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
