@@ -3,10 +3,10 @@ const document_wrapper = document.getElementById("document-wrapper");
 document_wrapper.style.cursor = "none";
 const crow_cursor = document.createElement("img");
 crow_cursor.className = "crow-cursor";
-crow_cursor.src = "../images/crow_cursor.svg";
+crow_cursor.src = "/images/crow_cursor.svg";
 const crow_cursor_open = document.createElement("img");
 crow_cursor_open.className = "crow-cursor";
-crow_cursor_open.src = "../images/crow_cursor_open.svg";
+crow_cursor_open.src = "/images/crow_cursor_open.svg";
 document_wrapper.appendChild(crow_cursor);
 document_wrapper.appendChild(crow_cursor_open);
 window.onmousemove = (e) => {
@@ -24,7 +24,7 @@ window.onmouseout = () => {
     crow_cursor.style.display = "none";
     crow_cursor_open.style.display = "none";
 }
-const caw_audio = new Audio('../audio/caw1.mp3');
+const caw_audio = new Audio('/audio/caw1.mp3');
 window.onclick = () => {
     crow_cursor.style.display = "none";
     crow_cursor_open.style.display = "block";
@@ -36,13 +36,15 @@ window.onclick = () => {
 }
 
 //inspect animation
-const inspect_container = document.getElementById("inspect");
+const inspect_container = document.createElement("div");
+inspect_container.id = "inspect";
+document.body.appendChild(inspect_container);
 const inspect_images = [];
 document.addEventListener("keydown", async (e) => {
     if (inspect_images.length === 0) {
         for (let i = 1; i <= 134; i++) {
             const img = document.createElement("img");
-            img.src = `../images/inspect/${i}.png`;
+            img.src = `/images/inspect/${i}.png`;
             img.className = "inspect-img";
             img.decoding = "sync";
             inspect_images.push(img);
