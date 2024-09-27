@@ -45,7 +45,27 @@ html {
 
 @font-face {
     font-family: ArcadeClassic;
-    src: url("./fonts/ARCADECLASSIC.TTF");
+    src: url("/fonts/ARCADECLASSIC.TTF");
+}
+
+@font-face {
+    font-family: DS-DIGI;
+    src: url("/fonts/DS-DIGI.TTF");
+}
+
+@font-face {
+    font-family: DS-DIGIB;
+    src: url("/fonts/DS-DIGIB.TTF");
+}
+
+@font-face {
+    font-family: DS-DIGII;
+    src: url("/fonts/DS-DIGII.TTF");
+}
+
+@font-face {
+    font-family: DS-DIGIT;
+    src: url("/fonts/DS-DIGIT.TTF");
 }
 
 .menu-item-container {
@@ -129,9 +149,16 @@ html {
     color: white;
 }
 
+#photography-header {
+    font-family: DS-DIGIB, serif;
+    font-size: 35pt;
+    padding: 10px 10px 10px 20px;
+}
+
 #tabs {
     display: flex;
     justify-content: flex-start;
+    border-bottom: 2px solid white;
 }
 
 .tab-item {
@@ -140,4 +167,11 @@ html {
     border-top-right-radius: 8px;
     border: 2px solid white;
     border-bottom: none;
+    margin-left: 5px;
+    font-family: DS-DIGIT, sans-serif;
+    font-size: 18px;
+}
+
+.tab-item:hover {
+    background: rgba(119, 77, 82, 0.3);
 }
