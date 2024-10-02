@@ -12,8 +12,8 @@ crow_cursor_open.src = "/images/crow_cursor_open.svg";
 cursor_box.appendChild(crow_cursor);
 cursor_box.appendChild(crow_cursor_open);
 window.onmousemove = (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
+    const x = e.pageX;
+    const y = e.pageY;
     crow_cursor.style.top = `${y}px`;
     crow_cursor.style.left = `${x}px`;
     crow_cursor_open.style.top = `${y}px`;
