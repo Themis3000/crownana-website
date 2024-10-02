@@ -1,14 +1,16 @@
 // crow cursor thing
-const document_wrapper = document.getElementById("document-wrapper");
-document_wrapper.style.cursor = "none";
+const cursor_box = document.createElement("div");
+cursor_box.id = "cursor_box";
+document.body.appendChild(cursor_box);
+document.body.style.cursor = "none";
 const crow_cursor = document.createElement("img");
 crow_cursor.className = "crow-cursor";
 crow_cursor.src = "/images/crow_cursor.svg";
 const crow_cursor_open = document.createElement("img");
 crow_cursor_open.className = "crow-cursor";
 crow_cursor_open.src = "/images/crow_cursor_open.svg";
-document_wrapper.appendChild(crow_cursor);
-document_wrapper.appendChild(crow_cursor_open);
+cursor_box.appendChild(crow_cursor);
+cursor_box.appendChild(crow_cursor_open);
 window.onmousemove = (e) => {
     const x = e.clientX;
     const y = e.clientY;
