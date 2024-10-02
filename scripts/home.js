@@ -1,7 +1,7 @@
 //welcome audio and lobby
 const background_wrapper = document.getElementById("background_wrapper");
 const welcome = new Audio("../audio/välkommen.m4a");
-const lobby = new Audio('../audio/Charlie\'s Here.wav');
+const lobby = new Audio('../audio/Charlie\'s Here.mp3');
 lobby.loop = true;
 welcome.play();
 welcome.addEventListener("ended", () => {
