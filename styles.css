@@ -71,6 +71,11 @@ html {
     src: url("/fonts/DS-DIGIT.TTF");
 }
 
+@font-face {
+    font-family: Minecrafter;
+    src: url("/fonts/Minecrafter.Reg.ttf");
+}
+
 .menu-item-container {
     display: flex;
     align-items: center;
@@ -184,7 +189,20 @@ html {
 }
 
 .gallery-photo-entry {
-    padding-top: 15px;
+    margin-bottom: 30px;
+    border: 4px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    font-family: Minecrafter, serif;
+    color: rgba(128, 128, 128, 0.94);
+    text-shadow: 1px 1px 1px white;
+}
+
+.gallery-photo-entry:hover {
+    border: 4px solid white;
+    border-radius: 5px;
 }
 
 #photos {
