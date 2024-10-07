@@ -5,7 +5,7 @@
     <title>Gallery Home</title>
     <link rel="stylesheet" href="/resources/styles.css">
     <style>
-        #{{ selected }} {
+        #birds {
             background: rgba(119, 77, 82, 0.3);
         }
     </style>
@@ -22,12 +22,27 @@
         <a id="other" class="tab-item">Other</a>
     </div>
     <div id="photos">
-        {% for img_entry in img_entries %}
+        
             <div class="gallery-photo-entry">
-                <img src="/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
-                {{ img_entry['subtext'] }}
+                <img src="/gallery/_9170876.jpg" class="gallery-photo" alt="rascal">
+                Rascal
             </div>
-        {% endfor %}
+        
+            <div class="gallery-photo-entry">
+                <img src="/gallery/_9170911.jpg" class="gallery-photo" alt="rascal">
+                Rascal
+            </div>
+        
+            <div class="gallery-photo-entry">
+                <img src="/gallery/_9170956.jpg" class="gallery-photo" alt="rascal">
+                Rascal
+            </div>
+        
+            <div class="gallery-photo-entry">
+                <img src="/gallery/_9170995.jpg" class="gallery-photo" alt="rascal">
+                Rascal
+            </div>
+        
     </div>
     <script src="/resources/scripts/common.js"></script>
     <script src="/resources/scripts/gallery.js"></script>

@@ -178,6 +178,8 @@ html {
     margin-left: 5px;
     font-family: DS-DIGIT, sans-serif;
     font-size: 18px;
+    text-decoration: none;
+    color: black;
 }
 
 .tab-item:hover {
