@@ -13,5 +13,5 @@ for category_name in gallery_config:
     category = gallery_config[category_name]
     all_entries.extend(category)
 template_content = template.render(img_entries=all_entries, selected="all")
-with open("../public/pages/gallery/home.html", "w") as f:
+with open("../public/gallery/home.html", "w") as f:
     f.write(template_content)
