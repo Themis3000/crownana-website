@@ -180,6 +180,7 @@ html {
     font-size: 18px;
     text-decoration: none;
     color: black;
+    cursor: none;
 }
 
 .tab-item:hover {

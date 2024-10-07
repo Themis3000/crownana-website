@@ -19,12 +19,13 @@
         <a id="cats" class="tab-item">Cats</a>
         <a id="bugs" class="tab-item">Bugs</a>
         <a id="landscape" class="tab-item">Landscape</a>
+        <a id="people" class="tab-item" href="/gallery/people.html">People</a>
         <a id="other" class="tab-item">Other</a>
     </div>
     <div id="photos">
         {% for img_entry in img_entries %}
             <div class="gallery-photo-entry">
-                <img src="/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
+                <img src="/resources/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
                 {{ img_entry['subtext'] }}
             </div>
         {% endfor %}

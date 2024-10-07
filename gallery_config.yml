@@ -11,3 +11,8 @@ birds:
   - path: _9170995.jpg
     alt: rascal
     subtext: Rascal
+
+people:
+  - path: _A053524.jpg
+    alt: Jo
+    subtext: Jo at night (meow)
