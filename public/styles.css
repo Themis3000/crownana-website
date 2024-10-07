@@ -48,32 +48,32 @@ html {
 
 @font-face {
     font-family: ArcadeClassic;
-    src: url("/fonts/ARCADECLASSIC.TTF");
+    src: url("/public/fonts/ARCADECLASSIC.TTF");
 }
 
 @font-face {
     font-family: DS-DIGI;
-    src: url("/fonts/DS-DIGI.TTF");
+    src: url("/public/fonts/DS-DIGI.TTF");
 }
 
 @font-face {
     font-family: DS-DIGIB;
-    src: url("/fonts/DS-DIGIB.TTF");
+    src: url("/public/fonts/DS-DIGIB.TTF");
 }
 
 @font-face {
     font-family: DS-DIGII;
-    src: url("/fonts/DS-DIGII.TTF");
+    src: url("/public/fonts/DS-DIGII.TTF");
 }
 
 @font-face {
     font-family: DS-DIGIT;
-    src: url("/fonts/DS-DIGIT.TTF");
+    src: url("/public/fonts/DS-DIGIT.TTF");
 }
 
 @font-face {
     font-family: Minecrafter;
-    src: url("/fonts/Minecrafter.Reg.ttf");
+    src: url("/public/fonts/Minecrafter.Reg.ttf");
 }
 
 .menu-item-container {
@@ -210,4 +210,5 @@ html {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
+    align-content: flex-start;
 }

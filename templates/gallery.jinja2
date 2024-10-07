@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery Home</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        #{{ selected }} {
+            background: rgba(119, 77, 82, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor-box"></div>
+    <h1 id="photography-header">Crownana Photography</h1>
+    <div id="tabs">
+        <a id="all" class="tab-item">All</a>
+        <a id="birds" class="tab-item">Birds</a>
+        <a id="cats" class="tab-item">Cats</a>
+        <a id="bugs" class="tab-item">Bugs</a>
+        <a id="landscape" class="tab-item">Landscape</a>
+        <a id="other" class="tab-item">Other</a>
+    </div>
+    <div id="photos">
+        {% for img_entry in img_entries %}
+            <div class="gallery-photo-entry">
+                <img src="/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
+                {{ img_entry['subtext'] }}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="/scripts/common.js"></script>
+    <script src="/scripts/gallery.js"></script>
+</body>
+</html>
