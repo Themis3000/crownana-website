@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+a {
+    cursor: none;
+    text-decoration: none;
+}
+
 html {
     background: lightpink;
 }
@@ -178,9 +183,7 @@ html {
     margin-left: 5px;
     font-family: DS-DIGIT, sans-serif;
     font-size: 18px;
-    text-decoration: none;
     color: black;
-    cursor: none;
 }
 
 .tab-item:hover {

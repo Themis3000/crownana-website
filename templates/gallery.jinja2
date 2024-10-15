@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/resources/styles.css">
 </head>
 <body>
-    <div id="cursor-box"></div>
     <h1 id="photography-header">Crownana Photography</h1>
     <div id="tabs">
         {% for category_info in categories_info %}
@@ -15,10 +14,12 @@
     </div>
     <div id="photos">
         {% for img_entry in img_entries %}
-            <div class="gallery-photo-entry">
-                <img src="/resources/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
-                {{ img_entry['subtext'] }}
-            </div>
+            <a href="{{ ('/gallery/pages/' + img_entry['info_page']) if 'info_page' in img_entry else '' }}">
+                <div class="gallery-photo-entry">
+                    <img src="/resources/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
+                    {{ img_entry['subtext'] }}
+                </div>
+            </a>
         {% endfor %}
     </div>
     <script src="/resources/scripts/common.js"></script>
