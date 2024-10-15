@@ -13,10 +13,10 @@ welcome.addEventListener("ended", () => {
 const menu_containers = document.querySelectorAll('.menu-item-container');
 const banana_element_right = document.createElement('img');
 banana_element_right.className = "banana-bread banana-right";
-banana_element_right.src = "../images/banana_bread.png";
+banana_element_right.src = "/resources/images/banana_bread.png";
 const banana_element_left = document.createElement('img');
 banana_element_left.className = "banana-bread banana-left";
-banana_element_left.src = "../images/banana_bread.png";
+banana_element_left.src = "/resources/images/banana_bread.png";
 for (const menu_container of menu_containers) {
     menu_container.addEventListener("mouseenter", () => {
         menu_container.prepend(banana_element_left);
