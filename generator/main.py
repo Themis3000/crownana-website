@@ -1,3 +1,5 @@
+import os
+from PIL import Image
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
 env = Environment(
@@ -18,6 +20,10 @@ for entry in gallery_config["images"]:
         categories[category] = []
         categories_info.append({"name": category, "href": f"/gallery/{category}.html"})
     categories[category].append(entry)
+    if not os.path.exists(f"../public/resources/gallery/thumbs/{entry['path']}"):
+        with Image.open(f"../public/resources/gallery/{entry['path']}") as img:
+            img.thumbnail((1024, 1024))
+            img.save(f"../public/resources/gallery/thumbs/{entry['path']}")
 
 
 for category_name, category in categories.items():

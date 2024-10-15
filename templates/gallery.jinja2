@@ -14,12 +14,14 @@
     </div>
     <div id="photos">
         {% for img_entry in img_entries %}
-            <a href="{{ ('/gallery/pages/' + img_entry['info_page']) if 'info_page' in img_entry else '' }}">
-                <div class="gallery-photo-entry">
-                    <img src="/resources/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
+            <div class="gallery-photo-entry">
+                <a href="/resources/gallery/{{ img_entry['path'] }}">
+                    <img src="/resources/gallery/thumbs/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
+                </a>
+                <a {{ ("href='/gallery/pages/" + img_entry['info_page'] + "'") if 'info_page' in img_entry else '' }}>
                     {{ img_entry['subtext'] }}
-                </div>
-            </a>
+                </a>
+            </div>
         {% endfor %}
     </div>
     <script src="/resources/scripts/common.js"></script>

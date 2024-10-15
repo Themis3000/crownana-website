@@ -3,11 +3,6 @@
     padding: 0;
 }
 
-a {
-    cursor: none;
-    text-decoration: none;
-}
-
 html {
     background: lightpink;
 }
@@ -204,6 +199,12 @@ html {
     font-family: serif;
     color: rgba(128, 128, 128, 0.94);
     text-shadow: 1px 1px 1px white;
+}
+
+a:active > .gallery-photo-entry {
+    text-decoration: underline;
+    color: blue;
+    cursor: none;
 }
 
 .gallery-photo-entry:hover {

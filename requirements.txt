@@ -1,1 +1,4 @@
-Jinja2
+Jinja2~=3.1.4
+PyYAML~=6.0
+Pillow~=9.3.0
+opencv-python~=4.10.0.84
