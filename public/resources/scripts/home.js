@@ -1,7 +1,7 @@
 //welcome audio and lobby
 const background_wrapper = document.getElementById("background_wrapper");
-const welcome = new Audio("../audio/välkommen.m4a");
-const lobby = new Audio('../audio/Charlie\'s Here.mp3');
+const welcome = new Audio("/resources/audio/välkommen.m4a");
+const lobby = new Audio('/resources/audio/Charlie\'s Here.mp3');
 lobby.loop = true;
 welcome.play();
 welcome.addEventListener("ended", () => {
@@ -30,9 +30,9 @@ for (const menu_container of menu_containers) {
 
 
 //hover audios
-const blog_audio = new Audio("../audio/blog.mp3");
-const gallery_audio = new Audio("../audio/gallery.mp3");
-const about_audio = new Audio("../audio/about.mp3");
+const blog_audio = new Audio("/resources/audio/blog.mp3");
+const gallery_audio = new Audio("/resources/audio/gallery.mp3");
+const about_audio = new Audio("/resources/audio/about.mp3");
 const blog_menu = document.getElementById("blog-menu");
 const gallery_menu = document.getElementById("gallery-menu");
 const about_menu = document.getElementById("about-menu");

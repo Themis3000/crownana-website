@@ -53,32 +53,32 @@ html {
 
 @font-face {
     font-family: ArcadeClassic;
-    src: url("/public/resources/fonts/ARCADECLASSIC.TTF");
+    src: url("/resources/fonts/ARCADECLASSIC.TTF");
 }
 
 @font-face {
     font-family: DS-DIGI;
-    src: url("/public/resources/fonts/DS-DIGI.TTF");
+    src: url("/resources/fonts/DS-DIGI.TTF");
 }
 
 @font-face {
     font-family: DS-DIGIB;
-    src: url("/public/resources/fonts/DS-DIGIB.TTF");
+    src: url("/resources/fonts/DS-DIGIB.TTF");
 }
 
 @font-face {
     font-family: DS-DIGII;
-    src: url("/public/resources/fonts/DS-DIGII.TTF");
+    src: url("/resources/fonts/DS-DIGII.TTF");
 }
 
 @font-face {
     font-family: DS-DIGIT;
-    src: url("/public/resources/fonts/DS-DIGIT.TTF");
+    src: url("/resources/fonts/DS-DIGIT.TTF");
 }
 
 @font-face {
     font-family: Minecrafter;
-    src: url("/public/resources/fonts/Minecrafter.Reg.ttf");
+    src: url("/resources/fonts/Minecrafter.Reg.ttf");
 }
 
 .menu-item-container {
@@ -201,7 +201,7 @@ html {
     flex-direction: column;
     align-items: center;
     font-size: 22px;
-    font-family: Minecrafter, serif;
+    font-family: serif;
     color: rgba(128, 128, 128, 0.94);
     text-shadow: 1px 1px 1px white;
 }
