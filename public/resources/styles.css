@@ -215,3 +215,7 @@ html {
     align-items: flex-start;
     align-content: flex-start;
 }
+
+.tab-selected {
+    background: rgba(119, 77, 82, 0.3);
+}

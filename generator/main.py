@@ -9,15 +9,19 @@ env = Environment(
 # Generate gallery documents
 template = env.get_template("gallery.jinja2")
 gallery_config = yaml.safe_load(open("../gallery_config.yml"))
-all_entries = []
 
-for category_name in gallery_config:
-    category = gallery_config[category_name]
-    all_entries.extend(category)
-    category_content = template.render(img_entries=category, selected=category_name)
+categories = {"all": gallery_config["images"]}
+categories_info = [{"name": "all", "href": f"/gallery/all.html"}]
+for entry in gallery_config["images"]:
+    category = entry["category"]
+    if category not in categories:
+        categories[category] = []
+        categories_info.append({"name": category, "href": f"/gallery/{category}.html"})
+    categories[category].append(entry)
+
+
+for category_name, category in categories.items():
+    category_content = template.render(img_entries=category, categories_info=categories_info,
+                                       selected_category=category_name)
     with open(f"../public/gallery/{category_name}.html", "w") as f:
         f.write(category_content)
-
-all_content = template.render(img_entries=all_entries, selected="all")
-with open("../public/gallery/index.html", "w") as f:
-    f.write(all_content)
