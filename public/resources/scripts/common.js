@@ -2,7 +2,6 @@
 const cursor_box = document.createElement("div");
 cursor_box.id = "cursor_box";
 document.body.appendChild(cursor_box);
-document.body.style.cursor = "none";
 const crow_cursor = document.createElement("img");
 crow_cursor.className = "crow-cursor";
 crow_cursor.src = "/resources/images/crow_cursor.svg";
