@@ -9,7 +9,7 @@ env = Environment(
 
 
 # Generate gallery documents
-template = env.get_template("gallery.jinja2")
+gallery_template = env.get_template("gallery.jinja2")
 gallery_config = yaml.safe_load(open("../gallery_config.yml"))
 
 categories = {"all": gallery_config["images"]}
@@ -27,7 +27,16 @@ for entry in gallery_config["images"]:
 
 
 for category_name, category in categories.items():
-    category_content = template.render(img_entries=category, categories_info=categories_info,
-                                       selected_category=category_name)
+    category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
+                                               selected_category=category_name)
     with open(f"../public/gallery/{category_name}.html", "w") as f:
         f.write(category_content)
+
+
+# Generate blog home page
+blog_template = env.get_template("blog.jinja2")
+blog_config = yaml.safe_load(open("../blog_config.yml"))
+
+blog_content = blog_template.render(blog_entries=blog_config["posts"])
+with open(f"../public/blog/index.html", "w") as f:
+    f.write(blog_content)

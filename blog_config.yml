@@ -1,0 +1,7 @@
+posts:
+  - title: "the second blog post"
+    href: "/blog/posts/2"
+    teaser: "This is the second example post"
+  - title: "the first blog post"
+    href: "/blog/posts/1"
+    teaser: "This is the first example post"
