@@ -6,9 +6,24 @@
     <link rel="stylesheet" href="resources/styles.css">
 </head>
 <body>
-    <div id="autoplay">
-        <img id="autoplay-img" src="resources/images/star.svg" alt="star">
+<!--    <div id="autoplay">-->
+<!--        <img id="autoplay-img" src="resources/images/star.svg" alt="star">-->
+<!--    </div>-->
+    <div id="autoplay" class="fixed-center">
+        <div id="autoplay-content" class="fixed-center">
+            <h3>In order to embrace the full effect of this website, you must allow me to play sound</h3>
+            <button>Thank you for giving me the full experience, o holy one.</button>
+            <button>No thanks, I'm leaving now</button>
+        </div>
     </div>
+
+    <svg>
+        <defs>
+            <clipPath id="star">
+                <path d="M100,0 42,180 196,70 4,70 158,180z"/>
+            </clipPath>
+        </defs>
+    </svg>
 
     <i id="inspect_hint">press F to inspect</i>
     <div id="background_wrapper">
