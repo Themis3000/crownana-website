@@ -254,7 +254,6 @@ a:active > .gallery-photo-entry {
 }
 
 #autoplay {
-    pointer-events: none;
     z-index: 99;
     background-color: #00d4fe;
     width: calc(100vw - 10px);

@@ -18,25 +18,26 @@ document.body.addEventListener("autoplay-allowed", () => {
     const gallery_menu = document.getElementById("gallery-menu");
     const about_menu = document.getElementById("about-menu");
     blog_menu.addEventListener("mouseenter", () => {
+
        blog_audio.play();
     });
     blog_menu.addEventListener("mouseleave", () => {
         blog_audio.pause();
-        blog_audio.fastSeek(0);
+        blog_audio.currentTime = 0;
     });
     gallery_menu.addEventListener("mouseenter", () => {
        gallery_audio.play();
     });
     gallery_menu.addEventListener("mouseleave", () => {
         gallery_audio.pause();
-        gallery_audio.fastSeek(0);
+        gallery_audio.currentTime = 0;
     });
     about_menu.addEventListener("mouseenter", () => {
        about_audio.play();
     });
     about_menu.addEventListener("mouseleave", () => {
         about_audio.pause();
-        about_audio.fastSeek(0);
+        about_audio.currentTime = 0;
     });
 });
 
