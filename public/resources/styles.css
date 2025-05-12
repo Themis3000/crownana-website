@@ -272,8 +272,7 @@ a:active > .gallery-photo-entry {
 }
 
 #star {
-    transform: translate(calc(50vw - 10px), calc(50vh - 10px)) scale(0.1);
-    animation: star-grow 1s ease-in both;
+    animation: star-grow 5s linear both;
 }
 
 #autoplay-content {
