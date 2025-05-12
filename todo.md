@@ -1,5 +1,3 @@
-- on pages with autoplay sound, find some way to get the autoplay working
-  - Make a mandatory button to click on the page load to capture the click event?
-    - have this button appear as a pop-up over the page.
-      - Open the popup via center growing star animation, just like a powerpoint presentation
-        - Add more shapes later and randomize between them?
+- Add a home button link on every page
+  - Don't show the autoplay popup if autoplay is allowed already
+- Add more opening shapes later and randomize between them?
