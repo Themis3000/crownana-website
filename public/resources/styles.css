@@ -259,6 +259,7 @@ a:active > .gallery-photo-entry {
     width: calc(100vw - 10px);
     height: calc(100vh - 10px);
     clip-path: url(#star);
+    display: none;
 }
 
 #autoplay-content {
@@ -287,6 +288,7 @@ a:active > .gallery-photo-entry {
 
 #star {
     animation: star-grow 1.5s ease-in both;
+    animation-play-state: paused;
 }
 
 #autoplay-buttons {

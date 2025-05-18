@@ -6,6 +6,16 @@ const autoplay_div = document.getElementById("autoplay");
 const animation = star.getAnimations()[0];
 
 
+const testAudio = new Audio("/resources/audio/silent.mp3");
+testAudio.play()
+    .then(() => {
+        console.log("Autoplay allowed!");
+        document.body.dispatchEvent(autoplayEvent);
+    }).catch(() => {
+        console.log("No autoplay allowed!");
+        autoplay_div.style.display = "block";
+        animation.play();
+    });
 
 okay_button.addEventListener("click", () => {
     animation.reverse();
