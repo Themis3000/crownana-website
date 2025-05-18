@@ -63,3 +63,15 @@ document.addEventListener("keydown", async (e) => {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+//home button adder
+if (!document.querySelector("[name=noHome][content=true]")) {
+    const homeA = document.createElement("a");
+    homeA.id = "home-btn";
+    homeA.href = "/index.html";
+    const homeImg = document.createElement("img");
+    homeImg.src = "/resources/images/home.png";
+    homeImg.alt = "home button image";
+    document.body.appendChild(homeA);
+    homeA.appendChild(homeImg);
+}

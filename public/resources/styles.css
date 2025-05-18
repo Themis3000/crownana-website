@@ -296,3 +296,23 @@ a:active > .gallery-photo-entry {
     flex-direction: row;
     justify-content: space-around;
 }
+
+#home-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 96px;
+    height: 96px;
+
+
+}
+
+#home-btn img {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+}
+
+#home-btn img:hover {
+    filter: drop-shadow(0 0 30px green);
+}
