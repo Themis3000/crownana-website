@@ -10,14 +10,28 @@ crow_cursor_open.className = "crow-cursor";
 crow_cursor_open.src = "/resources/images/crow_cursor_open.svg";
 cursor_box.appendChild(crow_cursor);
 cursor_box.appendChild(crow_cursor_open);
+
+let mouseX = 0;
+let mouseY = 0;
+let last_scroll = 0;
 window.onmousemove = (e) => {
-    const x = e.pageX;
-    const y = e.pageY;
-    crow_cursor.style.top = `${y}px`;
-    crow_cursor.style.left = `${x}px`;
-    crow_cursor_open.style.top = `${y}px`;
-    crow_cursor_open.style.left = `${x}px`;
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    updateCursorPos();
 }
+document.addEventListener("scroll", () => {
+    const scrollDiff = window.scrollY - last_scroll;
+    last_scroll = window.scrollY;
+    mouseY += scrollDiff;
+    updateCursorPos();
+});
+function updateCursorPos() {
+    crow_cursor.style.top = `${mouseY}px`;
+    crow_cursor.style.left = `${mouseX}px`;
+    crow_cursor_open.style.top = `${mouseY}px`;
+    crow_cursor_open.style.left = `${mouseX}px`;
+}
+
 window.onmouseover = () => {
     crow_cursor.style.display = "block";
 }
