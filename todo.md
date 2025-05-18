@@ -1,3 +1,4 @@
 - Add a home button link on every page
   - Don't show the autoplay popup if autoplay is allowed already
 - Add more opening shapes later and randomize between them?
+- Make the autoplay popup present on other pages with autoplay too other then just the home screen?
