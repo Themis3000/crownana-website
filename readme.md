@@ -1,11 +1,8 @@
-## Work in progress, intentionally bad, unhosted website
+## My (unprofessional) personal website
 
-That's right, this website is intentionally bad. I decided I wanted my own 2000's personal site inspired webpage.
-Autoplaying music, custom cursors, autoplaying gifs, poor web design, messy code, weird stuff, all of it.
+This is my personal website/internet playground! Inspired by the unmatched self-expression that was early 2000's
+personal homepages, combined with a growing disdain for the current common mediums of internet self-expression, I
+decided to create my own personal site.
 
-It's not exactly "time period accurate". Some of what I've done would have been not possible/no one would have
-considered doing at the time. I'm just running with the general idea and seeing where it takes me.
-
-The site features a blog and a gallery for my photos.
-
-It's currently not complete enough to be hosted anywhere. So uhm check back later, I suppose.
+This website is quite rough around the edges, has poor compatibility, and is held together with duct tape and hope. It's
+nothing but a bit of dumb fun!
