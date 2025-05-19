@@ -86,6 +86,16 @@ html {
     src: url("/resources/fonts/Minecrafter.Reg.ttf");
 }
 
+@font-face {
+    font-family: vtf-misterpixel;
+    src: url("/resources/fonts/vtf-misterpixel.regular.otf");
+}
+
+@font-face {
+    font-family: oddballz;
+    src: url("/resources/fonts/oddballz.ttf");
+}
+
 .menu-item-container {
     display: flex;
     align-items: center;
@@ -315,4 +325,27 @@ a:active > .gallery-photo-entry {
 
 #home-btn img:hover {
     filter: drop-shadow(0 0 30px green);
+}
+
+#blog_header {
+    font-size: 40pt;
+    font-family: oddballz, serif;
+    text-align: center;
+    padding-top: 35px;
+    animation: colors 7s alternate linear infinite;
+}
+
+@keyframes colors {
+    0% {
+        color: #00cbcb;
+    }
+    33% {
+        color: #e001e0;
+    }
+    66% {
+        color: #b68c00;
+    }
+    100% {
+        color: #00cbcb;
+    }
 }
