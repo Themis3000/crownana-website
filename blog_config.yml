@@ -2,6 +2,8 @@ posts:
   - title: "the second blog post"
     href: "/blog/posts/2"
     teaser: "This is the second example post"
+    color_theme: "hsl(120, 58%, 64%)"
   - title: "the first blog post"
     href: "/blog/posts/1"
     teaser: "This is the first example post"
+    color_theme: "hsl(260, 58%, 64%)"

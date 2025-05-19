@@ -349,3 +349,53 @@ a:active > .gallery-photo-entry {
         color: #00cbcb;
     }
 }
+
+:root {
+    --stamp-r: 20px; /* control the base radius of the stamp */
+}
+
+.stamp {
+    aspect-ratio: 1.5;
+    padding: var(--stamp-r);
+    background: #b3b39c;
+    /*noinspection CssInvalidFunction*/
+    mask:
+            radial-gradient(50% 50%,#0000 66%,#000 67%) round
+            var(--stamp-r) var(--stamp-r)/calc(2*var(--stamp-r)) calc(2*var(--stamp-r)),
+            conic-gradient(#000 0 0) content-box;
+}
+
+.blog_entry {
+    margin: 15px;
+    width: 450px;
+    height: 250px;
+}
+
+#blog_entries {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog_entry_title {
+    text-align: center;
+    font-family: vtf-misterpixel, sans-serif;
+    font-size: 24pt;
+}
+
+.blog_entry_title:hover {
+    opacity: .4;
+    transition: .3s;
+}
+
+.blog_entry_teaser {
+    font-family: vtf-misterpixel, sans-serif;
+    font-size: 16pt;
+}
+
+.blog_entry:hover {
+    --stamp-r: 30px;
+    margin: 5px;
+    transition: 0.3s;
+}

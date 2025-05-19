@@ -1,2 +1,5 @@
 - Add more opening shapes later and randomize between them?
 - Make the autoplay popup present on other pages with autoplay too other than just the home screen?
+- redo the way the cursor works to not use scroll-linked positioning?
+  - fill every screen with a fixed div, overlay the cursor within that div instead.
+- Add a hover notification when the cursor is over something
