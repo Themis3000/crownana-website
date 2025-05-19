@@ -254,6 +254,9 @@ a:active > .gallery-photo-entry {
     width: 800px;
     height: auto;
     padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .fixed-center {
