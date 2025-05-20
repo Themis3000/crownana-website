@@ -3,3 +3,4 @@
 - redo the way the cursor works to not use scroll-linked positioning?
   - fill every screen with a fixed div, overlay the cursor within that div instead.
 - Add a hover notification when the cursor is over something
+- When clicking on a thumb in the gallery with no associated page, open the original image.
