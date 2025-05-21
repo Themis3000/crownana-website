@@ -212,10 +212,13 @@ html {
     text-shadow: 1px 1px 1px white;
 }
 
-a:active > .gallery-photo-entry {
+.gallery-photo-entry a:active {
     text-decoration: underline;
     color: blue;
-    cursor: none;
+}
+
+.gallery-photo-entry a:visited {
+    color: #4c4cff;
 }
 
 .gallery-photo-entry:hover {
@@ -238,7 +241,7 @@ a:active > .gallery-photo-entry {
 .writing-style {
     font-family: "Comic Sans MS", monospace;
     font-size: 16pt;
-    width: 80%;
+    width: 900px;
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;

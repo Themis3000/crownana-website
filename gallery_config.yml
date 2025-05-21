@@ -1,4 +1,12 @@
 images:
+  - path: _A156226_02.jpg
+    alt: A closeup shot of a turkey, with a blurred natural background
+    subtext: A turkey's Linkedin photo
+    category: birds
+  - path: _A053524.jpg
+    alt: Partner
+    subtext: Partner at night (meow)
+    category: people
   - path: _9170876.jpg
     alt: rascal
     subtext: Rascal
@@ -19,7 +27,3 @@ images:
     subtext: Rascal
     category: birds
     info_page: ostrich.html
-  - path: _A053524.jpg
-    alt: Partner
-    subtext: Partner at night (meow)
-    category: people
