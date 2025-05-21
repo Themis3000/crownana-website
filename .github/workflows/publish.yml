@@ -1,0 +1,24 @@
+name: publish action
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  publish:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Generate your content
+        run: echo "Implement this so you don't need to commit generated content!"
+
+      - name: Publish current workdir
+        uses: rayluo/github-pages-overwriter@v1.3
+        with:
+          source-directory: public
+          target-branch: gh-pages
