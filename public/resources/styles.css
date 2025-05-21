@@ -375,6 +375,7 @@ html {
     margin: 15px;
     width: 450px;
     height: 250px;
+    position: relative;
 }
 
 #blog_entries {
@@ -404,4 +405,11 @@ html {
     --stamp-r: 30px;
     margin: 5px;
     transition: 0.3s;
+}
+
+.blog_entry_date {
+    font-family: "Comic Sans MS", serif;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
 }
