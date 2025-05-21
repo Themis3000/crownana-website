@@ -3,6 +3,7 @@ images:
     alt: A closeup shot of a turkey, with a blurred natural background
     subtext: A turkey's Linkedin photo
     category: birds
+    info_page: turkey_linkedin.html
   - path: _A053524.jpg
     alt: Partner
     subtext: Partner at night (meow)
