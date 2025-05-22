@@ -14,8 +14,17 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip' # caching pip dependencies
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Generate your content
-        run: echo "Implement this so you don't need to commit generated content!"
+        run: "cd generator && python3 main.py"
 
       - name: Publish current workdir
         uses: rayluo/github-pages-overwriter@v1.3
