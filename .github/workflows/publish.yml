@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generate your content
-        run: "cd generator && python3 main.py"
+        run: "cd generator && python main.py"
 
       - name: Publish current workdir
         uses: rayluo/github-pages-overwriter@v1.3
