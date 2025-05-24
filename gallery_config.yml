@@ -1,4 +1,32 @@
 images:
+  - path: _A153796_01.jpg
+    alt: Turkey taking a walk
+    subtext: Turkey taking a walk
+    category: birds
+  - path: _A156858_01.jpg
+    alt: Turkey taking a walk with fluffed back feathers
+    subtext: Turkey with fluffy tail feathers
+    category: birds
+  - path: _A156841_01.jpg
+    alt: Yet another turkey taking a walk
+    subtext: Turkey taking a walk
+    category: birds
+  - path: _A156091.jpg
+    alt: A turkey eating a berry off a vine wall
+    subtext: Turkey eating a berry
+    category: birds
+  - path: _A155961.jpg
+    alt: A closeup shot of a turkey, with a vine wall background
+    subtext: Curious turkey
+    category: birds
+  - path: _A155670.jpg
+    alt: A turkey flapping it's wings
+    subtext: Turkey exercising it's wings
+    category: birds
+  - path: _A154068_03.jpg
+    alt: A picture of a turkey peaking around a brick wall outside
+    subtext: Wild city turkey
+    category: birds
   - path: _A156233_01.jpg
     alt: A closeup shot of a turkey sitting down with a brick wall in the background
     subtext: Wild city turkey relaxing
