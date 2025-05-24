@@ -1,4 +1,20 @@
 images:
+  - path: _4070707.jpg
+    alt: Goose taking a stroll
+    subtext: Goose taking a stroll (cutely)
+    category: birds
+  - path: _4070807.jpg
+    alt: Pair of geese sitting at the side of a river
+    subtext: Pair of geese hanging out (cutely)
+    category: birds
+  - path: _4070717.jpg
+    alt: Two geese standing in front of one another, giving the appearance of a single goose with two heads.
+    subtext: The fabled hyrda goose
+    category: birds
+  - path: _4070870.jpg
+    alt: Turkey showing
+    subtext: Turkey breeding season
+    category: birds
   - path: _A153796_01.jpg
     alt: Turkey taking a walk
     subtext: Turkey taking a walk
