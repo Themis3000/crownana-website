@@ -4,4 +4,3 @@
   - fill every screen with a fixed div, overlay the cursor within that div instead.
 - Add a hover notification when the cursor is over something
 - Add music clips I like after pressing f while hotdog spins
-- Add blog music
