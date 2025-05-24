@@ -15,6 +15,11 @@ images:
     alt: Turkey showing
     subtext: Turkey breeding season
     category: birds
+  - path: _B018231.jpg
+    alt: a policeman standing a crime scene behind yellow caution tape
+    subtext: November 2024 Dinkytown shooting
+    category: people
+    info_page: nov_2024_dinkytown_shooting.html
   - path: _A153796_01.jpg
     alt: Turkey taking a walk
     subtext: Turkey taking a walk
