@@ -1,4 +1,12 @@
 images:
+  - path: _3170093.jpg
+    alt: My partner who is a very cool looking person sitting on stairs
+    subtext: Partner looking cool on stairs
+    category: people
+  - path: 3170047_03.jpg
+    alt: My partner who is a very cool looking person smiling with a natural green background
+    subtext: Partner headshot (meow)
+    category: people
   - path: _A013142_01.jpg
     alt: Turkey walking in an urban area
     subtext: City turkey
@@ -62,7 +70,7 @@ images:
     category: birds
     info_page: turkey_linkedin.html
   - path: _A053524.jpg
-    alt: Partner
+    alt: My partner who is a very cool looking person in a night time scene
     subtext: Partner at night (meow)
     category: people
   - path: _9170876.jpg
