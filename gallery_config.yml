@@ -1,4 +1,20 @@
 images:
+  - path: _3110567.jpg
+    alt: Subway connecting to skyscraper, another skyscraper reflecting off the glass.
+    subtext: Downtown skyscrapers
+    category: street
+  - path: _3110555.jpg
+    alt: Light rail arriving with motion blur
+    subtext: Light rail arriving
+    category: street
+  - path: _3110547.jpg
+    alt: Kid biking in downtown area with motion blur
+    subtext: Downtown biker kid
+    category: street
+  - path: _3110539_01.jpg
+    alt: 2 skyscrapers filling the frame, one reflecting off the other's windows
+    subtext: Downtown skyscrapers
+    category: street
   - path: _3260480.jpg
     alt: Orange cat laying down
     subtext: Midnight cat (zzzmeowzzz)
