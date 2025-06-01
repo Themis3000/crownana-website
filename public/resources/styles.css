@@ -39,6 +39,7 @@ html {
     text-shadow: 2px 2px 5px green;
     font-family: ArcadeClassic, serif;
     letter-spacing: 3px;
+    text-wrap: nowrap;
 }
 
 .menu-item {
@@ -413,3 +414,30 @@ html {
     bottom: 40px;
     right: 40px;
 }
+
+/*This section for absolute position bg images*/
+.sticker-bg {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+}
+
+#hp-goosesps {
+    position: absolute;
+    left: 45px;
+    top: 125px;
+    width: 125px;
+    height: auto;
+    transform: rotate(-25deg);
+}
+
+#hp-anne-fall {
+    position: absolute;
+    left: 425px;
+    top: 250px;
+    width: 200px;
+    height: auto;
+}
+/*section end*/
