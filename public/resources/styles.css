@@ -428,7 +428,7 @@ html {
     position: absolute;
     left: 45px;
     top: 125px;
-    width: 125px;
+    width: 145px;
     height: auto;
     transform: rotate(-25deg);
 }
@@ -436,8 +436,178 @@ html {
 #hp-anne-fall {
     position: absolute;
     left: 425px;
-    top: 250px;
+    top: 200px;
+    width: 225px;
+    height: auto;
+}
+
+#hp-marcy-writing {
+    position: absolute;
+    left: 780px;
+    top: 150px;
+    width: 140px;
+    height: auto;
+}
+
+#hp-sprig-screaming {
+    position: absolute;
+    left: 1000px;
+    top: 50px;
+    width: 180px;
+    height: auto;
+    transform: rotate(-15deg);
+}
+
+#hp-caw {
+    position: absolute;
+    left: 450px;
+    top: 30px;
+    width: 120px;
+    height: auto;
+}
+
+#hp-meow-meow {
+    position: absolute;
+    left: 200px;
+    top: 15px;
+    width: 150px;
+    height: auto;
+}
+
+#hp-wet-owl {
+    position: absolute;
+    left: 980px;
+    top: 200px;
+    width: 135px;
+    height: auto;
+}
+
+#hp-hawk-sitting {
+    position: absolute;
+    left: 115px;
+    top: 190px;
     width: 200px;
     height: auto;
+}
+
+#hp-gliding {
+    position: absolute;
+    left: 1250px;
+    top: 125px;
+    width: 250px;
+    height: auto;
+}
+
+#hp-ao3saver {
+    position: absolute;
+    left: 1200px;
+    top: 125px;
+    width: 32px;
+    height: auto;
+    transform: rotate(20deg);
+}
+
+#hp-tulip {
+    position: absolute;
+    left: 400px;
+    top: 500px;
+    height: 325px;
+    width: auto;
+}
+
+#hp-randall {
+    position: absolute;
+    left: 600px;
+    top: 450px;
+    height: 275px;
+    width: auto;
+}
+
+#hp-one-one {
+    position: absolute;
+    left: 800px;
+    top: 420px;
+    width: 200px;
+    height: auto;
+}
+
+#hp-one-one-split {
+    position: absolute;
+    left: 145px;
+    top: 440px;
+    width: 185px;
+    height: auto;
+}
+
+#hp-atticus {
+    position: absolute;
+    left: 1050px;
+    top: 480px;
+    width: 165px;
+    height: auto;
+}
+
+#hp-steward {
+    position: absolute;
+    left: 1600px;
+    top: 125px;
+    width: 250px;
+    height: auto;
+}
+
+#hp-the-cat {
+    position: absolute;
+    left: 1225px;
+    top: 395px;
+    width: 140px;
+    height: auto;
+}
+
+#hp-canada-goose {
+    position: absolute;
+    left: 865px;
+    top: 625px;
+    height: 275px;
+    width: auto;
+}
+
+#hp-goose {
+    position: absolute;
+    left: 15px;
+    top: 730px;
+    width: 300px;
+    height: auto;
+}
+
+#hp-hilda {
+    position: absolute;
+    left: 1100px;
+    top: 650px;
+    height: 300px;
+    width: auto;
+}
+
+#hp-hilda-teen {
+    position: absolute;
+    left: 1400px;
+    top: 500px;
+    height: 250px;
+    width: auto;
+}
+
+#hp-twig {
+    position: absolute;
+    left: 1550px;
+    top: 600px;
+    width: 200px;
+    height: auto;
+}
+
+#hp-alfur {
+    position: absolute;
+    left: 600px;
+    top: 40px;
+    height: 100px;
+    width: auto;
 }
 /*section end*/
