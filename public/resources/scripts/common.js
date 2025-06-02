@@ -12,8 +12,8 @@ crow_cursor_open.src = "/resources/images/crow_cursor_open.svg";
 cursor_box.appendChild(crow_cursor);
 cursor_box.appendChild(crow_cursor_open);
 
-window.onmousemove = (e) => { updateCursor(e); console.log("window move"); }
-document.onmouseover = (e) => { updateCursor(e); console.log("document over"); }
+window.onmousemove = (e) => { updateCursor(e) }
+document.onmouseover = (e) => { updateCursor(e) }
 
 function updateCursor(e) {
     const mouseX = e.pageX;
