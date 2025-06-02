@@ -11,21 +11,9 @@ crow_cursor_open.src = "/resources/images/crow_cursor_open.svg";
 cursor_box.appendChild(crow_cursor);
 cursor_box.appendChild(crow_cursor_open);
 
-let mouseX = 0;
-let mouseY = 0;
-let last_scroll = 0;
 window.onmousemove = (e) => {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-    updateCursorPos();
-}
-document.addEventListener("scroll", () => {
-    const scrollDiff = window.scrollY - last_scroll;
-    last_scroll = window.scrollY;
-    mouseY += scrollDiff;
-    updateCursorPos();
-});
-function updateCursorPos() {
+    const mouseX = e.pageX;
+    const mouseY = e.pageY - window.scrollY;
     crow_cursor.style.top = `${mouseY}px`;
     crow_cursor.style.left = `${mouseX}px`;
     crow_cursor_open.style.top = `${mouseY}px`;
