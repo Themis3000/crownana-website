@@ -1,6 +1,7 @@
 // crow cursor thing
 const cursor_box = document.createElement("div");
 cursor_box.id = "cursor_box";
+cursor_box.style.pointerEvents = "all";
 document.body.appendChild(cursor_box);
 const crow_cursor = document.createElement("img");
 crow_cursor.className = "crow-cursor";
@@ -11,18 +12,20 @@ crow_cursor_open.src = "/resources/images/crow_cursor_open.svg";
 cursor_box.appendChild(crow_cursor);
 cursor_box.appendChild(crow_cursor_open);
 
-window.onmousemove = (e) => {
+window.onmousemove = (e) => { updateCursor(e); console.log("window move"); }
+document.onmouseover = (e) => { updateCursor(e); console.log("document over"); }
+
+function updateCursor(e) {
     const mouseX = e.pageX;
     const mouseY = e.pageY - window.scrollY;
     crow_cursor.style.top = `${mouseY}px`;
     crow_cursor.style.left = `${mouseX}px`;
     crow_cursor_open.style.top = `${mouseY}px`;
     crow_cursor_open.style.left = `${mouseX}px`;
+    crow_cursor.style.display = "block";
+    cursor_box.style.pointerEvents = "none";
 }
 
-window.onmouseover = () => {
-    crow_cursor.style.display = "block";
-}
 window.onmouseout = () => {
     crow_cursor.style.display = "none";
     crow_cursor_open.style.display = "none";
