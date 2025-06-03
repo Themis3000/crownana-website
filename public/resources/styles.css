@@ -257,6 +257,32 @@ html {
     color: #062aa9;
 }
 
+.writing-style h2 {
+    text-align: center;
+    padding: 25px;
+    color: #062aa9;
+}
+
+.writing-style h3 {
+    text-align: center;
+    padding: 15px;
+    color: #062aa9;
+}
+
+.writing-style h4 {
+    text-align: center;
+    padding: 15px;
+    color: #062aa9;
+}
+
+.writing-style ul {
+    padding-left: 25px;
+}
+
+.writing-style li > ul {
+    padding-left: 50px;
+}
+
 .writing-style img {
     width: 800px;
     height: auto;
