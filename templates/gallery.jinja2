@@ -18,9 +18,18 @@
                 <a href="/resources/gallery/{{ img_entry['path'] }}">
                     <img src="/resources/gallery/thumbs/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
                 </a>
-                <a {{ ("href='/gallery/pages/" + img_entry['info_page'] + "'") if 'info_page' in img_entry else '' }}>
-                    {{ img_entry['subtext'] }}
-                </a>
+
+                {% if 'info_page' in img_entry %}
+                    <a href="/gallery/pages/{{ img_entry['info_page'] }}">
+                        {{ img_entry['subtext'] }}
+                    </a>
+                {% else %}
+                    <div>
+                        {{ img_entry['subtext'] }}
+                    </div>
+                {% endif %}
+
+
             </div>
         {% endfor %}
     </div>
