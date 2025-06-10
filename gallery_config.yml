@@ -7,6 +7,7 @@ images:
     alt: Light rail arriving with motion blur
     subtext: Light rail arriving
     category: street
+    info_page: light_rail_arriving.html
   - path: _3110547.jpg
     alt: Kid biking in downtown area with motion blur
     subtext: Downtown biker kid

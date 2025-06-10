@@ -18,7 +18,6 @@
                 <a href="/resources/gallery/{{ img_entry['path'] }}">
                     <img src="/resources/gallery/thumbs/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
                 </a>
-
                 {% if 'info_page' in img_entry %}
                     <a href="/gallery/pages/{{ img_entry['info_page'] }}">
                         {{ img_entry['subtext'] }}
@@ -28,8 +27,6 @@
                         {{ img_entry['subtext'] }}
                     </div>
                 {% endif %}
-
-
             </div>
         {% endfor %}
     </div>
