@@ -650,3 +650,44 @@ html {
     width: auto;
 }
 /*section end*/
+
+.wall-bg {
+    background-image: url("/resources/images/smooth-white-plaster-wall.png");
+    background-repeat: repeat-y;
+    background-size: cover;
+    padding: 15px;
+}
+
+#about-header {
+    background-color: lightblue;
+}
+
+@keyframes shadow-spin {
+    0% {
+        text-shadow: 0 10px 10px limegreen;
+    }
+    25% {
+        text-shadow: 10px 10px 10px limegreen;
+    }
+    50% {
+        text-shadow: 10px 0 10px limegreen;
+    }
+    75% {
+        text-shadow: -10px 10px 10px limegreen;
+    }
+    100% {
+        text-shadow: -10px 0 10px limegreen;
+    }
+}
+
+#about-header-text {
+    font-family: Minecrafter, serif;
+    font-size: 68pt;
+    text-shadow: 10px 10px 10px limegreen;
+    animation: shadow-spin 5s alternate linear infinite;
+}
+
+.goose-bg {
+    background-image: url("/resources/images/about_bg.jpg");
+    background-size: cover;
+}
