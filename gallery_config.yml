@@ -36,6 +36,7 @@ images:
     alt: My partner who is a very cool looking person smiling with a natural green background
     subtext: Partner headshot (meow)
     category: people
+    info_page: partner_headshot.html
   - path: _A013142_01.jpg
     alt: Turkey walking in an urban area
     subtext: City turkey
@@ -50,7 +51,7 @@ images:
     category: birds
   - path: _4070717.jpg
     alt: Two geese standing in front of one another, giving the appearance of a single goose with two heads.
-    subtext: The fabled hyrda goose
+    subtext: The fabled two headed goose
     category: birds
   - path: _4070870.jpg
     alt: Turkey showing
