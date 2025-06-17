@@ -649,6 +649,14 @@ html {
     height: 200px;
     width: auto;
 }
+
+#hp-love21 {
+    position: absolute;
+    top: 390px;
+    left: 385px;
+    width: 115px;
+    height: auto;
+}
 /*section end*/
 
 .wall-bg {
