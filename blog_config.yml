@@ -1,4 +1,9 @@
 posts:
+  - title: "How innocent browser extensions become unsafe"
+    href: "/blog/posts/extension_sketchiness.html"
+    teaser: "No"
+    color_theme: "hsl(180, 58%, 64%)"
+    date: "Unpublished"
   - title: "Using photos in Freecad"
     href: "/blog/posts/using_photos_in_freecad.html"
     teaser: "In this tutorial I explain how to take quality photos, adjust for distortion and size, and use them to aide modeling in Freecad. I go over a basic example where I replicate a difficult to model curve and 3d print a functional piece with it."
