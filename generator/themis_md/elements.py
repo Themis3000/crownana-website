@@ -46,5 +46,15 @@ class THeader2(TSimpleTextTag):
     tag_name = "h2"
 
 
+class THeader3(TSimpleTextTag):
+    keyword = "### "
+    tag_name = "h3"
+
+
+class THeader4(TSimpleTextTag):
+    keyword = "#### "
+    tag_name = "h4"
+
+
 # The list of element types available for keyword based use
-elements_types = [THeader, THeader2]
+elements_types = [THeader, THeader2, THeader3, THeader4]
