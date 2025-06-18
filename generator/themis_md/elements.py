@@ -1,12 +1,18 @@
 from typing import TextIO
 from .element_base import TElement
+from abc import ABC, abstractmethod
 
 
-class THeader(TElement):
-    keyword = "# "
+class TSimpleTextTag(TElement, ABC):
+    # noinspection PyPropertyDefinition
+    @staticmethod
+    @property
+    @abstractmethod
+    def tag_name() -> str:
+        pass
 
-    def gen_html(self):
-        return f"<h1>{self.content.rstrip()}</h1>"
+    def gen_html(self) -> str:
+        return f"<{self.tag_name}>{self.content.rstrip()}</{self.tag_name}>"
 
     def _read_content(self, f: TextIO) -> str:
         return f.readline()
@@ -28,6 +34,11 @@ class TParagraph(TElement):
 
     def merge_paragraph(self, other):
         self.content_list.extend(other.content_list)
+
+
+class THeader(TSimpleTextTag):
+    keyword = "# "
+    tag_name = "h1"
 
 
 # The list of element types available for use, besides paragraph
