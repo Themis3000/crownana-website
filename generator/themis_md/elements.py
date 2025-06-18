@@ -41,5 +41,10 @@ class THeader(TSimpleTextTag):
     tag_name = "h1"
 
 
-# The list of element types available for use, besides paragraph
-elements_types = [THeader]
+class THeader2(TSimpleTextTag):
+    keyword = "## "
+    tag_name = "h2"
+
+
+# The list of element types available for keyword based use
+elements_types = [THeader, THeader2]
