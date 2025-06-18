@@ -26,9 +26,8 @@ class TParagraph(TElement):
         content_with_breaks = "<br>\n".join(self.content_list)
         return f"<p>{content_with_breaks}</p>"
 
-    def __add__(self, other):
+    def merge_paragraph(self, other):
         self.content_list.extend(other.content_list)
-        return self
 
 
 # The list of element types available for use, besides paragraph
