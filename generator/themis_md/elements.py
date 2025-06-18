@@ -15,11 +15,20 @@ class THeader(TElement):
 class TParagraph(TElement):
     keyword = ""
 
+    def __init__(self, f: TextIO):
+        super().__init__(f)
+        self.content_list = [self.content.rstrip()]
+
     def _read_content(self, f: TextIO) -> str:
         return f.readline()
 
     def gen_html(self) -> str:
-        return f"<p>{self.content.rstrip()}</p>"
+        content_with_breaks = "<br>\n".join(self.content_list)
+        return f"<p>{content_with_breaks}</p>"
+
+    def __add__(self, other):
+        self.content_list.extend(other.content_list)
+        return self
 
 
 # The list of element types available for use, besides paragraph

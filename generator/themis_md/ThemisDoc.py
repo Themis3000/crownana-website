@@ -25,6 +25,9 @@ class ThemisMDDoc:
             f.seek(start_pos)
 
             element = self._parse_element(search, f)
+            if len(elements) > 0 and isinstance(elements[-1], TParagraph):
+                elements[-1] += element
+                continue
             elements.append(element)
 
         return elements
