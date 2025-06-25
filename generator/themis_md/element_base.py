@@ -18,6 +18,6 @@ class TElement(ABC):
         """Should return html representation as a string"""
         pass
 
-    @abstractmethod
     def _read_content(self, f: TextIO) -> str:
         """Should read and the full content of the element from an IO stream"""
+        return f.readline()

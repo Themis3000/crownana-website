@@ -15,9 +15,6 @@ class TSimpleTextTag(TElement, ABC):
     def gen_html(self) -> str:
         return f"<{self.tag_name}>{self.content.rstrip()}</{self.tag_name}>"
 
-    def _read_content(self, f: TextIO) -> str:
-        return f.readline()
-
 
 class TParagraph(TElement):
     keyword = ""
@@ -26,9 +23,6 @@ class TParagraph(TElement):
     def __init__(self, f: TextIO):
         super().__init__(f)
         self.content_list = [self.content.rstrip()]
-
-    def _read_content(self, f: TextIO) -> str:
-        return f.readline()
 
     def gen_html(self) -> str:
         content_str = "<br>\n".join(self.content_list)
@@ -65,5 +59,17 @@ class THeader4(TSimpleTextTag):
     tag_name = "h4"
 
 
+class TImage(TElement):
+    keyword = "!["
+    re_img_tag = re.compile(r"^(.*)\]\((.*)\)$")
+
+    def gen_html(self) -> str:
+        match = self.re_img_tag.match(self.content)
+        assert match is not None, "Improper image line element!"
+        alt_text = match.group(1)
+        src = match.group(2)
+        return f"<img src='{src}' alt='{alt_text}'>"
+
+
 # The list of element types available for keyword based use
-elements_types = [THeader, THeader2, THeader3, THeader4]
+elements_types = [THeader, THeader2, THeader3, THeader4, TImage]
