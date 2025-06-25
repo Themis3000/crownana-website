@@ -2,6 +2,14 @@ from .element_base import TElement
 from .elements import elements_types, TParagraph
 from typing import List, TextIO
 import re
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+import os
+
+module_dir = os.path.dirname(__file__)
+env = Environment(
+    loader=FileSystemLoader(os.path.join(module_dir, "styles")),
+    autoescape=select_autoescape()
+)
 
 
 class ThemisMDDoc:
@@ -31,6 +39,13 @@ class ThemisMDDoc:
         out = ""
         for element in self.element_list:
             out += element.gen_html() + "\n"
+
+        style = self.meta.get("style")
+        if not style:
+            return out
+
+        template = env.get_template(f"{style}.jinja2")
+        out = template.render(content_html=out, **self.meta)
         return out
 
     def _parse_elements(self, f: TextIO) -> List[TElement]:
