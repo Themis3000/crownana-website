@@ -1,13 +1,31 @@
 from .element_base import TElement
 from .elements import elements_types, TParagraph
 from typing import List, TextIO
+import re
 
 
 class ThemisMDDoc:
     max_symbol_size = 10
+    re_value = re.compile(r"^([^ ]+): ?(.+)$")
 
     def __init__(self, f: TextIO):
+        if f.read(5) == "----\n":
+            self.meta = self._read_meta(f)
+        else:
+            self.meta = {}
+            f.seek(0)
+
         self.element_list = self._parse_elements(f)
+
+    def _read_meta(self, f: TextIO) -> dict:
+        metadata = {}
+        while (line := f.readline()) != "----\n":
+            match = self.re_value.match(line)
+            assert match is not None, "Invalid metadata!"
+            meta_name = match.group(1)
+            meta_value = match.group(2)
+            metadata[meta_name] = meta_value
+        return metadata
 
     def gen_html(self) -> str:
         out = ""
