@@ -1,6 +1,7 @@
 from typing import TextIO
 from .element_base import TElement
 from abc import ABC, abstractmethod
+import re
 
 
 class TSimpleTextTag(TElement, ABC):
@@ -20,6 +21,7 @@ class TSimpleTextTag(TElement, ABC):
 
 class TParagraph(TElement):
     keyword = ""
+    re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
 
     def __init__(self, f: TextIO):
         super().__init__(f)
@@ -29,8 +31,15 @@ class TParagraph(TElement):
         return f.readline()
 
     def gen_html(self) -> str:
-        content_with_breaks = "<br>\n".join(self.content_list)
-        return f"<p>{content_with_breaks}</p>"
+        content_str = "<br>\n".join(self.content_list)
+
+        def a_sub(match):
+            text = match.group(1)
+            link = match.group(2)
+            return f"<a href='{link}'>{text}</a>"
+        content_str = self.re_a_tag.sub(a_sub, content_str)
+
+        return f"<p>{content_str}</p>"
 
     def merge_paragraph(self, other):
         self.content_list.extend(other.content_list)
