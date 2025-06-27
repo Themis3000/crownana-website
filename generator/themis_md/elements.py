@@ -19,6 +19,8 @@ class TSimpleTextTag(TElement, ABC):
 class TParagraph(TElement):
     keyword = ""
     re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
+    re_i_tag = re.compile(r"\*([^*]+)\*")
+    re_b_tag = re.compile(r"\*\*([^*]+)\*\*")
 
     def __init__(self, f: TextIO):
         super().__init__(f)
@@ -32,6 +34,14 @@ class TParagraph(TElement):
             link = match.group(2)
             return f"<a href='{link}'>{text}</a>"
         content_str = self.re_a_tag.sub(a_sub, content_str)
+
+        def b_sub(match):
+            return f"<b>{match.group(1)}</b>"
+        content_str = self.re_b_tag.sub(b_sub, content_str)
+
+        def i_sub(match):
+            return f"<i>{match.group(1)}</i>"
+        content_str = self.re_i_tag.sub(i_sub, content_str)
 
         return f"<p>{content_str}</p>"
 
