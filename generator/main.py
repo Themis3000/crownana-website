@@ -2,6 +2,10 @@ import os
 from PIL import Image
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
+from glob import glob
+from themis_md import ThemisMDDoc
+
+
 env = Environment(
     loader=FileSystemLoader("../templates"),
     autoescape=select_autoescape()
@@ -40,3 +44,13 @@ blog_config = yaml.safe_load(open("../blog_config.yml"))
 blog_content = blog_template.render(blog_entries=blog_config["posts"])
 with open(f"../public/blog/index.html", "w") as f:
     f.write(blog_content)
+
+
+# Convert tmd files to html pages
+tmd_files = glob("../public/**/*.tmd", recursive=True)
+for tmd_file in tmd_files:
+    with open(tmd_file, "r") as f:
+        doc = ThemisMDDoc(f)
+    new_path = tmd_file[:-3] + "html"
+    with open(new_path, "w") as f:
+        f.write(doc.gen_html())

@@ -2,6 +2,7 @@ from typing import TextIO
 from .element_base import TElement
 from abc import ABC, abstractmethod
 import re
+import html
 
 
 class TSimpleTextTag(TElement, ABC):
@@ -13,7 +14,8 @@ class TSimpleTextTag(TElement, ABC):
         pass
 
     def gen_html(self) -> str:
-        return f"<{self.tag_name}>{self.content.rstrip()}</{self.tag_name}>"
+        text = html.escape(self.content.rstrip())
+        return f"<{self.tag_name}>{text}</{self.tag_name}>"
 
 
 class TParagraph(TElement):
@@ -24,7 +26,8 @@ class TParagraph(TElement):
 
     def __init__(self, f: TextIO):
         super().__init__(f)
-        self.content_list = [self.content.rstrip()]
+        cleaned_content = html.escape(self.content.rstrip())
+        self.content_list = [cleaned_content]
 
     def gen_html(self) -> str:
         content_str = "<br>\n".join(self.content_list)
@@ -76,8 +79,8 @@ class TImage(TElement):
     def gen_html(self) -> str:
         match = self.re_img_tag.match(self.content)
         assert match is not None, "Improper image line element!"
-        alt_text = match.group(1)
-        src = match.group(2)
+        alt_text = html.escape(match.group(1))
+        src = html.escape(match.group(2))
         return f"<img src='{src}' alt='{alt_text}'>"
 
 
