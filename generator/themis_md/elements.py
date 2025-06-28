@@ -77,18 +77,28 @@ class TImage(TElement):
         return f"<img src='{src}' alt='{alt_text}'>"
 
 
-class TBulletPoint(TElement):
-    def __init__(self, f: TextIO):
-        super().__init__(f)
-        self.content_list = [self.content]
-
+class TBulletPoint(TMergeableElement):
     @classmethod
     def is_element(cls, fragment: str) -> bool:
         stripped = fragment.rstrip()
         return stripped.startswith("- ")
 
     def gen_html(self) -> str:
-        return ""
+        depth_list = []
+        depth_step = 4
+        for content in self.content_list:
+            before_length = len(content)
+            content = content.lstrip()
+            leading_spaces = len(content) - before_length
+            depth = leading_spaces // depth_step
+            depth_list.append({"content": content, "depth": depth})
+
+        out_str = ""
+        current_depth = 0
+        for line in depth_list:
+            pass
+
+        return out_str
 
 
 # The list of element types available for keyword based use
