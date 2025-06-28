@@ -74,7 +74,7 @@ class ThemisMDDoc:
     @staticmethod
     def _parse_element(search: str, f: TextIO) -> TElement:
         for element_type in elements_types:
-            if search.startswith(element_type.keyword):
+            if element_type.is_element(search):
                 return element_type(f)
 
         return TParagraph(f)

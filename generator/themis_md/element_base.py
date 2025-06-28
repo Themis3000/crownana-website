@@ -3,15 +3,15 @@ from typing import TextIO
 
 
 class TElement(ABC):
+    keyword = ""
+
     def __init__(self, f: TextIO):
         self.content = self._read_content(f)[len(self.keyword):]
 
-    # noinspection PyPropertyDefinition
-    @staticmethod
-    @property
-    @abstractmethod
-    def keyword() -> str:
-        pass
+    @classmethod
+    def is_element(cls, fragment: str) -> bool:
+        """Should return true or false if a fragment is of this element type"""
+        return fragment.startswith(cls.keyword)
 
     @abstractmethod
     def gen_html(self) -> str:

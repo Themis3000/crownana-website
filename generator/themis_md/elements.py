@@ -84,5 +84,18 @@ class TImage(TElement):
         return f"<img src='{src}' alt='{alt_text}'>"
 
 
+class TBulletPoint(TElement):
+    def __init__(self, f: TextIO):
+        super().__init__(f)
+        self.content_list = [self.content]
+
+    def is_element(cls, fragment: str) -> bool:
+        stripped = fragment.rstrip()
+        return stripped.startswith("- ")
+
+    def gen_html(self) -> str:
+        return ""
+
+
 # The list of element types available for keyword based use
-elements_types = [THeader, THeader2, THeader3, THeader4, TImage]
+elements_types = [THeader, THeader2, THeader3, THeader4, TImage, TBulletPoint]
