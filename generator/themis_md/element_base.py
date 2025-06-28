@@ -21,3 +21,12 @@ class TElement(ABC):
     def _read_content(self, f: TextIO) -> str:
         """Should read and the full content of the element from an IO stream"""
         return f.readline()
+
+
+class TMergeableElement(TElement, ABC):
+    def __init__(self, f: TextIO):
+        super().__init__(f)
+        self.content_list = [self.content]
+
+    def merge(self, other):
+        self.content_list.extend(other.content_list)

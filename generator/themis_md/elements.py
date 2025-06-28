@@ -1,5 +1,5 @@
 from typing import TextIO
-from .element_base import TElement
+from .element_base import TElement, TMergeableElement
 from abc import ABC, abstractmethod
 import re
 import html
@@ -18,19 +18,15 @@ class TSimpleTextTag(TElement, ABC):
         return f"<{self.tag_name}>{text}</{self.tag_name}>"
 
 
-class TParagraph(TElement):
+class TParagraph(TMergeableElement):
     keyword = ""
     re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
     re_i_tag = re.compile(r"\*([^*]+)\*")
     re_b_tag = re.compile(r"\*\*([^*]+)\*\*")
 
-    def __init__(self, f: TextIO):
-        super().__init__(f)
-        cleaned_content = html.escape(self.content.rstrip())
-        self.content_list = [cleaned_content]
-
     def gen_html(self) -> str:
-        content_str = "<br>\n".join(self.content_list)
+        cleaned_content = [html.escape(content) for content in self.content_list]
+        content_str = "<br>\n".join(cleaned_content)
 
         def a_sub(match):
             text = match.group(1)
@@ -47,9 +43,6 @@ class TParagraph(TElement):
         content_str = self.re_i_tag.sub(i_sub, content_str)
 
         return f"<p>{content_str}</p>"
-
-    def merge_paragraph(self, other):
-        self.content_list.extend(other.content_list)
 
 
 class THeader(TSimpleTextTag):
@@ -89,6 +82,7 @@ class TBulletPoint(TElement):
         super().__init__(f)
         self.content_list = [self.content]
 
+    @classmethod
     def is_element(cls, fragment: str) -> bool:
         stripped = fragment.rstrip()
         return stripped.startswith("- ")

@@ -1,5 +1,5 @@
 from .element_base import TElement
-from .elements import elements_types, TParagraph
+from .elements import elements_types, TParagraph, TMergeableElement
 from typing import List, TextIO
 import re
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -59,12 +59,12 @@ class ThemisMDDoc:
 
             element = self._parse_element(search, f)
 
-            # Special case for paragraphs
-            # If both the last and current element is a <p>, they should be merged into one longer multiline <p>
-            if len(elements) > 0:
+            # If the currently parsed element is mergeable and the last is of the same type, merge them instead.
+            current_type = type(element)
+            if issubclass(current_type, TMergeableElement) and len(elements) > 0:
                 last_element = elements[-1]
-                if isinstance(element, TParagraph) and isinstance(last_element, TParagraph):
-                    last_element.merge_paragraph(element)
+                if isinstance(last_element, current_type):
+                    last_element.merge(element)
                     continue
 
             elements.append(element)
