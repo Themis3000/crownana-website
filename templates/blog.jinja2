@@ -9,15 +9,15 @@
     <h1 id="blog_header">CROWNANA BLOG</h1>
         <div id="blog_entries">
             {% for blog_entry in blog_entries %}
-                <div class="blog_entry stamp" style="background: {{ blog_entry['color_theme'] }}">
-                    {%  if 'thumb' in blog_entry %}
-                        <img src="{{ blog_entry['thumb'] }}" alt="{{ blog_entry['alt'] }}">
-                    {% endif %}
-                    <a href="{{ blog_entry['href'] }}">
-                        <h3 class="blog_entry_title">{{ blog_entry['title'] }}</h3>
+                <div class="blog_entry stamp" style="background: {{ blog_entry.color_theme }}">
+{#                    {%  if 'thumb' in blog_entry %}#}
+{#                        <img src="{{ blog_entry.thumb }}" alt="{{ blog_entry.alt }}">#}
+{#                    {% endif %}#}
+                    <a href="{{ blog_entry.path }}">
+                        <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
                     </a>
-                    <p class="blog_entry_teaser">{{ blog_entry['teaser'] }}</p>
-                    <div class="blog_entry_date">({{ blog_entry['date'] }})</div>
+                    <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
+                    <div class="blog_entry_date">({{ blog_entry.date }})</div>
                 </div>
             {% endfor %}
         </div>

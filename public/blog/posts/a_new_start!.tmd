@@ -1,6 +1,10 @@
 ----
 title: A new start!
 style: default
+type: blog-post
+teaser: In this tutorial I explain how to take quality photos, adjust for distortion and size, and use them to aide modeling in Freecad. I go over a basic example where I replicate a difficult to model curve and 3d print a functional piece with it.
+color_theme: hsl(120, 58%, 64%)
+date: 5/28/25
 ----
 # A  new start!
 Hello, world!

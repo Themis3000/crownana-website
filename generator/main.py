@@ -4,6 +4,9 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
+from utils import BlogPost
+from typing import List
+import datetime
 
 
 env = Environment(
@@ -37,16 +40,15 @@ for category_name, category in categories.items():
         f.write(category_content)
 
 
-# Generate blog home page
-blog_template = env.get_template("blog.jinja2")
-blog_config = yaml.safe_load(open("../blog_config.yml"))
-
-blog_content = blog_template.render(blog_entries=blog_config["posts"])
-with open(f"../public/blog/index.html", "w") as f:
-    f.write(blog_content)
+# blog_config = yaml.safe_load(open("../blog_config.yml"))
+#
+# blog_content = blog_template.render(blog_entries=blog_config["posts"])
+# with open(f"../public/blog/index.html", "w") as f:
+#     f.write(blog_content)
 
 
-# Convert tmd files to html pages
+# Convert tmd files to html pages, and collect blog post info
+blog_entries: List[BlogPost] = []
 tmd_files = glob("../public/**/*.tmd", recursive=True)
 for tmd_file in tmd_files:
     with open(tmd_file, "r") as f:
@@ -54,3 +56,20 @@ for tmd_file in tmd_files:
     new_path = tmd_file[:-3] + "html"
     with open(new_path, "w") as f:
         f.write(doc.gen_html())
+    # collect blog post info, if available
+    if doc.meta.get("type") == "blog-post":
+        blog_entries.append(BlogPost(
+            title=doc.meta["title"],
+            teaser=doc.meta["teaser"],
+            color_theme=doc.meta["color_theme"],
+            date=doc.meta["date"],
+            path=new_path[9:]
+        ))
+
+
+# generate blog post home page
+blog_template = env.get_template("blog.jinja2")
+blog_entries.sort(reverse=True, key=lambda x: datetime.datetime.strptime(x.date, "%m/%d/%y").timestamp())
+blog_content = blog_template.render(blog_entries=blog_entries)
+with open(f"../public/blog/index.html", "w") as f:
+    f.write(blog_content)

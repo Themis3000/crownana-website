@@ -1,6 +1,10 @@
 ----
 title: Using photos in Freecad
 style: default
+type: blog-post
+teaser: In this tutorial I explain how to take quality photos, adjust for distortion and size, and use them to aide modeling in Freecad. I go over a basic example where I replicate a difficult to model curve and 3d print a functional piece with it.
+color_theme: hsl(260, 58%, 64%)
+date: 6/3/25
 ----
 # Using photos in Freecad
 If you're a regular Freecad user, I'm sure you're familiar with the difficulty sometimes posed when attempting to model complex curves or shapes made to fit a real world object. If you are, then this short little tutorial is for you. You will learn how to take a good photo, correct the off angle distortion, and size the image correctly.
