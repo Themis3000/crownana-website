@@ -41,7 +41,7 @@ class TParagraph(TMergeableElement):
             return f"<i>{match.group(1)}</i>"
         content_str = self.re_i_tag.sub(i_sub, content_str)
 
-        return f"<p>{content_str}</p>"
+        return f"<p>\n{content_str}</p>"
 
 
 class THeader(TSimpleTextTag):

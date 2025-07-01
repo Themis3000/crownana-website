@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="writing-style">
-        {{ content_html }}
+        {{ content_html|wordwrap(112)|indent(8) }}
     </div>
     <script src="/resources/scripts/common.js"></script>
 </body>
