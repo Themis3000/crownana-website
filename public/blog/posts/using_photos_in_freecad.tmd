@@ -4,22 +4,26 @@ style: default
 ----
 # Using photos in Freecad
 If you're a regular Freecad user, I'm sure you're familiar with the difficulty sometimes posed when attempting to model complex curves or shapes made to fit a real world object. If you are, then this short little tutorial is for you. You will learn how to take a good photo, correct the off angle distortion, and size the image correctly.
+
 ### The problem
 As part of my home setup for my etsy store, I have a receipt printer. The printer works great, however the footprint of my receipt printer is much larger than I would like. This wouldn't be that much of a problem, but annoyingly the top surface is curved which renders all space above it unusable. I'm always starved for space in my apartment and every inch of shelf space really does make a difference to me.
 ![Receipt printer with a curved top](/resources/blog/receipt_printer.jpg)
 I wish it just had a flat top!
 
 I'd like to make the top of the receipt printer flat by 3d printing a custom part, but to do that I'll need to accurately model the curve on top of the printer. Though I've tried, using a caliper to measure the curve is both difficult, and you cannot be certain your results are accurate.
+____
 ### The tools
 To retrace my steps properly with your own object, you'll need the following tools:
+
 - A camera
     - A phone camera will probably be okay, although a camera with a nice lens will net better results as there will be less distortion
 - Freecad (1.0 used in this tutorial)
 - Darktable (4.8.1 used in this tutorial)
 
-This tutorial isn't for comlete beginners to Freecad. If you don't know the very basics yet, it may be difficult to follow along. If you're new to Darktable, no worries! That part won't be too bad.
+This tutorial isn't for complete beginners to Freecad. If you don't know the very basics yet, it may be difficult to follow along. If you're new to Darktable, no worries! That part won't be too bad.
 
-If you'd like to follow along with my exact images, you can get the source image I used here:[Project files](/resources/blog/flat%20top%20project%20files.7z)
+If you'd like to follow along with my exact images, you can get the source image I used here: [Project files](/resources/blog/flat%20top%20project%20files.7z)
+____
 ### Taking the picture
 If you have a camera, it will be most ideal to use a longer focal length prime lens for minimal distortion. In my case, I'm using an Olympus 45mm f1.8 lens. If you only have a phone camera, I'm sure it will turn out just fine too. If your phone camera has a "2x" mode, use that. Make sure to stay away from the ".6x" mode or similar as there will be increased distortion from the wider angle lens.
 
@@ -27,10 +31,11 @@ In our photo editing step, we're going to need vertical and horizontal lines tha
 ![a 3d printed grid](/resources/blog/printed_grid.jpg)
 I've printed this grid and stamped it against an ink pad to give the raised parts of the grid extra contrast. You could use any other object with precise level lines too. Make sure the helper object is very exactly aligned with the plane of the object you are photographing. Additionally, be sure you have an object you know the exact length of in view. This could be a ruler or similar. In my case I happen to know the exact length of my grid object from the leftmost square to the right is 49.9mm.
 
-If you'd like to use my grid design, you can download the source and stl's here: [Grid source and stl's]()/resources/blog/flat%20calibrator.7z
+If you'd like to use my grid design, you can download the source and stl's here: [Grid source and stl's](/resources/blog/flat%20calibrator.7z)
 
 Now, just hold your camera to be as level and straight on as possible with the face of the object, make sure you have a contrasty background, and shoot the photo. Take a few pictures in case one turns out better than another.
 ![my photo of the receipt printer](/resources/blog/unedited_receipt_printer_img.jpg)
+____
 ### Editing the photo
 Let's move on to correcting the photo's perspective distortion in Darktable. No matter how level and straight on you shot your picture at, I can almost guarantee you it wasn't perfect.
 
@@ -59,7 +64,7 @@ Now all that's left to do is to export the image! On the left sidebar, open the 
 If you know what you're doing, go ahead and fill out the rest however you want and export. Otherwise, feel free to copy my export settings.
 ![The export menu](/resources/blog/export_menu.png)
 Now that you have the image exported, we're all done with darktable! Now lets move into Freecad.
-
+____
 ### Importing the image into Freecad and sizing it.
 This part is pretty easy. Open Freecad create a new "parametric part" file. To import the image all you need to do is drag and drop the image into the 3d view in Freecad. Now that we have the image, we'll want to size it to scale.
 
@@ -67,6 +72,7 @@ Make sure you view the image straight on for this part. You can click on the fac
 
 The image should display on the node menu. Double-click on the image to edit its settings. Click the "calibrate" button. Use your mouse to precisely click on two points in the image you know the distance of, then in the text box write in the distance between those points and press enter. Viola, your image is now sized to scale!
 ![freecad sizing demonstration](/resources/blog/freecad_sizing.png)
+____
 ### Modeling
 This is the part where I sort of toss you in on your own. Your image is imported, just create a sketch and trace whatever your heart desires! However, for completeness’s sake I'll show my process for my specific situation and how it turned out.
 

@@ -294,6 +294,17 @@ html {
     margin-right: auto;
 }
 
+.writing-style hr {
+    width: 80%;
+    margin: 1.5lh auto;
+    border-color: #00d4fe;
+    color: #00d4fe;
+}
+
+.writing-style hr + :where(h1,h2,h3,h4) {
+    padding-top: 0;
+}
+
 .fixed-center {
     position: fixed;
     left: 50%;

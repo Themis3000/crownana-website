@@ -25,7 +25,7 @@ class TParagraph(TMergeableElement):
 
     def gen_html(self) -> str:
         cleaned_content = [html.escape(content.strip()) for content in self.content_list]
-        content_str = "<br>".join(cleaned_content)
+        content_str = "<br>".join(cleaned_content) + "<br>"
 
         def a_sub(match):
             text = match.group(1)
@@ -79,7 +79,7 @@ class TImage(TElement):
 class TBulletPoint(TMergeableElement):
     @classmethod
     def is_element(cls, fragment: str) -> bool:
-        stripped = fragment.lstrip()
+        stripped = fragment.lstrip(" ")
         return stripped.startswith("- ")
 
     def gen_html(self) -> str:
@@ -109,5 +109,12 @@ class TBulletPoint(TMergeableElement):
         return out_str
 
 
+class TSectionDivider(TElement):
+    keyword = "____"
+
+    def gen_html(self) -> str:
+        return "<hr>"
+
+
 # The list of element types available for keyword based use
-elements_types = [THeader, THeader2, THeader3, THeader4, TImage, TBulletPoint]
+elements_types = [THeader, THeader2, THeader3, THeader4, TImage, TBulletPoint, TSectionDivider]
