@@ -26,7 +26,7 @@ class BlogPost:
     color_theme: str
     date: str
     path: str
-    entry_meta: str | None
+    entry_meta: dict | None
 
     def get_timestamp(self):
         return datetime.datetime.strptime(self.date, "%m/%d/%y").timestamp()

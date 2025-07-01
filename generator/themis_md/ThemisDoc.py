@@ -1,3 +1,5 @@
+import json
+
 from .element_base import TElement
 from .elements import elements_types, TParagraph, TMergeableElement
 from typing import List, TextIO
@@ -32,6 +34,8 @@ class ThemisMDDoc:
             assert match is not None, "Invalid metadata!"
             meta_name = match.group(1)
             meta_value = match.group(2)
+            if meta_value.startswith("{"):
+                meta_value = json.loads(meta_value)
             metadata[meta_name] = meta_value
         return metadata
 
