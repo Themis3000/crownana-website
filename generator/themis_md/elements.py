@@ -80,7 +80,7 @@ class TImage(TElement):
 class TBulletPoint(TMergeableElement):
     @classmethod
     def is_element(cls, fragment: str) -> bool:
-        stripped = fragment.rstrip()
+        stripped = fragment.lstrip()
         return stripped.startswith("- ")
 
     def gen_html(self) -> str:
@@ -88,16 +88,25 @@ class TBulletPoint(TMergeableElement):
         depth_step = 4
         for content in self.content_list:
             before_length = len(content)
-            content = content.lstrip()
-            leading_spaces = len(content) - before_length
+            content = content.strip()
+            content = content[2:]
+            leading_spaces = before_length - len(content)
             depth = leading_spaces // depth_step
             depth_list.append({"content": content, "depth": depth})
 
-        out_str = ""
+        out_str = "<ul>\n"
         current_depth = 0
         for line in depth_list:
-            pass
-
+            if line["depth"] > current_depth:
+                out_str += "<ul>\n"
+            elif current_depth > line["depth"]:
+                out_str += "</ul>\n</li>\n"
+            elif len(out_str) > 5:
+                out_str += "</li>\n"
+            out_str += "<li>"
+            out_str += line["content"]
+            current_depth = line["depth"]
+        out_str += "</li>\n</ul>"
         return out_str
 
 
