@@ -1,4 +1,3 @@
-from typing import TextIO
 from .element_base import TElement, TMergeableElement
 from abc import ABC, abstractmethod
 import re
