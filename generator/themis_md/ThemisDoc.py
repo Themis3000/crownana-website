@@ -38,7 +38,7 @@ class ThemisMDDoc:
     def gen_html(self) -> str:
         out = ""
         for element in self.element_list:
-            out += element.gen_html() + "\n"
+            out += element.gen_html()
 
         style = self.meta.get("style")
         if not style:

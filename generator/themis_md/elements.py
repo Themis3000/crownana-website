@@ -24,8 +24,8 @@ class TParagraph(TMergeableElement):
     re_b_tag = re.compile(r"\*\*([^*]+)\*\*")
 
     def gen_html(self) -> str:
-        cleaned_content = [html.escape(content) for content in self.content_list]
-        content_str = "<br>\n".join(cleaned_content)
+        cleaned_content = [html.escape(content.strip()) for content in self.content_list]
+        content_str = "<br>".join(cleaned_content)
 
         def a_sub(match):
             text = match.group(1)
@@ -41,7 +41,7 @@ class TParagraph(TMergeableElement):
             return f"<i>{match.group(1)}</i>"
         content_str = self.re_i_tag.sub(i_sub, content_str)
 
-        return f"<p>\n{content_str}</p>"
+        return f"<p>{content_str}</p>"
 
 
 class THeader(TSimpleTextTag):
@@ -93,19 +93,19 @@ class TBulletPoint(TMergeableElement):
             depth = leading_spaces // depth_step
             depth_list.append({"content": content, "depth": depth})
 
-        out_str = "<ul>\n"
+        out_str = "<ul>"
         current_depth = 0
         for line in depth_list:
             if line["depth"] > current_depth:
-                out_str += "<ul>\n"
+                out_str += f"<ul>"
             elif current_depth > line["depth"]:
-                out_str += "</ul>\n</li>\n"
+                out_str += "</ul></li>"
             elif len(out_str) > 5:
-                out_str += "</li>\n"
+                out_str += "</li>"
             out_str += "<li>"
             out_str += line["content"]
             current_depth = line["depth"]
-        out_str += "</li>\n</ul>"
+        out_str += "</li></ul>"
         return out_str
 
 
