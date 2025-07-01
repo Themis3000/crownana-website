@@ -1,18 +1,10 @@
 import os
 from PIL import Image
-from jinja2 import Environment, FileSystemLoader, select_autoescape
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
-from utils import BlogPost
+from utils import BlogPost, env
 from typing import List
-import datetime
-
-
-env = Environment(
-    loader=FileSystemLoader("../templates"),
-    autoescape=select_autoescape()
-)
 
 
 # Generate gallery documents
@@ -59,17 +51,19 @@ for tmd_file in tmd_files:
     # collect blog post info, if available
     if doc.meta.get("type") == "blog-post":
         blog_entries.append(BlogPost(
+            entry_style=doc.meta["entry_style"],
             title=doc.meta["title"],
             teaser=doc.meta["teaser"],
             color_theme=doc.meta["color_theme"],
             date=doc.meta["date"],
-            path=new_path[9:]
+            path=new_path[9:],
+            entry_meta=doc.meta.get("entry_meta")
         ))
 
 
 # generate blog post home page
 blog_template = env.get_template("blog.jinja2")
-blog_entries.sort(reverse=True, key=lambda x: datetime.datetime.strptime(x.date, "%m/%d/%y").timestamp())
+blog_entries.sort(reverse=True, key=lambda x: x.get_timestamp())
 blog_content = blog_template.render(blog_entries=blog_entries)
 with open(f"../public/blog/index.html", "w") as f:
     f.write(blog_content)

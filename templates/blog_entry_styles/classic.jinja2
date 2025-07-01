@@ -1,0 +1,10 @@
+<div class="blog_entry stamp" style="background: {{ blog_entry.color_theme }}">
+{#      {%  if 'thumb' in blog_entry %}#}
+{#          <img src="{{ blog_entry.thumb }}" alt="{{ blog_entry.alt }}">#}
+{#      {% endif %}#}
+    <a href="{{ blog_entry.path }}">
+        <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
+    </a>
+    <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
+    <div class="blog_entry_date">({{ blog_entry.date }})</div>
+</div>
