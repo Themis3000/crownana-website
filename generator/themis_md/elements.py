@@ -19,7 +19,6 @@ class TSimpleTextTag(TElement, ABC):
 
 
 class TParagraph(TMergeableElement):
-    keyword = ""
     re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
     re_i_tag = re.compile(r"\*([^*]+)\*")
     re_b_tag = re.compile(r"\*\*([^*]+)\*\*")
