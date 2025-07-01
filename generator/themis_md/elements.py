@@ -4,19 +4,6 @@ import re
 import html
 
 
-class TSimpleTextTag(TElement, ABC):
-    # noinspection PyPropertyDefinition
-    @staticmethod
-    @property
-    @abstractmethod
-    def tag_name() -> str:
-        pass
-
-    def gen_html(self) -> str:
-        text = html.escape(self.content.rstrip())
-        return f"<{self.tag_name}>{text}</{self.tag_name}>"
-
-
 class TParagraph(TMergeableElement):
     re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
     re_i_tag = re.compile(r"\*([^*]+)\*")
@@ -41,6 +28,19 @@ class TParagraph(TMergeableElement):
         content_str = self.re_i_tag.sub(i_sub, content_str)
 
         return f"<p>{content_str}</p>"
+
+
+class TSimpleTextTag(TElement, ABC):
+    # noinspection PyPropertyDefinition
+    @staticmethod
+    @property
+    @abstractmethod
+    def tag_name() -> str:
+        pass
+
+    def gen_html(self) -> str:
+        text = html.escape(self.content.rstrip())
+        return f"<{self.tag_name}>{text}</{self.tag_name}>"
 
 
 class THeader(TSimpleTextTag):
