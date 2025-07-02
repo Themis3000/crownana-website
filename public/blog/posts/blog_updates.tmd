@@ -1,0 +1,26 @@
+----
+title: Blog updates
+style: default
+type: blog-post
+entry_style: framed
+entry_meta: {"frame": "frame1"}
+teaser: I over engineered my own blog system
+color_theme: hsl(80, 58%, 64%)
+date: 7/1/25
+----
+# Blog updates (I over engineered my own blog system)
+I've been working on some behind the scenes updates on my blog system. Previously, to write a blog post I would handwrite the needed html code. Then, I would add the html document into an index of posts which would generate my blog listings page.
+
+![blog post code](/resources/blog/old_blog_post_code.png)
+*an example of blog post code*
+
+The system worked but it was a little annoying. Instead, I've created a markdown-like format called tmd (themis markdown). I write my posts in the .tmd format, and the conversion to a webpage and the inclusion on the blog listings page is just automatic with my custom build process.
+
+What's the difference between markdown and themis markdown? Uhh, well it's sort of the same thing but more different. I just sort of itching to write my own parser to be honest and didn't want to limit myself to markdown's exact design spec.
+
+![new blog post code example](/resources/blog/new_blog_post_example.png)
+*an example of the new blog post code*
+
+I've also added some fun variations in the listing style of blog posts. So far I've added 7 different picture images as decoration for blog post listings.
+
+Anyways, that's what I've been working on the last few days. That and lots of red dead redemption 2. Me and my horse stable muncher are gonna go catch a criminal and get rich on bounty money now. Cya!
