@@ -424,7 +424,7 @@ html {
 #blog_entries {
     display: flex;
     width: 100%;
-    flex-direction: column;
+    /*flex-direction: column;*/
     align-items: center;
 }
 
@@ -455,6 +455,27 @@ html {
     position: absolute;
     bottom: 40px;
     right: 40px;
+}
+
+.frame_entry img {
+    position: absolute;
+    pointer-events: none;
+}
+
+.frame1 {
+    --f1-height: 315px;
+    --f1-width: 258px;
+    --f1-inset: 51px;
+    --f1-bleed: 20px;
+    height: var(--f1-height);
+    width: var(--f1-width);
+}
+
+.frame1 div {
+    height: calc(var(--f1-height) - (var(--f1-inset) * 2));
+    width: calc(var(--f1-width) - (var(--f1-inset) * 2));
+    margin: calc(var(--f1-inset) - var(--f1-bleed));
+    padding: var(--f1-bleed);
 }
 
 /*This section for absolute position bg images*/

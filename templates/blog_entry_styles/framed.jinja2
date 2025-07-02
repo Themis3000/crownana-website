@@ -1,0 +1,10 @@
+<div class="frame_entry {{ blog_entry.entry_meta['frame'] }}">
+    <img src="/resources/blog/frames/{{ blog_entry.entry_meta['frame'] }}.png" alt="picture frame" class="{{ blog_entry.entry_meta['frame'] }}">
+    <div style="background: {{ blog_entry.color_theme }}">
+        <a href="{{ blog_entry.path }}">
+            <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
+        </a>
+        <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
+        <p>({{ blog_entry.date }})</p>
+    </div>
+</div>
