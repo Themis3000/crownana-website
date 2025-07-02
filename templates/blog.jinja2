@@ -7,11 +7,15 @@
 </head>
 <body>
     <h1 id="blog_header">CROWNANA BLOG</h1>
+    <div id="blog_content">
+        <img id="blog_left">
         <div id="blog_entries">
             {% for blog_entry in blog_entries %}
                 {{ blog_entry.render_entry() }}
             {% endfor %}
         </div>
+        <img id="blog_right">
+    </div>
     <script src="/resources/scripts/common.js"></script>
     <script src="/resources/scripts/blog.js"></script>
 </body>
