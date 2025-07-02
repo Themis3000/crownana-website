@@ -478,6 +478,102 @@ html {
     padding: var(--f1-bleed);
 }
 
+.frame2 {
+    --f2-height: 315px;
+    --f2-width: 231px;
+    --f2-inset: 34px;
+    --f2-bleed: 20px;
+    height: var(--f2-height);
+    width: var(--f2-width);
+}
+
+.frame2 div {
+    height: calc(var(--f2-height) - (var(--f2-inset) * 2));
+    width: calc(var(--f2-width) - (var(--f2-inset) * 2));
+    margin: calc(var(--f2-inset) - var(--f2-bleed));
+    padding: var(--f2-bleed);
+}
+
+.frame3 {
+    --f3-height: 315px;
+    --f3-width: 245px;
+    --f3-inset: 50px;
+    --f3-bleed: 20px;
+    height: var(--f3-height);
+    width: var(--f3-width);
+}
+
+.frame3 div {
+    height: calc(var(--f3-height) - (var(--f3-inset) * 2));
+    width: calc(var(--f3-width) - (var(--f3-inset) * 2));
+    margin: calc(var(--f3-inset) - var(--f3-bleed));
+    padding: var(--f3-bleed);
+}
+
+.frame4 {
+    --f4-height: 315px;
+    --f4-width: 218px;
+    --f4-inset: 39px;
+    --f4-bleed: 20px;
+    height: var(--f4-height);
+    width: var(--f4-width);
+}
+
+.frame4 div {
+    height: calc(var(--f4-height) - (var(--f4-inset) * 2));
+    width: calc(var(--f4-width) - (var(--f4-inset) * 2));
+    margin: calc(var(--f4-inset) - var(--f4-bleed));
+    padding: var(--f4-bleed);
+}
+
+.frame5 {
+    --f5-height: 315px;
+    --f5-width: 477px;
+    --f5-inset: 55px;
+    --f5-bleed: 25px;
+    height: var(--f5-height);
+    width: var(--f5-width);
+}
+
+.frame5 div {
+    height: calc(var(--f5-height) - (var(--f5-inset) * 2));
+    width: calc(var(--f5-width) - (var(--f5-inset) * 2));
+    margin: calc(var(--f5-inset) - var(--f5-bleed));
+    padding: var(--f5-bleed);
+}
+
+.frame6 {
+    --f6-height: 315px;
+    --f6-width: 213px;
+    --f6-inset: 36px;
+    --f6-bleed: 14px;
+    height: var(--f6-height);
+    width: var(--f6-width);
+}
+
+.frame6 div {
+    height: calc(var(--f6-height) - (var(--f6-inset) * 2));
+    width: calc(var(--f6-width) - (var(--f6-inset) * 2));
+    margin: calc(var(--f6-inset) - var(--f6-bleed));
+    padding: var(--f6-bleed);
+}
+
+.frame7 {
+    --f7-height: 315px;
+    --f7-width: 253px;
+    --f7-inset: 51px;
+    --f7-bleed: 20px;
+    height: var(--f7-height);
+    width: var(--f7-width);
+}
+
+.frame7 div {
+    height: calc(var(--f7-height) - (var(--f7-inset) * 2));
+    width: calc(var(--f7-width) - (var(--f7-inset) * 2));
+    margin: calc(var(--f7-inset) - var(--f7-bleed));
+    padding: var(--f7-bleed);
+}
+
 /*This section for absolute position bg images*/
 .sticker-bg {
     overflow: hidden;
