@@ -1,5 +1,4 @@
 import json
-
 from .element_base import TElement
 from .elements import elements_types, TParagraph, TMergeableElement
 from typing import List, TextIO
@@ -15,6 +14,11 @@ env = Environment(
 
 
 class ThemisMDDoc:
+    """
+    Parses a document and holds it in memory. Then, can convert said document into usable html.
+
+    Yes, I know this was implemented in a really silly way and there's better ways. It was just more fun this way :)
+    """
     max_symbol_size = 10
     re_value = re.compile(r"^([^ ]+): ?(.+)$")
 
