@@ -8,13 +8,13 @@
 <body>
     <h1 id="blog_header">CROWNANA BLOG</h1>
     <div id="blog_content">
-        <img id="blog_left">
+        <img id="blog_left" src="/resources/blog/banners/IMG_0124.jpg" alt="Themis looking cool">
         <div id="blog_entries">
             {% for blog_entry in blog_entries %}
                 {{ blog_entry.render_entry() }}
             {% endfor %}
         </div>
-        <img id="blog_right">
+        <img id="blog_right" src="/resources/blog/banners/IMG_0123.jpg" alt="Themis looking cool">
     </div>
     <script src="/resources/scripts/common.js"></script>
     <script src="/resources/scripts/blog.js"></script>
