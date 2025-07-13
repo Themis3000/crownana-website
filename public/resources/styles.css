@@ -472,25 +472,32 @@ html {
 
 .dslite_entry {
     height: 315px;
+    width: 303px;
 }
 
 .dslite_entry img {
     position: absolute;
     pointer-events: none;
     height: 315px;
+    z-index: 5;
 }
 
-.dslite_entry > div {
-    width: 303px;
-    height: 157px;
+.dslite_entry div {
+    position: absolute;
+    z-index: 4;
+    padding: 10px;
+    width: 139px;
+    height: 102px;
 }
 
 .dslite_top {
-    width: 139px;
-    height: 102px;
-    padding: 10px;
-    margin-left: 72px;
-    margin-top: 15px;
+    left: 71px;
+    top: 15px;
+}
+
+.dslite_bottom {
+    left: 72px;
+    top: 175px;
 }
 
 .frame_entry img {
