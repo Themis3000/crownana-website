@@ -473,6 +473,8 @@ html {
 .dslite_entry {
     height: 315px;
     width: 303px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .dslite_entry img {
@@ -490,6 +492,14 @@ html {
     height: 102px;
 }
 
+.dslite_entry .blog_entry_title {
+    font-size: 15pt;
+}
+
+.dslite_entry .blog_entry_teaser {
+    font-size: 12pt;
+}
+
 .dslite_top {
     left: 71px;
     top: 15px;
@@ -498,6 +508,11 @@ html {
 .dslite_bottom {
     left: 72px;
     top: 175px;
+}
+
+.frame_entry {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .frame_entry img {
