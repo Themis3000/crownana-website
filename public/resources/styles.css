@@ -475,11 +475,11 @@ html {
     width: 303px;
     padding-left: 5px;
     padding-right: 5px;
+    pointer-events: none;
 }
 
 .dslite_entry img {
     position: absolute;
-    pointer-events: none;
     height: 315px;
     z-index: 5;
 }
@@ -503,11 +503,13 @@ html {
 .dslite_top {
     left: 71px;
     top: 15px;
+    pointer-events: all;
 }
 
 .dslite_bottom {
     left: 72px;
     top: 175px;
+    pointer-events: all;
 }
 
 .frame_entry {
