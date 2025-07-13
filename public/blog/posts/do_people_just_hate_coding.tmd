@@ -4,8 +4,8 @@ style: default
 type: blog-post
 entry_style: dslite
 teaser: blah blah blah blah ramblings and such
-color_theme: hsl(311, 100%, 52%)
-entry_meta: {"bottom_color": "hsl(245, 100%, 56%)"}
+color_theme: hsl(311, 100%, 56%)
+entry_meta: {"bottom_color": "hsl(201, 100%, 56%)"}
 date: 7/12/25
 ----
 # So do people just hate coding or what?
