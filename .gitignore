@@ -8,3 +8,5 @@
 /public/gallery/*
 !/public/gallery/pages/
 !/public/gallery/pages/**
+
+public/blog/rss.xml

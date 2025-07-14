@@ -64,8 +64,7 @@ with open(f"../public/blog/index.html", "w") as f:
 
 # generate rss feed
 rss_f = open("../public/blog/rss.xml", "w")
-rss_f.write("""
-<?xml version="1.0" encoding="UTF-8" ?>
+rss_f.write("""<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
     <title>Crownanabread Blog</title>
