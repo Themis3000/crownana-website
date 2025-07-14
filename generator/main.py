@@ -32,13 +32,6 @@ for category_name, category in categories.items():
         f.write(category_content)
 
 
-# blog_config = yaml.safe_load(open("../blog_config.yml"))
-#
-# blog_content = blog_template.render(blog_entries=blog_config["posts"])
-# with open(f"../public/blog/index.html", "w") as f:
-#     f.write(blog_content)
-
-
 # Convert tmd files to html pages, and collect blog post info
 blog_entries: List[BlogPost] = []
 tmd_files = glob("../public/**/*.tmd", recursive=True)
