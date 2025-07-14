@@ -60,3 +60,28 @@ blog_entries.sort(reverse=True, key=lambda x: x.get_timestamp())
 blog_content = blog_template.render(blog_entries=blog_entries)
 with open(f"../public/blog/index.html", "w") as f:
     f.write(blog_content)
+
+
+# generate rss feed
+rss_f = open("../public/blog/rss.xml", "w")
+rss_f.write("""
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Crownanabread Blog</title>
+    <link>https://crownanabread.com</link>
+    <description>The crownanabread personal blog</description>
+""")
+for entry in blog_entries:
+    rss_f.write(f"""
+        <item>
+            <title>{entry.title}</title>
+            <link>FILL THIS OUT</link>
+            <description>{entry.teaser}</description>
+            <pubDate>{entry.date}</pubDate>
+        </item>
+    """)
+rss_f.write("""
+</channel>
+</rss>
+""")
