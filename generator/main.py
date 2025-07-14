@@ -72,11 +72,15 @@ rss_f.write("""<?xml version="1.0" encoding="UTF-8" ?>
     <description>The crownanabread personal blog</description>
 """)
 for entry in blog_entries:
+    clean_path = os.path.normpath(entry.path)
+    split_path = clean_path.split(os.sep)
+    relative_path = "/".join(split_path)
+    full_url = f"https://crownanabread.com{relative_path}"
     rss_f.write(f"""
         <item>
             <title>{entry.title}</title>
-            <link>FILL THIS OUT</link>
-            <description>{entry.teaser}</description>
+            <link>{full_url}</link>
+            <description>{entry.teaser} - view the full blog post at {full_url}</description>
             <pubDate>{entry.date}</pubDate>
         </item>
     """)
