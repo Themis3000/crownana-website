@@ -887,3 +887,15 @@ html {
     background-image: url("/resources/images/about_bg.jpg");
     background-size: cover;
 }
+
+#blog_rss {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    transform: rotate(-13deg);
+}
+
+#blog_rss img {
+    width: 48px;
+    height: 48px;
+}
