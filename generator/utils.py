@@ -3,6 +3,7 @@ import datetime
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import glob
 import os
+from email.utils import format_datetime
 
 env = Environment(
     loader=FileSystemLoader("../templates"),
@@ -28,8 +29,14 @@ class BlogPost:
     path: str
     entry_meta: dict | None
 
+    timezone = datetime.timezone(datetime.timedelta(hours=-6))
+
     def get_timestamp(self):
         return datetime.datetime.strptime(self.date, "%m/%d/%y").timestamp()
+
+    def get_rfc822(self):
+        date = datetime.datetime.strptime(self.date, "%m/%d/%y").astimezone(self.timezone)
+        return format_datetime(date)
 
     def render_entry(self):
         assert self.entry_style in blog_entry_styles, "Blog entry style does not exist!"

@@ -81,7 +81,7 @@ for entry in blog_entries:
             <title>{entry.title}</title>
             <link>{full_url}</link>
             <description>{entry.teaser} - view the full blog post at {full_url}</description>
-            <pubDate>{entry.date}</pubDate>
+            <pubDate>{entry.get_rfc822()}</pubDate>
         </item>
     """)
 rss_f.write("""
