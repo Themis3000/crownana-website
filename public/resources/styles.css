@@ -634,6 +634,27 @@ html {
     padding: var(--f7-bleed);
 }
 
+.frame-em10 {
+    height: 315px;
+    width: 467px;
+}
+
+.frame-em10 div {
+    height: 144px;
+    width: 223px;
+    margin-top: 137px;
+    margin-left: 51px;
+    padding: 10px;
+}
+
+.frame-em10 .blog_entry_title {
+    font-size: 20pt;
+}
+
+.frame-em10 .blog_entry_teaser {
+    font-size: 14pt;
+}
+
 /*This section for absolute position bg images*/
 .sticker-bg {
     overflow: hidden;
