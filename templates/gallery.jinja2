@@ -19,7 +19,7 @@
                     <img src="/resources/gallery/thumbs/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
                 </a>
                 {% if 'info_page' in img_entry %}
-                    <a href="/gallery/pages/{{ img_entry['info_page'] }}">
+                    <a href={{img_entry['info_page'] if img_entry['info_page'].startswith("/") else "/gallery/pages/" + img_entry['info_page'] }}>
                         {{ img_entry['subtext'] }}
                     </a>
                 {% else %}

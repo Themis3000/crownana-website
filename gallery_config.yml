@@ -3,18 +3,22 @@ images:
     alt: An image with multiple semi-transparent figures with only an upper body and head
     subtext: (uneditted) handheld flash self-portrait
     category: people
+    info_page: /blog/posts/creative_flash_photography.html
   - path: _7171899.jpg
     alt: An image with a semi-transparent figures with only an upper body and head
     subtext: (uneditted) handheld flash self-portrait
     category: people
+    info_page: /blog/posts/creative_flash_photography.html
   - path: _7171924.jpg
     alt: an image with multiple semi-transparent figures running in a single exposure
     subtext: (uneditted) multiflash me and partner
     category: people
+    info_page: /blog/posts/creative_flash_photography.html
   - path: _7171922.jpg
     alt: an image with multiple semi-transparent figures walking in a single exposure
     subtext: (uneditted) multiflash self-portrait
     category: people
+    info_page: /blog/posts/creative_flash_photography.html
   - path: _7051685.jpg
     alt: Me infront of flowers
     subtext: (picture of me taken by partner)
