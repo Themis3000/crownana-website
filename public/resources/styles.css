@@ -937,6 +937,13 @@ html {
     position: fixed;
     bottom: 0;
     right: 0;
+    opacity: 0.3;
+    transition: 0.3s;
+    z-index: 199;
+}
+
+#email-signup-wrapper:hover {
+    opacity: 1;
 }
 
 #email-signup {
