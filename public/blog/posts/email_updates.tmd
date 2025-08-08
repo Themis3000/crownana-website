@@ -1,0 +1,28 @@
+----
+title: Email updates (for all!)
+style: default
+type: blog-post
+entry_style: framed
+entry_meta: {"frame": "frame2"}
+teaser: My latest project (and gift to other site owners)
+color_theme: hsl(303, 58%, 64%)
+date: 8/8/25
+----
+# Email updates!
+You may have noticed that I now have an email update box in the lower right hand corner of my blog page. That's what I've been working on for the last few weeks!
+
+If you where around during the days of blogger.com dominance, you might remember that google used to provide a neat little email signup widget. You could drop the widget into your blog, and voilà! You have an automated opt-in email system to notify your subscribers of new posts!
+
+(As I understand,) under the hood, the service would pull post information from your blog's rss feed. That's how it knew when to send out email updates to your subscribers. I was young at the time I used it, so I don't remember the details. I'd go back to look, but as with most google services it was killed some years ago.
+
+## My revival
+That email widget isn't just for my own use, it's for anyone to use! (responsibly, please. emails cost money.). If you'd like to implement it on your own site, simply paste the email widget's code from [rss.crownanabread.com](https://rss.crownanabread.com) into your own site & replace my rss feed url with your own. It really is that easy :).
+
+I've specifically designed this project to avoid pissing off your email subscribers as much as possible. Unlike google's version, there are measures in place to prevent double notifications from occurring. Your subscribers can also choose how often they would like to receive updates.
+
+The theming and url is intentionally silly. I would really like to keep this limited to small personal site owners like myself, and I thought making it appear unprofessional would help with that goal.
+
+## But wait, there's more!
+Want to maintain greater ownership over your email subscriptions? You can host it on your own too! I'm still working on tying up a few loose ends, but once it's ready I'll make a post about how you can run it on your own (and a bit about how it works under the hood). Stay tuned for updates :)
+
+-Themis
