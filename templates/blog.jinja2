@@ -6,9 +6,42 @@
     <link rel="stylesheet" href="/resources/styles.css">
 </head>
 <body>
+    <div id="email-signup-wrapper">
+        <form action="https://rss.crownanabread.com/signup" method="post" target="_blank" id="email-signup">
+            <!-- Change the value field to your rss feed url -->
+            <input type="hidden" name="rss_url" value="https://www.crownanabread.com/blog/rss.xml">
+            Sign up for email notifications!
+            <br>
+            <label>
+                <input type="text" name="email" placeholder="Email" required><br>
+            </label>
+            Notify me up to once every:
+            <br>
+            <label>
+                <!-- Feel free to update the values/labels to reflect whichever update periods you'd like to offer. -->
+                <input type="radio" name="notification_period" value="1d" required>
+                1 day
+            </label>
+            <label>
+                <input type="radio" name="notification_period" value="3d" required>
+                3 days
+            </label>
+            <label>
+                <input type="radio" name="notification_period" value="7d" required>
+                7 days
+            </label>
+            <label>
+                <input type="radio" name="notification_period" value="30d" required>
+                30 days
+            </label>
+            <br>
+            <input type="submit" value="Sign up!">
+        </form>
+    </div>
     <a id="blog_rss" href="/blog/rss.xml">
         <img src="/resources/blog/rss.png" alt="rss feed icon">
     </a>
+
     <h1 id="blog_header">CROWNANA BLOG</h1>
     <div id="blog_content">
         <img id="blog_left" src="/resources/blog/banners/IMG_0124.jpg" alt="Themis looking cool">

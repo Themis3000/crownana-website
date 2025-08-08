@@ -921,3 +921,30 @@ html {
     height: 48px;
     pointer-events: none;
 }
+
+#email-signup-wrapper {
+    background-image: url("/resources/images/waves.jpg");
+    display: inline-block;
+    border-radius: 10px;
+    border: #c800cf outset 7px;
+    margin: 0;
+    font-family: Calibri, serif;
+    font-size: 18px;
+    color: white;
+    text-shadow: black 1px 1px 2px;
+    text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#email-signup {
+    display: inherit;
+    padding: 5px;
+    margin: 0;
+}
+
+#email-signup input[type=submit], #email-signup input[type=text] {
+    width: 100%;
+}
