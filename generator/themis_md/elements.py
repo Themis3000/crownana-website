@@ -2,31 +2,26 @@ from .element_base import TElement, TMergeableElement
 from abc import ABC, abstractmethod
 import re
 import html
+from .utils import ReReplacer
 
 
 class TParagraph(TMergeableElement):
-    re_a_tag = re.compile(r"\[([^\]]*)\]\(([^)]*)\)")
-    re_i_tag = re.compile(r"\*([^*]+)\*")
-    re_b_tag = re.compile(r"\*\*([^*]+)\*\*")
+    a_tag_replacer = ReReplacer(r"\[([^\]]*)\]\(([^)]*)\)", "<a href='|$1'>|$2</a>")
+    i_tag_replacer = ReReplacer(r"\*([^*]+)\*", "<i>|$1</i>")
+    b_tag_replacer = ReReplacer(r"\*\*([^*]+)\*\*", "<b>|$1</b>")
+    replacers = [a_tag_replacer, i_tag_replacer, b_tag_replacer]
+
+    @classmethod
+    def _replace_tags(cls, str_content: str) -> str:
+        out = str_content
+        for replacer in cls.replacers:
+            out = replacer.do_subs(out)
+        return out
 
     def gen_html(self) -> str:
         cleaned_content = [html.escape(content.strip()) for content in self.content_list]
         content_str = "<br>".join(cleaned_content) + "<br>"
-
-        def a_sub(match):
-            text = match.group(1)
-            link = match.group(2)
-            return f"<a href='{link}'>{text}</a>"
-        content_str = self.re_a_tag.sub(a_sub, content_str)
-
-        def b_sub(match):
-            return f"<b>{match.group(1)}</b>"
-        content_str = self.re_b_tag.sub(b_sub, content_str)
-
-        def i_sub(match):
-            return f"<i>{match.group(1)}</i>"
-        content_str = self.re_i_tag.sub(i_sub, content_str)
-
+        content_str = self._replace_tags(content_str)
         return f"<p>{content_str}</p>"
 
 
