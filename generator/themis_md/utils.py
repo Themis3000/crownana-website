@@ -10,7 +10,7 @@ class ReReplacer:
         groups = match.groups()
         output = self.template
         for i, group_match in enumerate(groups):
-            output = output.replace(f"|${i}", group_match)
+            output = output.replace(f"|${i+1}", group_match)
         return output
 
     def do_subs(self, str_content: str) -> str:

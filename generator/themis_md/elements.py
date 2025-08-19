@@ -6,7 +6,7 @@ from .utils import ReReplacer
 
 
 class TParagraph(TMergeableElement):
-    a_tag_replacer = ReReplacer(r"\[([^\]]*)\]\(([^)]*)\)", "<a href='|$1'>|$2</a>")
+    a_tag_replacer = ReReplacer(r"\[([^\]]*)\]\(([^)]*)\)", "<a href='|$2'>|$1</a>")
     i_tag_replacer = ReReplacer(r"\*([^*]+)\*", "<i>|$1</i>")
     b_tag_replacer = ReReplacer(r"\*\*([^*]+)\*\*", "<b>|$1</b>")
     replacers = [a_tag_replacer, i_tag_replacer, b_tag_replacer]
