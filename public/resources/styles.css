@@ -305,6 +305,11 @@ html {
     padding-top: 0;
 }
 
+.writing-style code {
+    background-color: rgba(128, 128, 128, 0.49);
+    font-family: "Ubuntu Mono", "Calibri m", "monospace";
+}
+
 .fixed-center {
     position: fixed;
     left: 50%;
