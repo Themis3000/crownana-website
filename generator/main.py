@@ -5,6 +5,7 @@ from glob import glob
 from themis_md import ThemisMDDoc
 from utils import BlogPost, env
 from typing import List
+from html import escape
 
 
 # Generate gallery documents
@@ -75,12 +76,12 @@ for entry in blog_entries:
     clean_path = os.path.normpath(entry.path)
     split_path = clean_path.split(os.sep)
     relative_path = "/".join(split_path)
-    full_url = f"https://crownanabread.com{relative_path}"
+    full_url = escape(f"https://crownanabread.com{relative_path}")
     rss_f.write(f"""
         <item>
-            <title>{entry.title}</title>
+            <title>{escape(entry.title)}</title>
             <link>{full_url}</link>
-            <description>{entry.teaser} - view the full blog post at {full_url}</description>
+            <description>{escape(entry.teaser)} - view the full blog post at {full_url}</description>
             <pubDate>{entry.get_rfc822()}</pubDate>
         </item>
     """)
