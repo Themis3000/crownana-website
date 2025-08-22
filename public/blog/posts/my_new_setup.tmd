@@ -2,10 +2,11 @@
 title: My (old) new setup & cd collection
 style: default
 type: blog-post
-entry_style: dslite
+entry_style: framed
+entry_meta: {"frame": "frame-laptop"}
 teaser: I show off my new setup I've began using & my cds
-color_theme: hsl(303, 58%, 64%)
-date: 8/19/25
+color_theme: hsl(222, 58%, 64%)
+date: 8/22/25
 ----
 ## Meet my laptop!
 ![laptop behind banana](/resources/blog/banana-top.jpg)

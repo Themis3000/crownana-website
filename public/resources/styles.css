@@ -660,6 +660,27 @@ html {
     font-size: 14pt;
 }
 
+.frame-laptop {
+    height: 315px;
+    width: 328px;
+}
+
+.frame-laptop div {
+    height: 133px;
+    width: 224px;
+    margin-top: 20px;
+    margin-left: 26px;
+    padding: 10px;
+}
+
+.frame-laptop .blog_entry_title {
+    font-size: 18pt;
+}
+
+.frame-laptop .blog_entry_teaser {
+    font-size: 14pt;
+}
+
 /*This section for absolute position bg images*/
 .sticker-bg {
     overflow: hidden;
