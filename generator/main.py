@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+
 from PIL import Image
 import yaml
 from glob import glob
@@ -8,29 +10,55 @@ from typing import List
 from html import escape
 
 
-# Generate gallery documents
-gallery_template = env.get_template("gallery.jinja2")
-gallery_config = yaml.safe_load(open("../gallery_config.yml"))
+class SiteGenerator:
+    def __init__(self):
+        self.src_dir = "../public"
+        self.out_dir = "../out"
+        if not os.path.exists(self.out_dir):
+            os.mkdir(self.out_dir)
 
-categories = {"all": gallery_config["images"]}
-categories_info = [{"name": "all", "href": f"/gallery/all.html"}]
-for entry in gallery_config["images"]:
-    category = entry["category"]
-    if category not in categories:
-        categories[category] = []
-        categories_info.append({"name": category, "href": f"/gallery/{category}.html"})
-    categories[category].append(entry)
-    if not os.path.exists(f"../public/resources/gallery/thumbs/{entry['path']}"):
-        with Image.open(f"../public/resources/gallery/{entry['path']}") as img:
-            img.thumbnail((1024, 1024))
-            img.save(f"../public/resources/gallery/thumbs/{entry['path']}")
+        file_strings = glob(f"{self.src_dir}/**", recursive=True)
+        self.file_paths: List[Path] = []
+        for file_string in file_strings:
+            file_path = Path(file_string)
+            if file_path.is_dir():
+                continue
+            self.file_paths.append(file_path)
+
+        self.blog_entries: List[BlogPost] = []
+
+    def pre_actions(self):
+        self.generate_gallery_documents()
+
+    def run_generation(self):
+        pass
+
+    def process_file(self, file_path: Path):
+        pass
+
+    def generate_gallery_documents(self):
+        gallery_template = env.get_template("gallery.jinja2")
+        gallery_config = yaml.safe_load(open("../gallery_config.yml"))
+
+        categories = {"all": gallery_config["images"]}
+        categories_info = [{"name": "all", "href": f"/gallery/all.html"}]
+        for entry in gallery_config["images"]:
+            category = entry["category"]
+            if category not in categories:
+                categories[category] = []
+                categories_info.append({"name": category, "href": f"/gallery/{category}.html"})
+            categories[category].append(entry)
+
+        for category_name, category in categories.items():
+            category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
+                                                       selected_category=category_name)
+            with open(f"{self.out_dir}/gallery/{category_name}.html", "w") as f:
+                f.write(category_content)
 
 
-for category_name, category in categories.items():
-    category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
-                                               selected_category=category_name)
-    with open(f"../public/gallery/{category_name}.html", "w") as f:
-        f.write(category_content)
+if __name__ == "__main__":
+    SiteGenerator().run_generation()
+quit()
 
 
 # Convert tmd files to html pages, and collect blog post info
