@@ -20,6 +20,15 @@ class GenFile:
         self.processed = False
         self.out_path = OUT_PATH.joinpath(*path.parts[2:])
 
+    def read_src_str(self) -> str:
+        with open(self.path, "r") as f:
+            return f.read()
+
+    def write_out_str(self, data: str):
+        self.processed = True
+        with open(self.out_path, "w") as f:
+            f.write(data)
+
 
 class SiteGenerator:
     def __init__(self):
@@ -31,8 +40,7 @@ class SiteGenerator:
             file_path = Path(file_string)
             if file_path.is_dir():
                 continue
-            gen_file = GenFile(file_path)
-            self.file_paths.append(gen_file)
+            self.file_paths.append(GenFile(file_path))
 
         self.blog_entries: List[BlogPost] = []
 
