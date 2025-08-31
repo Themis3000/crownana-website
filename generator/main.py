@@ -10,28 +10,28 @@ from utils import BlogPost, env
 from typing import List
 from html import escape
 
+SRC_PATH = Path("../public")
+OUT_PATH = Path("../out")
 
-@dataclasses.dataclass()
+
 class GenFile:
-    path: Path
-    do_relocation: bool = True
-    processed: bool = False
+    def __init__(self, path: Path):
+        self.path = path
+        self.processed = False
+        self.out_path = OUT_PATH.joinpath(*path.parts[2:])
 
 
 class SiteGenerator:
     def __init__(self):
-        self.src_dir = "../public"
-        self.out_dir = "../out"
-        if not os.path.exists(self.out_dir):
-            os.mkdir(self.out_dir)
+        OUT_PATH.mkdir(exist_ok=True)
 
-        file_strings = glob(f"{self.src_dir}/**", recursive=True)
+        file_strings = glob(f"{str(SRC_PATH)}/**", recursive=True)
         self.file_paths: List[GenFile] = []
         for file_string in file_strings:
             file_path = Path(file_string)
             if file_path.is_dir():
                 continue
-            gen_file = GenFile(path=file_path)
+            gen_file = GenFile(file_path)
             self.file_paths.append(gen_file)
 
         self.blog_entries: List[BlogPost] = []
@@ -40,7 +40,7 @@ class SiteGenerator:
         self.generate_gallery_documents()
 
     def run_generation(self):
-        pass
+        self.pre_actions()
 
     def process_file(self, file_path: Path):
         pass
@@ -61,10 +61,10 @@ class SiteGenerator:
         for category_name, category in categories.items():
             category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
                                                        selected_category=category_name)
-            out_file = Path(f"{self.out_dir}/gallery/{category_name}.html")
+            out_file = Path(f"{OUT_DIR}/gallery/{category_name}.html")
             with open(out_file, "w") as f:
                 f.write(category_content)
-            self.file_paths.append(GenFile(path=out_file, do_relocation=False))
+            self.file_paths.append(GenFile(path=out_file))
 
 
 if __name__ == "__main__":
