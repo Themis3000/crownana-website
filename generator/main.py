@@ -1,3 +1,4 @@
+import dataclasses
 import os
 from pathlib import Path
 
@@ -10,6 +11,13 @@ from typing import List
 from html import escape
 
 
+@dataclasses.dataclass()
+class GenFile:
+    path: Path
+    do_relocation: bool = True
+    processed: bool = False
+
+
 class SiteGenerator:
     def __init__(self):
         self.src_dir = "../public"
@@ -18,12 +26,13 @@ class SiteGenerator:
             os.mkdir(self.out_dir)
 
         file_strings = glob(f"{self.src_dir}/**", recursive=True)
-        self.file_paths: List[Path] = []
+        self.file_paths: List[GenFile] = []
         for file_string in file_strings:
             file_path = Path(file_string)
             if file_path.is_dir():
                 continue
-            self.file_paths.append(file_path)
+            gen_file = GenFile(path=file_path)
+            self.file_paths.append(gen_file)
 
         self.blog_entries: List[BlogPost] = []
 
@@ -52,8 +61,10 @@ class SiteGenerator:
         for category_name, category in categories.items():
             category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
                                                        selected_category=category_name)
-            with open(f"{self.out_dir}/gallery/{category_name}.html", "w") as f:
+            out_file = Path(f"{self.out_dir}/gallery/{category_name}.html")
+            with open(out_file, "w") as f:
                 f.write(category_content)
+            self.file_paths.append(GenFile(path=out_file, do_relocation=False))
 
 
 if __name__ == "__main__":
