@@ -6,11 +6,7 @@ Please don't make judgements about my programming skills based on this.
 Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
 I could roast a lot of what I've written here.
 """
-import dataclasses
-import os
 from pathlib import Path
-
-from PIL import Image
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
@@ -69,7 +65,17 @@ class SiteGenerator:
     def run_generation(self):
         self.pre_actions()
 
-    def process_file(self, file_path: Path):
+        for gen_file in self.get_unprocessed_file_type([".html"]):
+            self.process_file(gen_file)
+
+        for gen_file in self.file_paths:
+            if not gen_file.processed:
+                self.process_file(gen_file)
+
+    def process_html(self, gen_file: GenFile):
+        pass
+
+    def process_file(self, gen_file: GenFile):
         pass
 
     def get_unprocessed_file_type(self, file_types: List[str]):
