@@ -1,5 +1,7 @@
 import dataclasses
 import datetime
+from pathlib import Path
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import glob
 import os
@@ -26,7 +28,7 @@ class BlogPost:
     teaser: str
     color_theme: str
     date: str
-    path: str
+    path: Path
     entry_meta: dict | None
 
     timezone = datetime.timezone(datetime.timedelta(hours=-6))

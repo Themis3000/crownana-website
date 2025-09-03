@@ -1,3 +1,10 @@
+"""
+Handles generating the site content for deployment.
+Cutting-edge BLAZINGLY FAST static site generation tool (fire emojis)
+
+Please don't make judgements about my programming skills based on this.
+Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
+"""
 import dataclasses
 import os
 from pathlib import Path
@@ -19,6 +26,10 @@ class GenFile:
         self.path = path
         self.processed = False
         self.out_path = OUT_PATH.joinpath(*path.parts[2:])
+        self.out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    def update_out_ext(self, suffix: str):
+        self.out_path = self.out_path.with_suffix(suffix)
 
     def read_src_str(self) -> str:
         with open(self.path, "r") as f:
@@ -29,11 +40,12 @@ class GenFile:
         with open(self.out_path, "w") as f:
             f.write(data)
 
+    def mark_processed(self):
+        self.processed = True
+
 
 class SiteGenerator:
     def __init__(self):
-        OUT_PATH.mkdir(exist_ok=True)
-
         file_strings = glob(f"{str(SRC_PATH)}/**", recursive=True)
         self.file_paths: List[GenFile] = []
         for file_string in file_strings:
@@ -46,12 +58,18 @@ class SiteGenerator:
 
     def pre_actions(self):
         self.generate_gallery_documents()
+        self.process_tmd()
 
     def run_generation(self):
         self.pre_actions()
 
     def process_file(self, file_path: Path):
         pass
+
+    def get_unprocessed_file_type(self, file_types: List[str]):
+        for gen_file in self.file_paths:
+            if gen_file.path.suffix in file_types and gen_file.processed == False:
+                yield gen_file
 
     def generate_gallery_documents(self):
         gallery_template = env.get_template("gallery.jinja2")
@@ -69,10 +87,31 @@ class SiteGenerator:
         for category_name, category in categories.items():
             category_content = gallery_template.render(img_entries=category, categories_info=categories_info,
                                                        selected_category=category_name)
-            out_file = Path(f"{OUT_DIR}/gallery/{category_name}.html")
-            with open(out_file, "w") as f:
-                f.write(category_content)
-            self.file_paths.append(GenFile(path=out_file))
+            out_file = OUT_PATH.joinpath(f"gallery/{category_name}.html")
+            gen_file = GenFile(path=out_file)
+            gen_file.write_out_str(category_content)
+            self.file_paths.append(gen_file)
+
+    def process_tmd(self):
+        for gen_file in self.get_unprocessed_file_type([".tmd"]):
+            doc = ThemisMDDoc(open(gen_file.path, "r"))
+            gen_file.update_out_ext(".html")
+            gen_file.write_out_str(doc.gen_html())
+
+            if doc.meta.get("type") == "blog-post":
+                self.blog_entries.append(BlogPost(
+                    entry_style=doc.meta["entry_style"],
+                    title=doc.meta["title"],
+                    teaser=doc.meta["teaser"],
+                    color_theme=doc.meta["color_theme"],
+                    date=doc.meta["date"],
+                    path=gen_file.out_path,
+                    entry_meta=doc.meta.get("entry_meta")
+                ))
+
+            gen_file.mark_processed()
+            output_gen_file = GenFile(gen_file.out_path)
+            self.file_paths.append(output_gen_file)
 
 
 if __name__ == "__main__":
