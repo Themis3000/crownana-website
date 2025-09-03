@@ -4,6 +4,7 @@ Cutting-edge BLAZINGLY FAST static site generation tool (fire emojis)
 
 Please don't make judgements about my programming skills based on this.
 Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
+I could roast a lot of what I've written here.
 """
 import dataclasses
 import os
@@ -43,6 +44,9 @@ class GenFile:
     def mark_processed(self):
         self.processed = True
 
+    def get_url_path(self) -> str:
+        return "/".join([*self.out_path.parts[2:]])
+
 
 class SiteGenerator:
     def __init__(self):
@@ -60,6 +64,7 @@ class SiteGenerator:
         self.generate_gallery_documents()
         self.process_tmd()
         self.generate_blog_home()
+        self.generate_rss_feed()
 
     def run_generation(self):
         self.pre_actions()
@@ -122,35 +127,32 @@ class SiteGenerator:
         gen_file.write_out_str(blog_content)
         self.file_paths.append(gen_file)
 
+    def generate_rss_feed(self):
+        rss_path = OUT_PATH.joinpath("blog/rss.xml")
+        rss_f = open(rss_path, "w")
+        rss_f.write("""<?xml version="1.0" encoding="UTF-8" ?>
+        <rss version="2.0">
+        <channel>
+            <title>Crownanabread Blog</title>
+            <link>https://crownanabread.com</link>
+            <description>The crownanabread personal blog</description>
+        """)
+        for entry in self.blog_entries:
+            full_url = escape(f"https://crownanabread.com/{'/'.join([*entry.path.parts[2:]])}")
+            rss_f.write(f"""
+                <item>
+                    <title>{escape(entry.title)}</title>
+                    <link>{full_url}</link>
+                    <description>{escape(entry.teaser)} - view the full blog post at {full_url}</description>
+                    <pubDate>{entry.get_rfc822()}</pubDate>
+                </item>
+            """)
+        rss_f.write("""
+        </channel>
+        </rss>
+        """)
+
 
 if __name__ == "__main__":
     SiteGenerator().run_generation()
 quit()
-
-
-# generate rss feed
-rss_f = open("../public/blog/rss.xml", "w")
-rss_f.write("""<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-<channel>
-    <title>Crownanabread Blog</title>
-    <link>https://crownanabread.com</link>
-    <description>The crownanabread personal blog</description>
-""")
-for entry in blog_entries:
-    clean_path = os.path.normpath(entry.path)
-    split_path = clean_path.split(os.sep)
-    relative_path = "/".join(split_path)
-    full_url = escape(f"https://crownanabread.com{relative_path}")
-    rss_f.write(f"""
-        <item>
-            <title>{escape(entry.title)}</title>
-            <link>{full_url}</link>
-            <description>{escape(entry.teaser)} - view the full blog post at {full_url}</description>
-            <pubDate>{entry.get_rfc822()}</pubDate>
-        </item>
-    """)
-rss_f.write("""
-</channel>
-</rss>
-""")
