@@ -59,6 +59,7 @@ class SiteGenerator:
     def pre_actions(self):
         self.generate_gallery_documents()
         self.process_tmd()
+        self.generate_blog_home()
 
     def run_generation(self):
         self.pre_actions()
@@ -113,40 +114,18 @@ class SiteGenerator:
             output_gen_file = GenFile(gen_file.out_path)
             self.file_paths.append(output_gen_file)
 
+    def generate_blog_home(self):
+        blog_template = env.get_template("blog.jinja2")
+        self.blog_entries.sort(reverse=True, key=lambda x: x.get_timestamp())
+        blog_content = blog_template.render(blog_entries=self.blog_entries)
+        gen_file = GenFile(OUT_PATH.joinpath("blog/index.html"))
+        gen_file.write_out_str(blog_content)
+        self.file_paths.append(gen_file)
+
 
 if __name__ == "__main__":
     SiteGenerator().run_generation()
 quit()
-
-
-# Convert tmd files to html pages, and collect blog post info
-blog_entries: List[BlogPost] = []
-tmd_files = glob("../public/**/*.tmd", recursive=True)
-for tmd_file in tmd_files:
-    with open(tmd_file, "r") as f:
-        doc = ThemisMDDoc(f)
-    new_path = tmd_file[:-3] + "html"
-    with open(new_path, "w") as f:
-        f.write(doc.gen_html())
-    # collect blog post info, if available
-    if doc.meta.get("type") == "blog-post":
-        blog_entries.append(BlogPost(
-            entry_style=doc.meta["entry_style"],
-            title=doc.meta["title"],
-            teaser=doc.meta["teaser"],
-            color_theme=doc.meta["color_theme"],
-            date=doc.meta["date"],
-            path=new_path[9:],
-            entry_meta=doc.meta.get("entry_meta")
-        ))
-
-
-# generate blog post home page
-blog_template = env.get_template("blog.jinja2")
-blog_entries.sort(reverse=True, key=lambda x: x.get_timestamp())
-blog_content = blog_template.render(blog_entries=blog_entries)
-with open(f"../public/blog/index.html", "w") as f:
-    f.write(blog_content)
 
 
 # generate rss feed
