@@ -7,12 +7,15 @@ Most of this was written in little gaps of time on my 2008 laptop without an int
 I could roast a lot of what I've written here.
 """
 from pathlib import Path
+
+import bs4
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
 from utils import BlogPost, env
 from typing import List
 from html import escape
+from bs4 import BeautifulSoup
 
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
@@ -66,21 +69,25 @@ class SiteGenerator:
         self.pre_actions()
 
         for gen_file in self.get_unprocessed_file_type([".html"]):
-            self.process_file(gen_file)
+            self.process_html(gen_file)
 
         for gen_file in self.file_paths:
             if not gen_file.processed:
                 self.process_file(gen_file)
 
     def process_html(self, gen_file: GenFile):
-        pass
+        soup = BeautifulSoup(gen_file.read_src_str(), features="html.parser")
+        img_tags = soup.find_all(name="img")
+        for img in img_tags:
+            img["src"] = "test source"
+        gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
 
     def process_file(self, gen_file: GenFile):
         pass
 
     def get_unprocessed_file_type(self, file_types: List[str]):
         for gen_file in self.file_paths:
-            if gen_file.path.suffix in file_types and gen_file.processed == False:
+            if gen_file.path.suffix in file_types and not gen_file.processed:
                 yield gen_file
 
     def generate_gallery_documents(self):
