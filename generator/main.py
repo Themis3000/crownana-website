@@ -7,7 +7,6 @@ Most of this was written in little gaps of time on my 2008 laptop without an int
 I could roast a lot of what I've written here.
 """
 from pathlib import Path
-
 import bs4
 import tinycss2
 import yaml
@@ -17,6 +16,7 @@ from utils import BlogPost, env
 from typing import List
 from html import escape
 from bs4 import BeautifulSoup
+from css import CSSSizingParser
 
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
@@ -60,7 +60,8 @@ class SiteGenerator:
 
         self.blog_entries: List[BlogPost] = []
         with open("../public/resources/styles.css", "r") as f:
-            self.styles = tinycss2.parse_stylesheet(f.read(), skip_whitespace=True, skip_comments=True)
+            self.css_sizing = CSSSizingParser()
+            self.css_sizing.add_stylesheet(f.read())
 
     def pre_actions(self):
         self.generate_gallery_documents()
