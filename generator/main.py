@@ -9,6 +9,7 @@ I could roast a lot of what I've written here.
 from pathlib import Path
 
 import bs4
+import tinycss2
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
@@ -58,6 +59,8 @@ class SiteGenerator:
             self.file_paths.append(GenFile(file_path))
 
         self.blog_entries: List[BlogPost] = []
+        with open("../public/resources/styles.css", "r") as f:
+            self.styles = tinycss2.parse_stylesheet(f.read(), skip_whitespace=True, skip_comments=True)
 
     def pre_actions(self):
         self.generate_gallery_documents()
