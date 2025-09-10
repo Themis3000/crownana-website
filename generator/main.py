@@ -86,6 +86,12 @@ class SiteGenerator:
             if not isinstance(img, bs4.Tag):
                 raise Exception("Image tag... Wasn't a Tag?")
             size = self.css_sizing.get_tag_size(img)
+            # TODO: This is where you left off.
+            # Getting the size is completely taken care of.
+            # No need to convert the image now, just need to put the expected name in now
+            # Add the expected src, then put the image size info and src into a list of things to be processed later.
+            # Also, wrap the image in an a tag back to the original src unless a no-full-view class is present on the
+            # image tag.
             img["src"] = "test source"
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
 
