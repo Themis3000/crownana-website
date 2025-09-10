@@ -70,16 +70,6 @@ class CSSSizingParser:
         return token.int_value
 
     def _store_sizing_by_prelude(self, sizing_rule: SizingRule, prelude: List[Node]):
-        ###
-        # The following need to be implemented
-        # .thing .other-thing
-        # selects all .other-thing in thing
-        # .thing img
-        # selects all img in .thing
-        # .thing
-        # #thing
-        ####
-
         # Describes the inheritance of the name to be written out.
         # For example, prelude ".writing-style img" would turn into [".writing-style", img]
         name_inheritance_out = []
@@ -125,6 +115,7 @@ class CSSSizingParser:
 
         if len(name_inheritance_out) == 0:
             raise Exception("No names found in prelude")
+
         if len(name_inheritance_out) == 1:
             name_out = name_inheritance_out[0]
             if name_out in self.sizing_rules:
@@ -136,6 +127,7 @@ class CSSSizingParser:
             named_sizing_rule = NamedSizingRule(name=name_inheritance_out[0], sizing_rule=sizing_rule)
             self.sizing_rules[named_sizing_rule.name] = named_sizing_rule
             return
+
         if len(name_inheritance_out) == 2:
             base_name = name_inheritance_out[0]
             if base_name in self.sizing_rules:
@@ -145,4 +137,5 @@ class CSSSizingParser:
             named_sizing_rule = NamedSizingRule(name=name_inheritance_out[1], sizing_rule=sizing_rule)
             base_named_sizing_rule.store_child(named_sizing_rule)
             return
+
         raise Exception("More then 2 levels of name inheritance found!")
