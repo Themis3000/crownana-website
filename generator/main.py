@@ -83,6 +83,9 @@ class SiteGenerator:
         soup = BeautifulSoup(gen_file.read_src_str(), features="html.parser")
         img_tags = soup.find_all(name="img")
         for img in img_tags:
+            if not isinstance(img, bs4.Tag):
+                raise Exception("Image tag... Wasn't a Tag?")
+            size = self.css_sizing.get_tag_size(img)
             img["src"] = "test source"
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
 

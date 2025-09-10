@@ -1,4 +1,6 @@
 import dataclasses
+
+import bs4
 import tinycss2
 from tinycss2 import tokenizer
 from tinycss2.ast import Node
@@ -33,6 +35,15 @@ class NamedSizingRule:
 class CSSSizingParser:
     def __init__(self):
         self.sizing_rules: Dict[str, NamedSizingRule] = {}
+
+    def get_tag_size(self, tag: bs4.Tag):
+        lookup_names: List[str] = [tag.name]
+        tag_id_attr = tag.get("id")
+        if tag_id_attr is not None:
+            lookup_names.append(f"#{tag_id_attr}")
+        tag_class_attr = tag.get("class")  # bs4 automatically handles converting this into a list of classes.
+        if tag_class_attr is not None:
+            lookup_names.extend(tag_class_attr)
 
     def add_stylesheet(self, sheet_str: str):
         rules = tinycss2.parse_stylesheet(sheet_str, skip_whitespace=True, skip_comments=True)
