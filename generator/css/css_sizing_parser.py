@@ -86,15 +86,15 @@ class CSSSizingParser:
 
         prelude_iter = iter(prelude)
         for token in prelude_iter:
-            # Skip all white spaces. No need to deal with them currently
+            # Skip all white spaces. No need to deal with them currently.
+            # This removes the important distinction between .class1.class2 and .class1 .class2.
+            # However, I don't utilize the former ever personally so this is no big deal for personal use.
             if isinstance(token, tinycss2.tokenizer.WhitespaceToken):
                 continue
 
             # Is a comma token
             if isinstance(token, tinycss2.tokenizer.LiteralToken) and token.value == ",":
                 self._store_sizing_by_prelude(sizing_rule=sizing_rule, prelude=list(prelude_iter))
-                # Break largely for emphasis to the programmer that prelude_iter is now exhausted and no more
-                # iterations will occur.
                 break
 
             # Cannot support an inheritance depth of more than 1 at this time.
@@ -108,9 +108,15 @@ class CSSSizingParser:
                 class_name_token = next(prelude_iter)
                 if not isinstance(class_name_token, tinycss2.tokenizer.IdentToken):
                     raise Exception("Parsing error! Expected class name ident.")
-                print(class_name_token)
+                name_inheritance_out.append(f".{class_name_token.value}")
                 continue
 
             # Is an id
             if isinstance(token, tinycss2.tokenizer.HashToken):
-                print(token)
+                name_inheritance_out.append(f"#{token.value}")
+                continue
+
+            # Is a bear ident (such as img)
+            if isinstance(token, tinycss2.tokenizer.IdentToken):
+                name_inheritance_out.append(token.value)
+                continue
