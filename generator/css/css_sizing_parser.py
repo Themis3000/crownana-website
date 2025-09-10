@@ -26,7 +26,7 @@ class NamedSizingRule:
     def check_for_parent(self, parent_name: str) -> Self | None:
         return self.parent_rules.get(parent_name, None)
 
-    def store_child(self, parent: Self):
+    def store_parent(self, parent: Self):
         if parent.name in self.parent_rules:
             raise Exception("Duplicate rules detected... Uhhh whatdoido?")
         self.parent_rules[parent.name] = parent
@@ -140,13 +140,14 @@ class CSSSizingParser:
             return
 
         if len(name_inheritance_out) == 2:
-            base_name = name_inheritance_out[0]
+            base_name = name_inheritance_out[1]
             if base_name in self.sizing_rules:
                 base_named_sizing_rule = self.sizing_rules[base_name]
             else:
-                base_named_sizing_rule = NamedSizingRule(name=name_inheritance_out[0], sizing_rule=None)
-            named_sizing_rule = NamedSizingRule(name=name_inheritance_out[1], sizing_rule=sizing_rule)
-            base_named_sizing_rule.store_child(named_sizing_rule)
+                base_named_sizing_rule = NamedSizingRule(name=base_name, sizing_rule=None)
+                self.sizing_rules[base_name] = base_named_sizing_rule
+            named_sizing_rule = NamedSizingRule(name=name_inheritance_out[0], sizing_rule=sizing_rule)
+            base_named_sizing_rule.store_parent(named_sizing_rule)
             return
 
         raise Exception("More then 2 levels of name inheritance found!")
