@@ -981,3 +981,16 @@ html {
 #email-signup input[type=submit], #email-signup input[type=text] {
     width: 100%;
 }
+
+#big-ol-email {
+    display: inline-block;
+    width: 100%;
+    font-size: 200%;
+    animation: colors 7s alternate linear infinite;
+    text-shadow: 2px 2px 5px black;
+    text-align: center;
+}
+
+#big-ol-email:hover {
+    filter: brightness(150%);
+}
