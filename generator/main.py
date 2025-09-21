@@ -13,10 +13,10 @@ import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
 from utils import BlogPost, env
-from typing import List
+from typing import List, Dict
 from html import escape
 from bs4 import BeautifulSoup
-from css import CSSSizingParser
+from css import CSSSizingParser, SizingRule
 
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
@@ -48,6 +48,27 @@ class GenFile:
         return "/".join([*self.out_path.parts[2:]])
 
 
+class ImageEntry:
+    def __init__(self, path: str | Path, sizing_rule: SizingRule | None):
+        if not isinstance(path, Path):
+            path = Path(path)
+        self.path = path
+        self.sizing_rule = sizing_rule
+
+    def get_out_path_str(self) -> str:
+        if self.sizing_rule is None:
+            return "/" + "/".join(self.path.parts)
+
+    def convert(self):
+        pass
+
+    def get_unique(self) -> str:
+        pass
+
+    def check_completed(self) -> bool:
+        pass
+
+
 class SiteGenerator:
     def __init__(self):
         file_strings = glob(f"{str(SRC_PATH)}/**", recursive=True)
@@ -62,6 +83,7 @@ class SiteGenerator:
         with open("../public/resources/styles.css", "r") as f:
             self.css_sizing = CSSSizingParser()
             self.css_sizing.add_stylesheet(f.read())
+        self.img_mappings: Dict[str, SizingRule] = {}
 
     def pre_actions(self):
         self.generate_gallery_documents()
