@@ -52,7 +52,7 @@ class GenFile:
 
 
 class ImageEntry:
-    def __init__(self, path: str | Path, sizing_rule: SizingRule | None):
+    def __init__(self, path: str | Path, sizing_rule: SizingRule):
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
@@ -62,8 +62,6 @@ class ImageEntry:
         parts = list(self.path.parts)
         if parts[0] == os.path.sep:
             del parts[0]
-        if self.sizing_rule is None:
-            return "/" + "/".join(parts)
         parts[-1] = f"thumb_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}_{parts[-1]}"
         return "/" + "/".join(parts)
 
@@ -71,8 +69,6 @@ class ImageEntry:
         pass
 
     def get_unique(self) -> str:
-        if self.sizing_rule is None:
-            return self.path.as_posix()
         return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}"
 
     def check_completed(self) -> bool:
@@ -113,6 +109,10 @@ class SiteGenerator:
         for gen_file in self.get_unprocessed_file_type([".html"]):
             self.process_html(gen_file)
 
+        for img_mapping in self.img_mappings.values():
+            # TODO You left off here. Implement the convert method.
+            img_mapping.convert()
+
         for gen_file in self.file_paths:
             if not gen_file.processed:
                 self.process_file(gen_file)
@@ -124,6 +124,8 @@ class SiteGenerator:
             if not isinstance(img, bs4.Tag):
                 raise Exception("Image tag... Wasn't a Tag?")
             size_rule = self.css_sizing.get_tag_size(img)
+            if size_rule is None:
+                continue
             img_entry = ImageEntry(path=img["src"], sizing_rule=size_rule)
             self.add_img_mapping(img_entry)
             img["src"] = img_entry.get_out_path_str()
