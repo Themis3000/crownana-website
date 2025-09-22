@@ -57,7 +57,10 @@ class ImageEntry:
 
     def get_out_path_str(self) -> str:
         if self.sizing_rule is None:
-            return "/" + "/".join(self.path.parts)
+            return "/" + "/".join(list(self.path.parts))
+        parts = list(self.path.parts)
+        parts[-1] = f"thumb_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}_{parts[-1]}"
+        return "/" + "/".join(parts)
 
     def convert(self):
         pass
@@ -107,14 +110,16 @@ class SiteGenerator:
         for img in img_tags:
             if not isinstance(img, bs4.Tag):
                 raise Exception("Image tag... Wasn't a Tag?")
-            size = self.css_sizing.get_tag_size(img)
+            size_rule = self.css_sizing.get_tag_size(img)
+            img_entry = ImageEntry(path=img["src"], sizing_rule=size_rule)
+            out_path = img_entry.get_out_path_str()
             # TODO: This is where you left off.
             # Getting the size is completely taken care of.
             # No need to convert the image now, just need to put the expected name in now
             # Add the expected src, then put the image size info and src into a list of things to be processed later.
             # Also, wrap the image in an a tag back to the original src unless a no-full-view class is present on the
             # image tag.
-            img["src"] = "test source"
+            img["src"] = out_path
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
 
     def process_file(self, gen_file: GenFile):
