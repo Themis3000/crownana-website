@@ -21,6 +21,10 @@ from css import CSSSizingParser, SizingRule
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
 
+# TODO these get path functions in GenFile and ImageEntry are 100% real scuffed. Check out Path.as_posix and see if it's
+# a good replacement. If not, at least make a single helper function instead of reimplementing the same business
+# logic in multiple places.
+
 
 class GenFile:
     def __init__(self, path: Path):
@@ -37,7 +41,6 @@ class GenFile:
             return f.read()
 
     def write_out_str(self, data: str):
-        self.processed = True
         with open(self.out_path, "w") as f:
             f.write(data)
 
@@ -125,6 +128,7 @@ class SiteGenerator:
             self.add_img_mapping(img_entry)
             img["src"] = img_entry.get_out_path_str()
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
+        gen_file.mark_processed()
 
     def process_file(self, gen_file: GenFile):
         pass
