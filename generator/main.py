@@ -6,6 +6,7 @@ Please don't make judgements about my programming skills based on this.
 Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
 I could roast a lot of what I've written here.
 """
+import os.path
 from pathlib import Path
 import bs4
 import tinycss2
@@ -56,9 +57,11 @@ class ImageEntry:
         self.sizing_rule = sizing_rule
 
     def get_out_path_str(self) -> str:
-        if self.sizing_rule is None:
-            return "/" + "/".join(list(self.path.parts))
         parts = list(self.path.parts)
+        if parts[0] == os.path.sep:
+            del parts[0]
+        if self.sizing_rule is None:
+            return "/" + "/".join(parts)
         parts[-1] = f"thumb_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}_{parts[-1]}"
         return "/" + "/".join(parts)
 
