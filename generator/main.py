@@ -9,7 +9,6 @@ I could roast a lot of what I've written here.
 import os.path
 from pathlib import Path
 import bs4
-import tinycss2
 import yaml
 from glob import glob
 from themis_md import ThemisMDDoc
@@ -69,7 +68,9 @@ class ImageEntry:
         pass
 
     def get_unique(self) -> str:
-        pass
+        if self.sizing_rule is None:
+            return self.path.as_posix()
+        return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}"
 
     def check_completed(self) -> bool:
         pass
@@ -89,7 +90,13 @@ class SiteGenerator:
         with open("../public/resources/styles.css", "r") as f:
             self.css_sizing = CSSSizingParser()
             self.css_sizing.add_stylesheet(f.read())
-        self.img_mappings: Dict[str, SizingRule] = {}
+        self.img_mappings: Dict[str, ImageEntry] = {}
+
+    def add_img_mapping(self, img_entry: ImageEntry):
+        unique = img_entry.get_unique()
+        if unique in self.img_mappings:
+            return
+        self.img_mappings[unique] = img_entry
 
     def pre_actions(self):
         self.generate_gallery_documents()
@@ -115,14 +122,8 @@ class SiteGenerator:
                 raise Exception("Image tag... Wasn't a Tag?")
             size_rule = self.css_sizing.get_tag_size(img)
             img_entry = ImageEntry(path=img["src"], sizing_rule=size_rule)
-            out_path = img_entry.get_out_path_str()
-            # TODO: This is where you left off.
-            # Getting the size is completely taken care of.
-            # No need to convert the image now, just need to put the expected name in now
-            # Add the expected src, then put the image size info and src into a list of things to be processed later.
-            # Also, wrap the image in an a tag back to the original src unless a no-full-view class is present on the
-            # image tag.
-            img["src"] = out_path
+            self.add_img_mapping(img_entry)
+            img["src"] = img_entry.get_out_path_str()
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
 
     def process_file(self, gen_file: GenFile):
