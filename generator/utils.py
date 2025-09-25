@@ -1,5 +1,7 @@
 import dataclasses
 import datetime
+from pathlib import Path
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import glob
 import os
@@ -26,10 +28,14 @@ class BlogPost:
     teaser: str
     color_theme: str
     date: str
-    path: str
+    path: Path
     entry_meta: dict | None
 
     timezone = datetime.timezone(datetime.timedelta(hours=-6))
+
+    def get_url_path(self) -> str:
+        stripped_leading = Path(*self.path.parts[2:])
+        return "/" + stripped_leading.as_posix()
 
     def get_timestamp(self):
         return datetime.datetime.strptime(self.date, "%m/%d/%y").timestamp()

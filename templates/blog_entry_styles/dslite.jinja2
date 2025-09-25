@@ -1,8 +1,8 @@
 <div class="dslite_entry">
-    <img src="/resources/blog/ds lite cutout.png" alt="ds lite">
+    <img src="/resources/blog/ds lite cutout.png" alt="ds lite" class="no-a">
     <div>
         <div class="dslite_top" style="background: {{ blog_entry.color_theme }}">
-            <a href="{{ blog_entry.path }}">
+            <a href="{{ blog_entry.get_url_path() }}">
                 <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
             </a>
         </div>

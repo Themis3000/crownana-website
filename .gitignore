@@ -1,12 +1,2 @@
 .idea
-
-/public/resources/gallery/thumbs/**
-!/public/resources/gallery/thumbs/.gitkeep
-
-/public/blog/index.html
-
-/public/gallery/*
-!/public/gallery/pages/
-!/public/gallery/pages/**
-
-public/blog/rss.xml
+out

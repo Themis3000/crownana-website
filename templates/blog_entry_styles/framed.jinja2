@@ -1,7 +1,7 @@
 <div class="frame_entry {{ blog_entry.entry_meta['frame'] }}">
-    <img src="/resources/blog/frames/{{ blog_entry.entry_meta['frame'] }}.png" alt="picture frame" class="{{ blog_entry.entry_meta['frame'] }}">
+    <img src="/resources/blog/frames/{{ blog_entry.entry_meta['frame'] }}.png" alt="picture frame" class="{{ blog_entry.entry_meta['frame'] }} no-a">
     <div style="background: {{ blog_entry.color_theme }}">
-        <a href="{{ blog_entry.path }}">
+        <a href="{{ blog_entry.get_url_path() }}">
             <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
         </a>
         <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
