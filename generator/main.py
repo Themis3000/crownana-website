@@ -149,6 +149,9 @@ class SiteGenerator:
                 rel_src_string = rel_src_string[1:]
             img_entry = ImageEntry(path=SRC_PATH.joinpath(rel_src_string), sizing_rule=size_rule)
             self.add_img_mapping(img_entry)
+            if "no-a" not in img.get("class", ""):
+                a_element = soup.new_tag("a", href=img["src"])
+                img.wrap(a_element)
             img["src"] = img_entry.get_out_url()
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
         gen_file.mark_processed()
