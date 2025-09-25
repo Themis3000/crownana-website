@@ -139,6 +139,8 @@ class SiteGenerator:
         for img in img_tags:
             if not isinstance(img, bs4.Tag):
                 raise Exception("Image tag... Wasn't a Tag?")
+            if "no-thumb" in img.get("class", ""):
+                continue
             size_rule = self.css_sizing.get_tag_size(img)
             if size_rule is None:
                 continue

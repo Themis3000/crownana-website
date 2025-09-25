@@ -1,6 +1,4 @@
 Branch specific:
-- Add a class to opt out of image sizing
-- Don't process gifs
 - Click should direct to original image
   - Opt out of this with a class
 
