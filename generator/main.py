@@ -18,6 +18,7 @@ from bs4 import BeautifulSoup
 from css import CSSSizingParser, SizingRule
 from PIL import Image
 import urllib.parse
+import shutil
 
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
@@ -149,8 +150,10 @@ class SiteGenerator:
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
         gen_file.mark_processed()
 
-    def process_file(self, gen_file: GenFile):
-        pass
+    @staticmethod
+    def process_file(gen_file: GenFile):
+        shutil.copyfile(src=gen_file.path, dst=gen_file.out_path)
+        gen_file.mark_processed()
 
     def get_unprocessed_file_type(self, file_types: List[str]):
         for gen_file in self.file_paths:
