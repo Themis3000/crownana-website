@@ -32,5 +32,5 @@ jobs:
       - name: Publish current workdir
         uses: rayluo/github-pages-overwriter@v1.3
         with:
-          source-directory: public
+          source-directory: out
           target-branch: gh-pages
