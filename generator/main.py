@@ -6,7 +6,6 @@ Please don't make judgements about my programming skills based on this.
 Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
 I could roast a lot of what I've written here.
 """
-import os.path
 from pathlib import Path
 import bs4
 import yaml
@@ -17,6 +16,8 @@ from typing import List, Dict
 from html import escape
 from bs4 import BeautifulSoup
 from css import CSSSizingParser, SizingRule
+from PIL import Image
+import urllib.parse
 
 SRC_PATH = Path("../public")
 OUT_PATH = Path("../out")
@@ -45,6 +46,8 @@ class GenFile:
             f.write(data)
 
     def mark_processed(self):
+        if self.processed:
+            raise Exception("GenFile was double marked as processed!")
         self.processed = True
 
     def get_url_path(self) -> str:
@@ -56,23 +59,35 @@ class ImageEntry:
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
+        out_file_name = f"thumb_{sizing_rule.widthPx}_{sizing_rule.heightPx}_{path.parts[-1]}"
+        out_path_dir = OUT_PATH.joinpath(*path.parts[2:-1])
+        self.out_path = out_path_dir.joinpath(out_file_name)
         self.sizing_rule = sizing_rule
 
-    def get_out_path_str(self) -> str:
-        parts = list(self.path.parts)
-        if parts[0] == os.path.sep:
-            del parts[0]
-        parts[-1] = f"thumb_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}_{parts[-1]}"
+    def get_out_url(self) -> str:
+        parts = list(self.out_path.parts)[2:]
         return "/" + "/".join(parts)
 
     def convert(self):
-        pass
+        if self.check_completed():
+            return
+
+        image = Image.open(self.path)
+        height_size = self.sizing_rule.heightPx
+        if height_size is None:
+            height_size = image.height
+        width_size = self.sizing_rule.widthPx
+        if width_size is None:
+            width_size = image.width
+        image.thumbnail((width_size, height_size))
+        image.save(self.out_path)
 
     def get_unique(self) -> str:
         return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}"
 
     def check_completed(self) -> bool:
-        pass
+        # TODO Actually check it was already completed.
+        return False
 
 
 class SiteGenerator:
@@ -110,7 +125,6 @@ class SiteGenerator:
             self.process_html(gen_file)
 
         for img_mapping in self.img_mappings.values():
-            # TODO You left off here. Implement the convert method.
             img_mapping.convert()
 
         for gen_file in self.file_paths:
@@ -126,9 +140,12 @@ class SiteGenerator:
             size_rule = self.css_sizing.get_tag_size(img)
             if size_rule is None:
                 continue
-            img_entry = ImageEntry(path=img["src"], sizing_rule=size_rule)
+            rel_src_string = urllib.parse.unquote(img["src"])
+            if rel_src_string.startswith("/"):
+                rel_src_string = rel_src_string[1:]
+            img_entry = ImageEntry(path=SRC_PATH.joinpath(rel_src_string), sizing_rule=size_rule)
             self.add_img_mapping(img_entry)
-            img["src"] = img_entry.get_out_path_str()
+            img["src"] = img_entry.get_out_url()
         gen_file.write_out_str(soup.prettify(formatter=bs4.Formatter(indent=4)))
         gen_file.mark_processed()
 
