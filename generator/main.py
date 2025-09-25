@@ -56,7 +56,7 @@ class GenFile:
 
 
 class ImageEntry:
-    def __init__(self, path: str | Path, sizing_rule: SizingRule, scale_modifier: 1.25):
+    def __init__(self, path: str | Path, sizing_rule: SizingRule, scale_modifier=1.25):
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
