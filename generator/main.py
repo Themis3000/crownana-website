@@ -87,8 +87,7 @@ class ImageEntry:
         return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}"
 
     def check_completed(self) -> bool:
-        # TODO Actually check it was already completed.
-        return False
+        return self.out_path.exists()
 
 
 class SiteGenerator:
