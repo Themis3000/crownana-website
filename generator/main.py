@@ -56,7 +56,7 @@ class GenFile:
 
 
 class ImageEntry:
-    def __init__(self, path: str | Path, sizing_rule: SizingRule):
+    def __init__(self, path: str | Path, sizing_rule: SizingRule, scale_modifier: 1.25):
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
@@ -64,6 +64,7 @@ class ImageEntry:
         out_path_dir = OUT_PATH.joinpath(*path.parts[2:-1])
         self.out_path = out_path_dir.joinpath(out_file_name)
         self.sizing_rule = sizing_rule
+        self.scale_modifier = scale_modifier
 
     def get_out_url(self) -> str:
         parts = list(self.out_path.parts)[2:]
@@ -80,7 +81,8 @@ class ImageEntry:
         width_size = self.sizing_rule.widthPx
         if width_size is None:
             width_size = image.width
-        image.thumbnail((width_size, height_size))
+        # The thumbnail method checks if the output size is larger than the original for us.
+        image.thumbnail((width_size * self.scale_modifier, height_size * self.scale_modifier))
         image.save(self.out_path)
 
     def get_unique(self) -> str:
