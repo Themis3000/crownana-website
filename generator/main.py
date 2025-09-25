@@ -237,4 +237,3 @@ class SiteGenerator:
 
 if __name__ == "__main__":
     SiteGenerator().run_generation()
-quit()

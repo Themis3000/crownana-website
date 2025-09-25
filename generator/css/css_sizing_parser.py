@@ -101,8 +101,6 @@ class CSSSizingParser:
                 sizing_rule = SizingRule(widthPx=width, heightPx=height)
                 self._store_sizing_by_prelude(sizing_rule=sizing_rule, prelude=rule.prelude)
 
-        print(self.sizing_rules)
-
     @staticmethod
     def _extract_px_dimension(declaration: tinycss2.parser.Declaration) -> int | None:
         token = tinycss2.parse_one_component_value(declaration.value, skip_comments=True)
