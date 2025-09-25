@@ -33,6 +33,10 @@ class BlogPost:
 
     timezone = datetime.timezone(datetime.timedelta(hours=-6))
 
+    def get_url_path(self) -> str:
+        stripped_leading = Path(*self.path.parts[2:])
+        return "/" + stripped_leading.as_posix()
+
     def get_timestamp(self):
         return datetime.datetime.strptime(self.date, "%m/%d/%y").timestamp()
 
