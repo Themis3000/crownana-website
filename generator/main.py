@@ -94,7 +94,7 @@ class ImageEntry:
 
 class SiteGenerator:
     def __init__(self):
-        file_strings = glob(f"{str(SRC_PATH)}/**", recursive=True)
+        file_strings = glob(f"{str(SRC_PATH)}/**", recursive=True, include_hidden=True)
         self.file_paths: List[GenFile] = []
         for file_string in file_strings:
             file_path = Path(file_string)
