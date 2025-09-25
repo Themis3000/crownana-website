@@ -82,7 +82,7 @@ class ImageEntry:
         if width_size is None:
             width_size = image.width
         # The thumbnail method checks if the output size is larger than the original for us.
-        image.thumbnail((width_size * self.scale_modifier, height_size * self.scale_modifier))
+        image.thumbnail((int(width_size * self.scale_modifier), int(height_size * self.scale_modifier)))
         image.save(self.out_path)
 
     def get_unique(self) -> str:
