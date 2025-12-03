@@ -1,0 +1,49 @@
+----
+title: What the flock??
+style: default
+type: blog-post
+entry_style: framed
+entry_meta: {"frame": "frame3"}
+teaser: I discover that there's a flock surveillance camera in my area
+color_theme: hsl(303, 58%, 64%)
+date: 12/3/25
+----
+# What the flock??
+Earlier today, I discovered there's a flock surveillance camera in my area. If you aren't aware, flock is a newer company that provides access to automated cameras which automatically record data about passing vehicles. ALPRs' (automated license plate readers) are nothing new, however they are ordinarily owned by the local government/police in an area. Flock on the other hand, owns and operates all of their camera equipment & only lease access to buyers. This is attractive to buyers because they have low upfront costs for a larger network of cameras then what could usually be afforded. In this arrangement, all the data captured by flock cameras are kept by flock (a private company).
+
+![Flock camera on pole next to another camera](/resources/blog/flock-camera-closeup.jpg)
+*The flock camera I found*
+
+## So what's the big deal?
+Besides the obvious privacy invasion, here's a few reasons why it's a big deal:
+
+Flock makes it easy for data to be shared across areas. For example, lets say two nearby cities have separate policing. Let's call city 1's force PPD (piggy police department), and city 2's police force NPD (numbnut police department). (To my unprofessional understanding) any data collected by surveilling equipment in the area policed by PPD would not generally be shared by any automatic means with NPD. Their systems would be separate. With flock, sharing all collected data in your area, forever into the future is supposedly as easy as sending a follow request on instagram. While the PPD would generally have to contact the NPD to get information pulled from their separate system, with flock they can easily share systems "automagically". This allows police to build a nationwide surveillance network, simply by bulk requesting and accepting share requests.
+
+Not only that, but Flock also has TERRIBLE security practices. Their cameras run on Android 8(wtf?? android?? why??), a version which was discontinued in 2021 (for perspective the latest version of android is 16). They can also be completely hijacked by pressing a button on the back of the camera a few times (causing a hotspot to be created), and running a script on a nearby laptop. If you think that's bad, what's even worse is one security researcher managed to gain access to large amounts of flock camera data with nothing but some basic level digging from the comfort of their own home. How? Well they did some google dorking to discover a page that demos the product functionality to potential customers. They took a look through the site code, and found a live api key. They made requests using said api key and discovered it had extremely broad privileges. That's the technical equivalent of a prisoner finding the key to their cell, as well as the keys to every door to exit the prison right under their mattress.
+
+And last that I'll mention (but certainly not least), flock camera data is being used to carry out ICE enforcement.
+
+If you're curious for more information, or just don't believe me, I'd recommend checking out this video: [We Hacked Flock Safety Cameras in under 30 Seconds.](https://www.youtube.com/watch?v=uB0gr7Fh6lY)
+
+## Are they near me too?
+While it's not an exhaustive list, you can check! There's a community sourced map of them over at [deflock.me](https://deflock.me/).
+
+If you see anything that looks like this:
+![Flock camera example](/resources/blog/flock-2.jpg)
+That's a flock camera.
+
+## So I reported it!
+The flock camera I found was unreported, so I went through the process of reporting it! This turned out to be a (enjoyable) rabbit hole. The information on deflock is pulled from OSM (open street maps). OSM is a community maintained map, which anyone can contribute to and many businesses/projects rely on. It's like the wikipedia of maps. It turns out contributing to OSM is really quite easy and fun! I think OSM contributing might become a new hobby I come back to every once in a while... Users of the map sometimes comment about issues at locations, and as a contributor you're able to verify information and create fixes for the issues. They encourage mapping down to the smallest detail, even having ways to report permanent trash locations, hiking trails, bus routes, sheds, fences, how many floors buildings have, etc. Anyway I'm getting off track here...
+
+Reporting it on OSM is one way to increase public awareness that these are in town, but isn't good enough for me. Deep in this rabbit hole (at 1:30am), I found and printed out a sign to hang up so that passerby's know that flock is in town now. I went out in the cold weather and used lots of tape to hang it up. It's times like this I'm glad that I have a printer is capable of printing 11x17 pages.
+
+![Flock camera poster](/resources/blog/flock-sign.jpg)
+*The sign I hung*
+
+![Flock camera and poster](/resources/blog/flock-camera.jpg)
+*The flock camera I found, along with my sign*
+
+We'll see how long the sign lasts before it's taken down. I'm sure the police here aren't too fond of it. Too bad for them, I live nearby and can just print as many as I want out! If you find any flock cameras in your area I encourage you to take similar action to me too.
+
+#### Signing off
+I should get to bed now (it is 3:00am currently). Apologies for any late night nonsense I may have typed. I've just drastically reduced my work hours to only 10-14 hours/week, that way I can spend more time job searching, building better habits, and improving mental/physical health (I'll probably write more about this later). Perhaps staying up till 3am exploring a rabbit hole isn't the best start to that journey... At least I'm using my mind and becoming a couch potato with my extra time though. I'll probably be around to write more posts and update my website much more often though! If things go as I aim for them to, you should be seeing stuff more regularly from me :)
