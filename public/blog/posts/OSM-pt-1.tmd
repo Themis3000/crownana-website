@@ -1,0 +1,17 @@
+----
+title: OSM is the new hotness
+teaser: I've been falling into the rabbit hole that is Open Street Maps recently
+style: default
+type: blog-post
+entry_style: framed
+entry_meta: {"frame": "frame4"}
+color_theme: hsl(175, 58%, 64%)
+date: 12/29/25
+----
+# OSM is the new hotness
+I switch between hobbies a lot, and recently I got turned on to [Open Street Maps](https://en.wikipedia.org/wiki/OpenStreetMap) (as you may have read about in an [earlier post](/blog/posts/what_the_flock.html)). If you don't know what Open Street Maps is, think of it like Wikipedia if it where a map. It's a globally editable map, available to be used for free by anyone for any purpose. A lot of services and devices use Open Street Maps under the hood, or use it for supplementary data. It can be used to map almost anything, roads, bike paths, cross country ski trails, bathrooms, trees (and their species), rivers, trash bins, benches, bike parking, and basically everything else in an unchanging location.
+
+The granularity of the information about an area is down to the contributors to the map. In major cities, things tend to be mapped pretty well. In suburbs, it's not uncommon for houses to not have their addresses inputted. Because the data published by OSM is entirely free (free as in freedom, to use the data for anything. even commercial products) the data must be exclusively sources from areas they have the legal permissions to source from. That means no copying from Google Maps. The common sources for information are arial imagery (graciously provided by Microsoft by free), [TIGER](https://en.wikipedia.org/wiki/Topologically_Integrated_Geographic_Encoding_and_Referencing), user generated street level images published on services such as [Mapillary](https://www.mapillary.com/), and of course, in person surveys conducted by users.
+
+## The slippery slope I got started on
+It all started with mapping the location of a Flock ALPR (Automated License Plate Reader) camera that was **illegally** not disclosed to Minnesota's Burau of Criminal Apprehension.
