@@ -1,6 +1,6 @@
 ----
 title: OSM is the new hotness
-teaser: I've been falling into the rabbit hole that is Open Street Maps recently
+teaser: I've been falling into the rabbit hole of OSM recently
 style: default
 type: blog-post
 entry_style: framed
@@ -26,7 +26,7 @@ I even took the leap to learning the more advanced editor, JOSM. The usual edito
 ## Taking things a step further
 I'd like to do a lot more mapping of my local area, but walking really limits my distance as to how far I can map. And honestly, the mapping in my area is already fairly high quality. I'd like to go further, map more details (especially regarding biking infrastructure), and do it quicker. What I need is high quality up-to-date street level images. My new plan is to make my own street level images with a 360 camera on my bike, then share those images on Mapillary for me and other mappers to reference.  I bought a second hand GoPro Max on Ebay yesterday, which is the highest recommended camera by Mapillary due to its built in GPS.
 
-In order to make sure the camera has maximum visibility, I want to mount it a few feet above my head. My hope is it will be able to see over other vehicles on the road. I also want to mount the camera to my body in order to minimize vibrations from the bike. My current plan is to fashion some sort of backpack with a big pole:
+In order to make sure the camera has maximum visibility, I want to mount it a few feet above my head. My hope is it will be able to see over other vehicles on the road and the elevation will make my head take up less of the image. I also want to mount the camera to my body in order to minimize vibrations from the bike. My current plan is to fashion some sort of backpack with a big pole:
 
 ![An extremely crude digital drawing. A biker has a long pole coming out of their backpack, with a 360 camera on top of the pole. A large ford f150 is blocking the biker's vision to a "for rent" sign in front of a store front, however the 360 camera's vision is not blocked because it is at a higher elevation than the ford f150](/resources/blog/OSM%20bike%20camera%20demonstration.jpg)
 *A very scientific diagram. My vision of the "for rent" sign is blocked by the massive Ford F150, but the 360 camera's view is unobstructed due to its elevation.*
