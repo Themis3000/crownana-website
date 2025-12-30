@@ -892,6 +892,14 @@ html {
     width: 115px;
     height: auto;
 }
+
+#hp-ai {
+    position: absolute;
+    left: 1100px;
+    top: 175px;
+    width: 256px;
+    height: auto;
+}
 /*section end*/
 
 .wall-bg {
