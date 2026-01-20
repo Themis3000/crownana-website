@@ -3,9 +3,8 @@ title: My (old) new setup & cd collection
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame-laptop"}
+entry_meta: {"frame": "frame-laptop", "color_theme": "hsl(222, 58%, 64%)"}
 teaser: I show off my new setup I've began using & my cds
-color_theme: hsl(222, 58%, 64%)
 date: 8/22/25
 ----
 ## Meet my laptop!

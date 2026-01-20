@@ -1,7 +1,7 @@
 <div class="dslite_entry">
     <img src="/resources/blog/ds lite cutout.png" alt="ds lite" class="no-a">
     <div>
-        <div class="dslite_top" style="background: {{ blog_entry.color_theme }}">
+        <div class="dslite_top" style="background: {{ blog_entry.entry_meta['top_color'] }}">
             <a href="{{ blog_entry.get_url_path() }}">
                 <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
             </a>
@@ -9,7 +9,7 @@
     </div>
 
     <div>
-        <div class="dslite_bottom" style="background: {{ blog_entry.entry_meta['bottom_color'] or blog_entry.color_theme }}">
+        <div class="dslite_bottom" style="background: {{ blog_entry.entry_meta['bottom_color'] }}">
             <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
             <p>({{ blog_entry.date }})</p>
         </div>

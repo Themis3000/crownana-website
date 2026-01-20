@@ -4,8 +4,7 @@ teaser: I've been falling into the rabbit hole of OSM recently
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame4"}
-color_theme: hsl(175, 58%, 64%)
+entry_meta: {"frame": "frame4", "color_theme": "hsl(175, 58%, 64%)"}
 date: 12/30/25
 ----
 # OSM is the new hotness

@@ -3,9 +3,8 @@ title: What the flock??
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame3"}
+entry_meta: {"frame": "frame3", "color_theme": "hsl(303, 58%, 64%)"}
 teaser: I discover that there's a flock surveillance camera in my area
-color_theme: hsl(303, 58%, 64%)
 date: 12/3/25
 ----
 # What the flock??

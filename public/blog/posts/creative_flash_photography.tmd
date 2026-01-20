@@ -3,9 +3,8 @@ title: Creative flash photos
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame-em10"}
+entry_meta: {"frame": "frame-em10", "color_theme": "hsl(33, 58%, 64%)"}
 teaser: You can make some pretty unusual photos with a tripod and a light
-color_theme: hsl(33, 58%, 64%)
 date: 7/18/25
 ----
 # The following self-portrait is completely unedited

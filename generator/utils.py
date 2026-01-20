@@ -26,7 +26,6 @@ class BlogPost:
     entry_style: str
     title: str
     teaser: str
-    color_theme: str
     date: str
     path: Path
     entry_meta: dict | None

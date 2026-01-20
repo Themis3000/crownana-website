@@ -4,7 +4,7 @@ style: default
 type: blog-post
 entry_style: classic
 teaser: My first post, explaining how this site is a fresh start for me in terms of internet presence and what inspired me to start this website.
-color_theme: hsl(120, 58%, 64%)
+entry_meta: {"color_theme": "hsl(120, 58%, 64%)"}
 date: 5/28/25
 ----
 # A  new start!

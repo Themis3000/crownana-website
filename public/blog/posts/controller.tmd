@@ -4,8 +4,7 @@ teaser: As a birthday gift for my partner, I spray painted an xbox controller (a
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame5"}
-color_theme: hsl(0, 58%, 64%)
+entry_meta: {"frame": "frame5", "color_theme": "hsl(0, 58%, 64%)"}
 date: 12/27/25
 ----
 # I spray painted an xbox controller!

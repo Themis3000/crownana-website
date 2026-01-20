@@ -1,7 +1,4 @@
-<div class="blog_entry blog_entry_frame_classic stamp" style="background: {{ blog_entry.color_theme }}">
-{#      {%  if 'thumb' in blog_entry %}#}
-{#          <img src="{{ blog_entry.thumb }}" alt="{{ blog_entry.alt }}">#}
-{#      {% endif %}#}
+<div class="blog_entry blog_entry_frame_classic stamp" style="background: {{ blog_entry.entry_meta['color_theme'] }}">
     <a href="{{ blog_entry.get_url_path() }}">
         <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
     </a>

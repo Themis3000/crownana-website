@@ -3,9 +3,8 @@ title: Email updates (for all!)
 style: default
 type: blog-post
 entry_style: framed
-entry_meta: {"frame": "frame2"}
+entry_meta: {"frame": "frame2", "color_theme": "hsl(303, 58%, 64%)"}
 teaser: My latest project (and gift to other site owners)
-color_theme: hsl(303, 58%, 64%)
 date: 8/8/25
 ----
 # Email updates!

@@ -198,7 +198,6 @@ class SiteGenerator:
                     entry_style=doc.meta["entry_style"],
                     title=doc.meta["title"],
                     teaser=doc.meta["teaser"],
-                    color_theme=doc.meta["color_theme"],
                     date=doc.meta["date"],
                     path=gen_file.out_path,
                     entry_meta=doc.meta.get("entry_meta")
