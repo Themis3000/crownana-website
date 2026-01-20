@@ -1,5 +1,9 @@
-<div>
-    <h3 class="blog_entry_title">{{ blog_entry.title }}</h3>
-    <p class="blog_entry_teaser">{{ blog_entry.teaser }}</p>
-    <p>({{ blog_entry.date }})</p>
+<div class="tearaway-entry">
+    <img src="/resources/blog/blank_tearaway.png" alt="Tearaway calendar" class="no-a">
+    <div>
+        <span class="tearaway-month">{{ blog_entry.entry_meta["month"] }}</span>
+        <span class="tearaway-day">{{ blog_entry.entry_meta["day"] }}</span>
+        <span class="tearaway-year">{{ blog_entry.entry_meta["year"] }}</span>
+        <span class="tearaway-teaser">{{ blog_entry.teaser }}</span>
+    </div>
 </div>

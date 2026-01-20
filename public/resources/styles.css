@@ -1012,3 +1012,53 @@ html {
 #big-ol-email:hover {
     filter: brightness(150%);
 }
+
+.tearaway-entry {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.tearaway-entry img {
+    position: absolute;
+    pointer-events: none;
+    height: 280px;
+    width: 328px;
+    transform: translate(20px, 17px);
+}
+
+.tearaway-entry div {
+    height: 315px;
+    width: 368px;
+    z-index: 5;
+    position: relative;
+    font-family: UbuntuMono, serif;
+}
+
+.tearaway-entry span {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    line-height: 1;
+}
+
+.tearaway-month {
+    top: 86px;
+    font-size: 30px;
+}
+
+.tearaway-day {
+    top: 80px;
+    font-size: 120px;
+}
+
+.tearaway-year {
+    top: 70px;
+    font-size: 25px;
+}
+
+.tearaway-teaser {
+    font-family: frush, serif;
+    top: 72px;
+    font-size: 35px;
+}
