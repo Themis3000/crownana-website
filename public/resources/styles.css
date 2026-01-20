@@ -459,7 +459,8 @@ html {
 .blog_entry_title {
     text-align: center;
     font-family: vtf-misterpixel, sans-serif;
-    font-size: 24pt;
+    font-size: 32px;
+    line-height: 1.2;
 }
 
 .blog_entry_title:hover {
@@ -469,7 +470,8 @@ html {
 
 .blog_entry_teaser {
     font-family: vtf-misterpixel, sans-serif;
-    font-size: 16pt;
+    font-size: 20px;
+    line-height: 1.2;
 }
 
 .blog_entry:hover {
