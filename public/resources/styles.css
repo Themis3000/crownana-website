@@ -1018,6 +1018,11 @@ html {
 .tearaway-entry {
     padding-left: 5px;
     padding-right: 5px;
+    color: black;
+}
+
+.tearaway-entry:hover {
+    opacity: 80%;
 }
 
 .tearaway-entry img {

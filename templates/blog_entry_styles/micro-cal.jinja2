@@ -1,4 +1,4 @@
-<div class="tearaway-entry">
+<a class="tearaway-entry" href="{{ blog_entry.get_url_path() }}">
     <img src="/resources/blog/blank_tearaway.png" alt="Tearaway calendar" class="no-a">
     <div>
         <span class="tearaway-month">{{ blog_entry.entry_meta["month"] }}</span>
@@ -6,4 +6,4 @@
         <span class="tearaway-year">{{ blog_entry.entry_meta["year"] }}</span>
         <span class="tearaway-teaser">{{ blog_entry.teaser }}</span>
     </div>
-</div>
+</a>
