@@ -100,6 +100,16 @@ html {
     src: url("/resources/fonts/oddballz.ttf");
 }
 
+@font-face {
+    font-family: frush;
+    src: url("/resources/fonts/FRUSH___.TTF");
+}
+
+@font-face {
+    font-family: UbuntuMono;
+    src: url("/resources/fonts/UbuntuMono-Regular.ttf");
+}
+
 .menu-item-container {
     display: flex;
     align-items: center;
