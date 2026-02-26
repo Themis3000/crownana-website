@@ -1069,3 +1069,12 @@ html {
     top: 72px;
     font-size: 35px;
 }
+
+.img_entry img {
+    height: 315px;
+    width: auto;
+}
+
+.img_entry a:hover {
+    opacity: 80%;
+}
