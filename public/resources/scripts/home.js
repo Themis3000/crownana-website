@@ -14,9 +14,11 @@ document.body.addEventListener("autoplay-allowed", () => {
     const blog_audio = new Audio("/resources/audio/blog.mp3");
     const gallery_audio = new Audio("/resources/audio/gallery.mp3");
     const about_audio = new Audio("/resources/audio/about.mp3");
+    const links_audio = new Audio("/resources/audio/links.mp3");
     const blog_menu = document.getElementById("blog-menu");
     const gallery_menu = document.getElementById("gallery-menu");
     const about_menu = document.getElementById("about-menu");
+    const links_menu = document.getElementById("links-menu");
     blog_menu.addEventListener("mouseenter", () => {
 
        blog_audio.play();
@@ -38,6 +40,13 @@ document.body.addEventListener("autoplay-allowed", () => {
     about_menu.addEventListener("mouseleave", () => {
         about_audio.pause();
         about_audio.currentTime = 0;
+    });
+    links_menu.addEventListener("mouseenter", () => {
+        links_audio.play();
+    });
+    links_menu.addEventListener("mouseleave", () => {
+        links_audio.pause();
+        links_audio.currentTime = 0;
     });
 });
 
