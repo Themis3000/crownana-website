@@ -925,6 +925,10 @@ html {
     background-color: lightblue;
 }
 
+#links-header {
+    background-color: lightcoral;
+}
+
 @keyframes shadow-spin {
     0% {
         text-shadow: 0 10px 10px limegreen;
@@ -943,6 +947,25 @@ html {
     }
 }
 
+@keyframes shadow-spin-2 {
+    0% {
+        text-shadow: 0 10px 10px #42c4bf;
+    }
+    25% {
+        text-shadow: 10px 10px 10px #42c4bf;
+    }
+    50% {
+        text-shadow: 10px 0 10px #42c4bf;
+    }
+    75% {
+        text-shadow: -10px 10px 10px #42c4bf;
+    }
+    100% {
+        text-shadow: -10px 0 10px #42c4bf;
+    }
+}
+
+
 #about-header-text {
     font-family: Minecrafter, serif;
     font-size: 68pt;
@@ -950,8 +973,21 @@ html {
     animation: shadow-spin 5s alternate linear infinite;
 }
 
+#links-header-text {
+    font-family: Minecrafter, serif;
+    color: #65269f;
+    font-size: 68pt;
+    text-shadow: 10px 10px 10px #42c4bf;
+    animation: shadow-spin-2 5s alternate linear infinite;
+}
+
 .goose-bg {
     background-image: url("/resources/images/about_bg.jpg");
+    background-size: cover;
+}
+
+.fish-bg {
+    background-image: url("/resources/images/fishies.jpg");
     background-size: cover;
 }
 
@@ -1077,4 +1113,9 @@ html {
 
 .img_entry a:hover {
     opacity: 80%;
+}
+
+.web-btn {
+    width: 88px;
+    height: 31px;
 }
