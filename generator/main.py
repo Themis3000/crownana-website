@@ -60,17 +60,32 @@ class ImageEntry:
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
+        self.sizing_rule = sizing_rule
+        self.scale_modifier = scale_modifier
+        self.needs_rescaling = self._get_needs_rescaling()
         out_file_name = f"thumb_{sizing_rule.widthPx}_{sizing_rule.heightPx}_{scale_modifier}x_{path.parts[-1]}"
         out_path_dir = OUT_PATH.joinpath(*path.parts[2:-1])
         self.out_path = out_path_dir.joinpath(out_file_name)
-        self.sizing_rule = sizing_rule
-        self.scale_modifier = scale_modifier
+
+    def _get_needs_rescaling(self) -> bool:
+        image = Image.open(self.path)
+        needs_rescaling = False
+        if self.sizing_rule.widthPx is not None:
+            if image.width > self.sizing_rule.widthPx:
+                needs_rescaling = True
+        if self.sizing_rule.heightPx is not None:
+            if image.height > self.sizing_rule.heightPx:
+                needs_rescaling = True
+        return needs_rescaling
 
     def get_out_url(self) -> str:
         parts = list(self.out_path.parts)[2:]
         return "/" + "/".join(parts)
 
     def convert(self):
+        if not self.needs_rescaling:
+            raise Exception("Convert was called, but no rescaling is needed!")
+
         if self.check_completed():
             return
 
@@ -81,7 +96,6 @@ class ImageEntry:
         width_size = self.sizing_rule.widthPx
         if width_size is None:
             width_size = image.width
-        # The thumbnail method checks if the output size is larger than the original for us.
         image.thumbnail((int(width_size * self.scale_modifier), int(height_size * self.scale_modifier)))
         image.save(self.out_path)
 
@@ -109,6 +123,8 @@ class SiteGenerator:
         self.img_mappings: Dict[str, ImageEntry] = {}
 
     def add_img_mapping(self, img_entry: ImageEntry):
+        if not img_entry.needs_rescaling:
+            return
         unique = img_entry.get_unique()
         if unique in self.img_mappings:
             return
