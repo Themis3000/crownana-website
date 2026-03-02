@@ -60,7 +60,7 @@ class ImageEntry:
         if not isinstance(path, Path):
             path = Path(path)
         self.path = path
-        out_file_name = f"thumb_{sizing_rule.widthPx}_{sizing_rule.heightPx}_{path.parts[-1]}"
+        out_file_name = f"thumb_{sizing_rule.widthPx}_{sizing_rule.heightPx}_{scale_modifier}x_{path.parts[-1]}"
         out_path_dir = OUT_PATH.joinpath(*path.parts[2:-1])
         self.out_path = out_path_dir.joinpath(out_file_name)
         self.sizing_rule = sizing_rule
@@ -86,7 +86,7 @@ class ImageEntry:
         image.save(self.out_path)
 
     def get_unique(self) -> str:
-        return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}"
+        return f"{self.path.as_posix()}_{self.sizing_rule.widthPx}_{self.sizing_rule.heightPx}_{self.scale_modifier}"
 
     def check_completed(self) -> bool:
         return self.out_path.exists()
@@ -144,12 +144,16 @@ class SiteGenerator:
             size_rule = self.css_sizing.get_tag_size(img)
             if size_rule is None:
                 continue
+            classes = img.get("class", "")
             rel_src_string = urllib.parse.unquote(img["src"])
             if rel_src_string.startswith("/"):
                 rel_src_string = rel_src_string[1:]
-            img_entry = ImageEntry(path=SRC_PATH.joinpath(rel_src_string), sizing_rule=size_rule)
+            over_scale = 1.25
+            if "no-over-scale" in classes:
+                over_scale = 1
+            img_entry = ImageEntry(path=SRC_PATH.joinpath(rel_src_string), sizing_rule=size_rule, scale_modifier=over_scale)
             self.add_img_mapping(img_entry)
-            if "no-a" not in img.get("class", ""):
+            if "no-a" not in classes:
                 a_element = soup.new_tag("a", href=img["src"])
                 img.wrap(a_element)
             img["src"] = img_entry.get_out_url()
