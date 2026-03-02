@@ -59,17 +59,27 @@ class CSSSizingParser:
             if named_sizing_rule is None:
                 continue
             if named_sizing_rule.sizing_rule is not None:
-                out_sizing_rules.append(named_sizing_rule.sizing_rule)
+                out_sizing_rules.append(named_sizing_rule)
             for parent_lookup_name in parent_lookup_names:
                 parent_named_rule = named_sizing_rule.check_for_parent(parent_lookup_name)
                 if parent_named_rule is None:
                     continue
                 if parent_named_rule.sizing_rule is None:
                     raise Exception("Found parent... But it had no sizing rule. This is unexpected behavior.")
-                out_sizing_rules.append(parent_named_rule.sizing_rule)
+                out_sizing_rules.append(parent_named_rule)
 
         if len(out_sizing_rules) > 1:
-            # If this is raised, I should probably implement some way to determine which sizing rule to return.
+            # If there is only one direct match, then return that one.
+            match_count = 0
+            match = None
+            for rule in out_sizing_rules:
+                if rule.name in lookup_names:
+                    match_count += 1
+                    match = rule
+
+            if match_count == 1:
+                return match.sizing_rule
+            # If this is raised, I should probably implement some further way to determine which sizing rule to return.
             # The easy way would probably be to return whichever one is larger?
             # (but what if one has only height defined and the other only width)
             # I could fall back to no size found when conflicting values that only have a single distention found
@@ -77,7 +87,7 @@ class CSSSizingParser:
             raise Exception("Conflicting sizing rules found!")
         if len(out_sizing_rules) == 0:
             return None
-        return out_sizing_rules[0]
+        return out_sizing_rules[0].sizing_rule
 
     def add_stylesheet(self, sheet_str: str):
         rules = tinycss2.parse_stylesheet(sheet_str, skip_whitespace=True, skip_comments=True)
