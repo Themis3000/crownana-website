@@ -4,13 +4,14 @@ import bs4
 import tinycss2
 from tinycss2 import tokenizer
 from tinycss2.ast import Node
-from typing import Dict, List, Self, Set
+from typing import Dict, List, Self, Set, Tuple
 
 
 @dataclasses.dataclass
 class SizingRule:
     widthPx: int | None
     heightPx: int | None
+    important: bool
 
     def __post_init__(self):
         if self.widthPx is None and self.heightPx is None:
@@ -69,16 +70,9 @@ class CSSSizingParser:
                 out_sizing_rules.append(parent_named_rule)
 
         if len(out_sizing_rules) > 1:
-            # If there is only one direct match, then return that one.
-            match_count = 0
-            match = None
-            for rule in out_sizing_rules:
-                if rule.name in lookup_names:
-                    match_count += 1
-                    match = rule
-
-            if match_count == 1:
-                return match.sizing_rule
+            rules_important = [rule for rule in out_sizing_rules if rule.sizing_rule.important]
+            if len(rules_important) == 1:
+                return rules_important[0].sizing_rule
             # If this is raised, I should probably implement some further way to determine which sizing rule to return.
             # The easy way would probably be to return whichever one is larger?
             # (but what if one has only height defined and the other only width)
@@ -98,29 +92,37 @@ class CSSSizingParser:
             declarations = tinycss2.parse_blocks_contents(rule.content, skip_whitespace=True, skip_comments=True)
             width: int | None = None
             height: int | None = None
+            important = False
             for declaration in declarations:
                 if not isinstance(declaration, tinycss2.parser.Declaration):
                     continue
                 if declaration.lower_name == "width":
-                    width = self._extract_px_dimension(declaration)
+                    width, w_important = self._extract_px_dimension(declaration)
+                    if w_important:
+                        important = True
                     continue
                 if declaration.lower_name == "height":
-                    height = self._extract_px_dimension(declaration)
+                    height, h_important = self._extract_px_dimension(declaration)
+                    if h_important:
+                        important = True
 
             if width or height:
-                sizing_rule = SizingRule(widthPx=width, heightPx=height)
+                sizing_rule = SizingRule(widthPx=width, heightPx=height, important=important)
                 self._store_sizing_by_prelude(sizing_rule=sizing_rule, prelude=rule.prelude)
 
     @staticmethod
-    def _extract_px_dimension(declaration: tinycss2.parser.Declaration) -> int | None:
+    def _extract_px_dimension(declaration: tinycss2.parser.Declaration) -> Tuple[int, bool] | Tuple[None, None]:
+        """
+            Extracts the dimension if declared in px, and if the dimension is "!important"
+        """
         token = tinycss2.parse_one_component_value(declaration.value, skip_comments=True)
         if not isinstance(token, tokenizer.DimensionToken):
-            return
+            return None, None
         if not token.is_integer:
-            return
+            return None, None
         if token.lower_unit != "px":
-            return
-        return token.int_value
+            return None, None
+        return token.int_value, declaration.important
 
     def _store_sizing_by_prelude(self, sizing_rule: SizingRule, prelude: List[Node]):
         # Describes the inheritance of the name to be written out.
