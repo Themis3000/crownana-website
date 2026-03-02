@@ -989,6 +989,7 @@ html {
 .fish-bg {
     background-image: url("/resources/images/fishies.jpg");
     background-size: cover;
+    min-height: 100vh;
 }
 
 #blog_rss {
@@ -1118,4 +1119,10 @@ html {
 .web-btn {
     width: 88px !important;
     height: 31px !important;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
