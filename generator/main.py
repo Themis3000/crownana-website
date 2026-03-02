@@ -123,8 +123,6 @@ class SiteGenerator:
         self.img_mappings: Dict[str, ImageEntry] = {}
 
     def add_img_mapping(self, img_entry: ImageEntry):
-        if not img_entry.needs_rescaling:
-            return
         unique = img_entry.get_unique()
         if unique in self.img_mappings:
             return
@@ -168,6 +166,8 @@ class SiteGenerator:
             if "no-over-scale" in classes:
                 over_scale = 1
             img_entry = ImageEntry(path=SRC_PATH.joinpath(rel_src_string), sizing_rule=size_rule, scale_modifier=over_scale)
+            if not img_entry.needs_rescaling:
+                continue
             self.add_img_mapping(img_entry)
             if "no-a" not in classes:
                 a_element = soup.new_tag("a", href=img["src"])
