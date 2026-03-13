@@ -1,0 +1,29 @@
+----
+title: 3/13/26 CD player
+teaser: CD player
+style: default
+type: blog-post
+entry_style: micro-cal
+entry_meta: {"month": "March", "day": "13", "year": "2026"}
+date: 3/13/26
+----
+# CD player
+Recently I've been working on making my perfect CD player that'll also solve all my desk's audio problems. Right now, my desk has my computer, speakers, and a pair of headphones. Whenever I want to switch between my headphones and speakers I need to crawl under my desk to switch the audio cables. Adding in a CD player will only make me have to crawl around juggling wires more often, plus I want to add a wii to my desk too.
+
+The CD player will take care of all of that hassle though! It has a built-in mixer, so I'll feed every audio device into it, and it'll mix it all together. It'll also have two audio outputs with a switch to flip between them, that way I can switch between my headphones and speakers easily!
+
+The actual CD player is just a laptop dvd-rom module hooked up to a raspberry pi. I wrote a python script that handles playing the audio on the disks. It also has play/pause/eject/skip/back buttons hooked up to it for media controls. It has a nice DAC connected to it as well, so the sound coming out of it is very nice :)
+
+The whole thing will be contained in a 3d printed housing. I'm building it to be quite modular, that way I can add stuff to it down the line without having to reprint/transplant everything. I've been learning a lot about freecad while modeling this! Here's some pictures of what I've modeled so far:
+![A screenshot of a 3d model in FreeCAD. The model is boxy with various holes in the front for components to be attached](/resources/blog/player_front.png)
+The slot at the bottom is the CD slot, that gives you a sense for the scale. It's quite small! It's only 6x6x5 inches large. The 4 circle holes are the media controls, and the big cutout is where to audio mixer will be attached to.
+
+![A screenshot of a 3d model in FreeCAD. The front cover is removed and you can see to the inside.](/resources/blog/player_inside.png)
+Here's what the inside looks like! I've mocked up the placement of the CD player at the bottom. Along the sides are rails for shelves to be screwed in on. If I need to add more stuff at some point I'll be able to just add another shelf! At the top I have the "wire highways". That's all the audio wires will travel from the front plate to the backplate through that tube, that way everything is nice and neatly managed. I want it to look beautiful inside!
+
+![A screenshot of a 3d model in FreeCAD. The back of the model is shown, with various holes for components to be attached](/resources/blog/player_back.png)
+And here's the back, it has 3 inputs on the right, a networking cable slot in the middle, and the 2 audio outputs at the left. All of these holes are sized for the connector components to screw right in! I'll show pictures of how that works later on once I'm further along :)
+
+The big challenge I need to solve now is the power input! I'm not entirely sure how I'm going to do this yet...
+
+Once I have that figured out and I add some finishing touches to the model I'm going to get building! Wish me luck, I'll update with my progress when I get stuff done :)
