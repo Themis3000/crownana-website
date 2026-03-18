@@ -1,0 +1,20 @@
+----
+title: 3/18/26 CD player progress
+teaser: CD player progress
+style: default
+type: blog-post
+entry_style: micro-cal
+entry_meta: {"month": "March", "day": "18", "year": "2026"}
+date: 3/18/26
+----
+# CD player progress
+I've kept working on the CD player I mentioned last time! I've finally got something physical to show for it. I've been doing a bunch of soldering to get stuff wired up.
+
+In case you missed the last post, here's the model I have for the CD player so far:
+
+![A screenshot of a 3d model in FreeCAD. The model is boxy with various holes in the front for components to be attached](/resources/blog/player_front.png)
+![A screenshot of a 3d model in FreeCAD. The front cover is removed and you can see to the inside.](/resources/blog/player_inside.png)
+
+I'll show off the parts I've made so far one by one, and give a little explanation about some of the decisions I made.
+
+So first, here's the front of the front plate:
