@@ -1,4 +1,8 @@
 images:
+  - path: _3300228_02.jpg
+    alt: An image of a goose sleeping
+    subtext: Sleepy goose
+    category: birds
   - path: _A052668.jpg
     alt: A long exposure shot of a small waterfall with green and rocky surroundings
     subtext: MN Arboretum waterfall
