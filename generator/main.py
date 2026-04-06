@@ -149,6 +149,15 @@ class SiteGenerator:
 
     def process_html(self, gen_file: GenFile):
         soup = BeautifulSoup(gen_file.read_src_str(), features="html.parser")
+
+        icon_16_tag = soup.new_tag("link", rel="icon", type="image/png", sizes="16x16",
+                                href="/resources/images/goose_icon_16px.png")
+        icon_tag = soup.new_tag("link", rel="icon", type="image/png", sizes="304x304",
+                                href="/resources/images/goose_icon.png")
+        head_tag = soup.find(name="head")
+        head_tag.append(icon_16_tag)
+        head_tag.append(icon_tag)
+
         img_tags = soup.find_all(name="img")
         for img in img_tags:
             if not isinstance(img, bs4.Tag):
