@@ -3,6 +3,10 @@ images:
     alt: An image of a goose sleeping
     subtext: Sleepy goose
     category: birds
+  - path: _B152735.jpg
+    alt: A silhouette of a figure hunched down at the end of a hallway
+    subtext: Hallway monster
+    category: people
   - path: _A052668.jpg
     alt: A long exposure shot of a small waterfall with green and rocky surroundings
     subtext: MN Arboretum waterfall
