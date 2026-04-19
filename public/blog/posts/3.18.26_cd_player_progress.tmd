@@ -24,7 +24,7 @@ The buttons are for pause/play, skip track, previous track, and eject disk. The 
 
 Now here's the back plate:
 ![A flat 3d printed panel with screw holes in it's 4 corners. It has a group of 3 3.5mm audio jacks on the right, a second group of 2 audio jacks on the left, and a power cord coming out the middle. Above there is an ethernet port](/resources/blog/cd_player_back_plate.jpg)
-![The back side of the above image. There is a small power strip coming through the middle of the plate and wires coming out of the back of each audio port](/resources/blog/cd_player_front_plate_back.jpg)
+![The back side of the above image. There is a small power strip coming through the middle of the plate and wires coming out of the back of each audio port](/resources/blog/cd_player_back_plate_back.jpg)
 So I have 3 inputs that go into the mixer out the back, and the two outputs which can be switched between! I also have an ethernet port so I can get a connection to the raspberry pi inside (it doesn't have wifi). The whole thing will be powered by that power strip. I've secured it in place with a clamping mechanism, so it won't slide in or out easily.
 
 Annd finally here's the first shelf:
