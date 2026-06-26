@@ -20,5 +20,5 @@ date: {time_standard}
 # {time_standard} {post_name}
 """
 
-with open(f"./public/blog/posts/{time_file_name}", "w") as f:
+with open(f"./public/blog/posts/{time_file_name}", "w", encoding="utf-8") as f:
     f.write(output)

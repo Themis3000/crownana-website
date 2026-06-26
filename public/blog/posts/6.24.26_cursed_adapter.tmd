@@ -1,0 +1,27 @@
+----
+title: 6/24/26 cd player progress, cursed adapter
+teaser: cursed adapter
+style: default
+type: blog-post
+entry_style: micro-cal
+entry_meta: {"month": "June", "day": "24", "year": "2026"}
+date: 6/24/26
+----
+# 6/24/26 cd player progress: cursed adapter
+(Like all good projects at some point in their creation), I let my [cd player project](/blog/posts/3.18.26_cd_player_progress.html) sit around for a few months without any progress. I've finally picked it back up though! The big hold-up was figuring out how to power the cd player and the raspberry pi at the same time. I tried cutting the end off of a usb-a to usb-c cable, then connecting the positive and ground wires directly to the cd player (as the cd player requires 5 volts), but that ended up not working. It turns out that usb power adapters only provide 100ma unless the connected device requests more power.
+
+I ended up finding these neat boards on aliexpreess that provide higher a larger amperage of 5v power when connected to a usb pd adapter:
+![a small pcb with a type-c female on one end and +, ground, data +, and data - terminals on the other end. Text above reads "16p type-c female with dual 5.1k resistor"](/resources/blog/6.26.26%20aliexpress.png)
+
+I then connected the 5v / ground terminals to the sliced off end of a micro usb cable and the power input to a slimline sata adapter. This should work to power both the raspberry pi and the optical drive at the same time!
+![female usb to slimline and micro usb adapter](/resources/blog/6.24.26%20cursed%20adapter.jpg)
+
+Hopefully this works like I expect and doesn't cause anything to blow up lol. I've powered just the cd drive and just the raspberry pi separately with it, both of which worked. But I haven't tried both at once yet. I'm not going to test them both together until everything else is done. That way if it does break stuff I don't get left feeling too discouraged.
+
+Everything is really coming together though. There's not all that much left to do before I have something working :). The only remaining issues I have left have to do with the (small) amount of space inside the cd player. Whenever I'm designing something on a computer everything always feels so much bigger than it actually is when I print it. It turns out just the wires take up a significant amount of space inside the enclosure. My idea of having multiple shelves of stuff no longer really makes sense just because of the volume of space these wires consume.
+![The inside of the cd player. Unplugged wires of many kinds are loosely floating around everywhere.](/resources/blog/6.26.26%20inside%20player.jpg)
+
+I've had to trim down the length of some of these wires to make them fit better. Now the biggest holdup is being able to plug in my usb to sata adapter. The usb connector at the end of the adapter is unusually long and doesn't have quite enough space to be plugged into the usb ports. I'm trying to find a way to fix that one without buying anything, but if I can't find another way I'm just going to buy one of these right angle adapters which should fix my problem:
+![A usb-a male to usb-a female adapter. The female connector is at a right angle relative to the male connector](/resources/blog/6.26.26%20right%20angle%20adapter.png)
+
+I'm going to work some more on the cd player today. I'm hoping to get it working at a basic level soon!
