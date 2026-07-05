@@ -1,0 +1,28 @@
+----
+title: The CD player is DONE
+teaser: ITS REALLY DONE
+style: default
+type: blog-post
+entry_style: framed
+entry_meta: {"frame": "frame7", "color_theme": "hsl(0, 58%, 64%)"}
+date: 7/5/26
+----
+# 7/5/26 The CD player is DONE
+I FINALLY finished up the CD player!! Well actually, I finished it up later in the day after my last post. After solving the problem with how to power the internals everything else just fell into place without much issue at all.
+
+## Reintroduction
+![A 3d printed box decorated with stickers. On the front side 4 buttons are present, a cd sized slit, a 5 dial, and a switch](/resources/blog/7.5.26%20cd%20player%20front.jpg)
+It's not just a CD player! It's also a mixer and audio output switcher. Really it's designed to solve all my desk audio problems at once. The dials are for controlling the volume of the audio inputs, the switch controls the output device (so I can switch between headphones and speakers easily), and the buttons are media controls for the cd player (eject, previous song, pause/play, skip song).
+
+![The back of the 3d printed box. It has an rj45 port, a group of 3 audio inputs, 2 outputs, and a usb-c port](/resources/blog/7.5.26%20cd%20player%20back.jpg)
+Out the back there's 3 inputs which go to the mixer, an ethernet connection to the computer inside, the 2 outputs, and of course usb-c for power.
+
+![The inside of the 3d printed box. Wires are everywhere. It's hard to make much sense of it visually.](/resources/blog/7.5.26%20cd%20player%20inside.jpg)
+Just don't look inside. I never imagined that wires could take up this much space. This is *after* trimming down a lot of these wires to shorter lengths. It just barely all fits. It's a good thing I didn't make the enclosure any smaller.
+
+## Future plans
+Inside the cd player is a full Raspberry Pi computer with a nice dac attached. I don't want to waste all that power on just playing vlc! I'm not sure what I'll do with it yet exactly, but I feel like there's more I can do here. I'm considering making it double as a CD burner controllable through a web interface. That way burning new CD's can be super easy for me. Or maybe I can make it a device my phone can cast audio to. Heck, it has a dvd drive. I could even expose the hdmi connection on the back panel and make it a dvd player. It's probably not in its final state quite yet.
+
+----
+
+That's all for now!! I'm moved on to other projects for now. I'll definitely write about my next projects in the near future :)
