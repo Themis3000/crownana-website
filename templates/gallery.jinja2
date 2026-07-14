@@ -17,7 +17,14 @@
             <div class="gallery-photo-entry">
                 <img src="/resources/gallery/{{ img_entry['path'] }}" class="gallery-photo" alt="{{ img_entry['alt'] }}">
                 {% if 'info_page' in img_entry %}
-                    <a href={{img_entry['info_page'] if img_entry['info_page'].startswith("/") else "/gallery/pages/" + img_entry['info_page'] }}>
+                    {% if img_entry['info_page'].startswith("/") %}
+                        <a href={{img_entry['info_page']}}>
+                    {% elif img_entry['info_page'].startswith("http") %}
+                        <a href={{img_entry['info_page']}}>
+                    {% else %}
+                        <a href={{"/gallery/pages/" + img_entry['info_page'] }}>
+                    {% endif %}
+
                         {{ img_entry['subtext'] }}
                     </a>
                 {% else %}

@@ -1,4 +1,34 @@
 images:
+  - path: _7051199.jpg
+    alt: An image of a pigeon
+    subtext: Miracle the Pigeon
+    category: birds
+    info_page: https://www.gofundme.com/f/contribute-to-miracle-the-pigeons-healing-journey
+  - path: _7051239.jpg
+    alt: An image of a pigeon
+    subtext: Miracle the Pigeon
+    category: birds
+    info_page: https://www.gofundme.com/f/contribute-to-miracle-the-pigeons-healing-journey
+  - path: _7031130.jpg
+    alt: An image of a few ducks standing at the shore of a river
+    subtext: Quak
+    category: birds
+  - path: _7031117.jpg
+    alt: And image of a goose standing in shallow water at the edge of a river
+    subtext: Honk
+    category: birds
+  - path: _7031089.jpg
+    alt: An image of a goose eating corn out of the water
+    subtext: Mmmm corn
+    category: birds
+  - path: _7031085.jpg
+    alt: An image of geese in a river. The main subject goose is hissing
+    subtext: Hissy goose
+    category: birds
+  - path: _7031132.jpg
+    alt: A duck standing up as tall as it can quaking
+    subtext: QUAK QUAK QUAK
+    category: birds
   - path: _3300228_02.jpg
     alt: An image of a goose sleeping
     subtext: Sleepy goose
