@@ -1,0 +1,36 @@
+----
+title: 7/26/26 TOO MANY FILES
+teaser: TOO MANY FILES
+style: default
+type: blog-post
+entry_style: micro-cal
+entry_meta: {"month": "July", "day": "26", "year": "2026"}
+date: 7/26/26
+----
+# 7/26/26 TOO MANY FILES
+I've been spending yesterday and today dealing with trying to transfer 2.5 MILLION files. It turns out that dealing with that quantity of files is quite difficult. I've come to find that most file management applications just freeze up when you try to open a folder containing 2.5m files. It's not even that much data, it's only about 850gb. But most programs I've tried (even commandline programs!) will either hang indefinitely or crash.
+
+## But why do you have so many files?
+Well I run a browser extension called ao3saver. AO3 is a site for publishing fanfictions. A common issue with the site is how often authors decide to delete their accounts though, which makes readers sad. So I decided to try and solve that issue with ao3saver. Whenever you view a work, a request to archive that work is sent back to my server. My server archives the work (and any images it can!) and saves it for you just in case. It has a relatively small base of users (last I checked was 11 months ago, and it had ~700 unique users per day), but over time those users generate a whole lot of archival requests.
+
+My server has ~1.5 million written works archived, all old versions of those works previously fetched, and all linked images (when possible). Which is why I have so many individual small files.
+
+## And why are you transferring them?
+A while ago my storage provider decided to bump up their pricing from $5/month/tb to $18/month/tb :\
+
+At first that was kinda okay I guess, because at least I have under 1tb of data stored with them. But now I'm planning to import another person's AO3 archive that they've been operating since 2012, which contains ~15m works. For context, AO3 claims to have ~18m works published *in total*. I don't believe they archived images because the file size is only 1tb, but regardless that's a lot of archived works that I could make available directly to readers.
+
+After importing that archive the cost on my current storage provider would be $36/month, and there is NO WAY I'm paying that much on top of the already existing server cost of ao3saver.
+
+## The upload is finally going!!
+I ended up choosing mega.nz's s4 service as my provider. They only cost $10/month for 3tb of space. Hopefully choosing such a cheap option doesn't come around and bite me later. I don't want to spend much money though, so I guess I'll just have to wait and see if it does lol.
+
+I store all my files in an s3 compatible service (if you don't know, s3 is amazon web service's main file storage offering. A bunch of other storage providers make their service an exact drop in replacement for s3)
+
+I downloaded all the files using aws's official commandline tool, which worked well. Then, when it came to trying to upload all the files to mega, it would just hang forever. I tried a bunch of other utilities and software which all had unique issues of their own. Finally, I ended up using a utility called "cmds5" to do the uploading. It has the issue that random files keep failing during the upload, and I have no idea if it's retrying those files or not after they fail. It is the only program I can find that will upload all these tiny files at quicker than 10megabits though. I've written a python script that'll check afterwords for any missed files and upload the ones that cmds5 misses.
+
+I feel like I must be missing something, moving files from 1 s3 bucket to another s3 bucket really shouldn't be this hard. Maybe I should have used rclone, I've heard it's slow so I was looking for other more performant solutions first... Maybe that was a mistake.
+
+____
+
+Also, I added some new pictures to my gallery! There's some more geese in there now :)
