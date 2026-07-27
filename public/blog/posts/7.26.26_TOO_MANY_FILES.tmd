@@ -34,3 +34,11 @@ I feel like I must be missing something, moving files from 1 s3 bucket to anothe
 ____
 
 Also, I added some new pictures to my gallery! There's some more geese in there now :)
+
+____
+
+Update from later in the day:
+
+I tried out using rclone in a vps to see if it was faster. Unfortunately it's a lot slower :'(
+
+I'll just bring ao3saver back up while this initial transfer completes. Then, I can bring the service down and sync the rest of the files. That way there's less overall downtime. I really thought this transfer would be less than 24 hours, but it looks like I'm in it for the long haul.
