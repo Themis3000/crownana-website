@@ -1,4 +1,8 @@
 images:
+  - path: stack-7.26.26.jpg
+    alt: An image of the site's author sitting in a grassy area with a spotlight over them
+    subtext: Me
+    category: people
   - path: _7051199.jpg
     alt: An image of a pigeon
     subtext: Miracle the Pigeon
