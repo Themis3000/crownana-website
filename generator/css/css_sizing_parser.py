@@ -71,8 +71,11 @@ class CSSSizingParser:
 
         if len(out_sizing_rules) > 1:
             rules_important = [rule for rule in out_sizing_rules if rule.sizing_rule.important]
+            id_rules = [rule for rule in out_sizing_rules if rule.name.startswith("#")]
             if len(rules_important) == 1:
                 return rules_important[0].sizing_rule
+            if len(id_rules) == 1:
+                return id_rules[0].sizing_rule
             # If this is raised, I should probably implement some further way to determine which sizing rule to return.
             # The easy way would probably be to return whichever one is larger?
             # (but what if one has only height defined and the other only width)

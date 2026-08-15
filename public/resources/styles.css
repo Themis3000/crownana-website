@@ -1126,3 +1126,10 @@ html {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#about-me-img {
+    height: 400px;
+    width: auto;
+    float: left;
+    padding: 0 15px 0 0;
+}
