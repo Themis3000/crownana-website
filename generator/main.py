@@ -135,14 +135,18 @@ class SiteGenerator:
         self.generate_rss_feed()
 
     def run_generation(self):
+        print("running pre-actions")
         self.pre_actions()
 
+        print("processing html documents")
         for gen_file in self.get_unprocessed_file_type([".html"]):
             self.process_html(gen_file)
 
+        print("creating image thumbnails")
         for img_mapping in self.img_mappings.values():
             img_mapping.convert()
 
+        print("copying all other files")
         for gen_file in self.file_paths:
             if not gen_file.processed:
                 self.process_file(gen_file)
