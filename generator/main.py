@@ -6,6 +6,7 @@ Please don't make judgements about my programming skills based on this.
 Most of this was written in little gaps of time on my 2008 laptop without an internet connection.
 I could roast a lot of what I've written here.
 """
+import math
 from pathlib import Path
 import bs4
 import yaml
@@ -155,7 +156,7 @@ class SiteGenerator:
         soup = BeautifulSoup(gen_file.read_src_str(), features="html.parser")
 
         icon_16_tag = soup.new_tag("link", rel="icon", type="image/png", sizes="16x16",
-                                href="/resources/images/goose_icon_16px.png")
+                                   href="/resources/images/goose_icon_16px.png")
         icon_tag = soup.new_tag("link", rel="icon", type="image/png", sizes="304x304",
                                 href="/resources/images/goose_icon.png")
         head_tag = soup.find(name="head")
@@ -243,10 +244,22 @@ class SiteGenerator:
     def generate_blog_home(self):
         blog_template = env.get_template("blog.jinja2")
         self.blog_entries.sort(reverse=True, key=lambda x: x.get_timestamp())
-        blog_content = blog_template.render(blog_entries=self.blog_entries)
-        gen_file = GenFile(OUT_PATH.joinpath("blog/index.html"))
-        gen_file.write_out_str(blog_content)
-        self.file_paths.append(gen_file)
+
+        page_size = 15
+        pages = math.ceil(len(self.blog_entries) / page_size)
+        previous_url = None
+        for page in range(pages):
+            file_name = "index.html" if page == 0 else f"{page+1}.html"
+            next_url = f"{page+2}.html" if page+1 < pages else None
+            page_content = blog_template.render(blog_entries=self.blog_entries[page_size*page:page_size*(page+1)],
+                                                previous_url=previous_url, next_url=next_url)
+
+            gen_file = GenFile(OUT_PATH.joinpath(f"blog/{file_name}"))
+            gen_file.write_out_str(page_content)
+            self.file_paths.append(gen_file)
+
+            previous_url = file_name
+
 
     def generate_rss_feed(self):
         rss_path = OUT_PATH.joinpath("blog/rss.xml")

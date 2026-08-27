@@ -52,6 +52,20 @@
         </div>
         <img id="blog_right" src="/resources/blog/banners/IMG_0123.jpg" alt="Themis looking cool">
     </div>
+    {% if previous_url or next_url %}
+        <div class="page-turn-box">
+            {% if previous_url %}
+                <a class="page-turn" href="{{ previous_url }}">
+                    << Previous page
+                </a>
+            {% endif %}
+            {% if next_url %}
+                <a class="page-turn" href="{{ next_url }}">
+                    Next page >>
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
     <script src="/resources/scripts/common.js"></script>
     <script src="/resources/scripts/blog.js"></script>
 </body>
