@@ -260,7 +260,6 @@ class SiteGenerator:
 
             previous_url = file_name
 
-
     def generate_rss_feed(self):
         rss_path = OUT_PATH.joinpath("blog/rss.xml")
         rss_f = open(rss_path, "w")
