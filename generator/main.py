@@ -17,7 +17,7 @@ from typing import List, Dict
 from html import escape
 from bs4 import BeautifulSoup
 from css import CSSSizingParser, SizingRule
-from PIL import Image
+from PIL import Image, ImageOps
 import urllib.parse
 import shutil
 
@@ -98,6 +98,7 @@ class ImageEntry:
         if width_size is None:
             width_size = image.width
         image.thumbnail((int(width_size * self.scale_modifier), int(height_size * self.scale_modifier)))
+        image = ImageOps.exif_transpose(image)
         image.save(self.out_path)
 
     def get_unique(self) -> str:
