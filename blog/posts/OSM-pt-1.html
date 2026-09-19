@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            OSM is the new hotness
+        </title>
+        <link href="/resources/styles.css" rel="stylesheet"/>
+        <link href="/resources/images/goose_icon_16px.png" rel="icon" sizes="16x16" type="image/png"/>
+        <link href="/resources/images/goose_icon.png" rel="icon" sizes="304x304" type="image/png"/>
+    </head>
+    <body>
+        <div class="writing-style">
+            <h1>
+                OSM is the new hotness
+            </h1>
+            <p>
+                I switch between hobbies a lot, and recently I got turned on to
+                <a href="https://en.wikipedia.org/wiki/OpenStreetMap">
+                    Open Street Maps
+                </a>
+                (as you may have read about in an
+                <a href="/blog/posts/what_the_flock.html">
+                    earlier post
+                </a>
+                ). If you don't know what Open Street Maps is, think of it like Wikipedia if it were a map. It's a globally editable map, available to be used for free by anyone for any purpose. A lot of services and devices use Open Street Maps under the hood, or use it for supplementary data. It can be used to map almost anything, roads, bike paths, cross country ski trails, bathrooms, trees (and their species), rivers, trash bins, benches, bike parking, and basically everything else in an unchanging location.
+                <br/>
+                <br/>
+                The granularity of the information about an area is dependent on how dedicated contributors to the map are. In major cities, things tend to be mapped pretty well. In suburbs, it's not uncommon for houses to not have their addresses inputted. Because the data published by OSM is entirely free (free as in freedom, to use the data for anything. even for commercial products) the data must be exclusively sources from areas they have the legal permissions to use. That means no copying from Google Maps or Google Street View. The common sources for information are arial imagery (generously provided by Microsoft, this is the only Microsoft praise you'll hear from me), US Census
+                <a href="https://en.wikipedia.org/wiki/Topologically_Integrated_Geographic_Encoding_and_Referencing">
+                    TIGER
+                </a>
+                data, user generated street level images published on services such as
+                <a href="https://www.mapillary.com/">
+                    Mapillary
+                </a>
+                , and of course, in person surveys conducted by users.
+                <br/>
+                <br/>
+            </p>
+            <h2>
+                The slippery slope I got started on
+            </h2>
+            <p>
+                It all started with mapping the location of a Flock ALPR (Automated License Plate Reader) camera that was
+                <b>
+                    illegally
+                </b>
+                not disclosed to Minnesota's BCA (Burau of Criminal Apprehension). All ALRP's used by police in Minnesota is supposed to be disclosed to the BCA, who then in turn publishes a
+                <a href="https://dps.mn.gov/divisions/bca/data-and-reports/agencies-use-lprs-lpr">
+                    list of all the ALPR locations
+                </a>
+                . Apparently, the UMPD thinks they're too good to follow the law. Another Minnesota citizen noticed this as well and filed a DPA request (basically Minnesota's version of the freedom of information act); The response they received stated that there were 10 Flock ALPRs in the UMPD's area, but said the exact locations were "security information" and won't be disclosed. I don't know what makes the location of
+                <i>
+                    all 10
+                </i>
+                of their Flock cameras are "security information". Meanwhile, it seems all the other police agencies in the state have no problem following this law properly.
+                <br/>
+                <br/>
+            </p>
+            <a href="/resources/blog/osm_flock_poster.jpg">
+                <img alt='Sign on a pole with an arrow pointing. The sign reads "Flock camera. This is one of many AI enabled cameras tracking your vehicle everywhere it goes. Learn more at deflock.org' src="/resources/blog/thumb_800_None_1.25x_osm_flock_poster.jpg"/>
+            </a>
+            <p>
+                <i>
+                    It seemed like the UMPD needed some extra help disclosing the locations of their ALPR's to the public. My original sign got taken down overnight, so I put two new ones up.
+                </i>
+                <br/>
+                <br/>
+                Anyways, after I discovered this Flock ALPR I wanted to report it to the site
+                <a href="https://deflock.me/">
+                    deflock
+                </a>
+                . It turned out that in order to get an ALPR to show up on their map, you had to add it to OSM. That's what got me to learn how to edit OSM. After I learned that, I got hooked. I started editing everything else around me. I started bringing business names up to date, adding bike parking stations, using the app "street complete" to update information while I'm out and about, etc.
+                <br/>
+                <br/>
+                I even took the leap to learning the more advanced editor, JOSM. The web editor is nice, but it has certain limitations. JOSM has much more powerful features, as well as a lot of nice customizability and addons. And unlike the website, it runs well on my
+                <a href="/blog/posts/my_new_setup.html">
+                    2008 laptop
+                </a>
+                and handles extremely dense areas without a hint of lag on my desktop.
+                <br/>
+                <br/>
+            </p>
+            <h2>
+                Taking things a step further
+            </h2>
+            <p>
+                I'd like to do a lot more mapping of my local area, but walking really limits my distance. And honestly, the mapping in my area is already fairly high quality. I'd like to go further, map more details (especially regarding biking infrastructure), and do it quicker. What I need is high quality up-to-date street level images. My new plan is to make my own street level images with a 360 camera on my bike, then share those images on Mapillary for myself and other mappers to reference.  I bought a second hand GoPro Max on Ebay yesterday, which is the highest recommended 360 camera by Mapillary due to its built in GPS.
+                <br/>
+                <br/>
+                In order to make sure the camera has maximum visibility, I'm going to mount it a few feet above my head. My hope is it will be able to see over other vehicles on the road and the elevation will make my head/body take up less of the image. I think it's best to mount the camera to my back (as opposed to mounting it to my bike directly) in order to minimize vibrations from the bike. My current plan is to fashion some sort of backpack with a big pole:
+                <br/>
+                <br/>
+            </p>
+            <a href="/resources/blog/OSM%20bike%20camera%20demonstration.jpg">
+                <img alt="An extremely crude digital drawing. A biker has a long pole coming out of their backpack, with a 360 camera on top of the pole. A large ford f150 is blocking the biker's vision to a &quot;for rent&quot; sign in front of a store front, however the 360 camera's vision is not blocked because it is at a higher elevation than the ford f150" src="/resources/blog/thumb_800_None_1.25x_OSM bike camera demonstration.jpg"/>
+            </a>
+            <p>
+                <i>
+                    My very scientific diagram. My vision of the "for rent" sign (which would indicate to me that "dinner n' stuff" should be marked as a disused amenity) is blocked by the massive Ford F150, but the 360 camera's view is unobstructed due to its elevation.
+                </i>
+                <br/>
+                <br/>
+                I'm not 100% sure how I'm going to mount the pole to a backpack yet. My current plan is to find an old backpack that fits snugly. I'll attach a stiff board inside the backpack, then add some sort of mounting hardware to attach my monopod to. I'll figure it out by some sort of means. It'll probably be sketchy lol.
+                <br/>
+            </p>
+            <hr/>
+            <p>
+                I'm going to the library every day that I don't work now. I'm hoping that it'll help inch me towards reclaiming my attention span and maybe do other helpful things (?). I've been doing a lot of experimenting to see what will help me improve my mental health while I'm in this transitional period of not having much work. Part of choosing to spend time mapping has to do with finding things that will get me out more often.
+                <br/>
+                <br/>
+                Anyhow, I tend to write these posts while I'm at the library. Now that I go to the library a lot, I'll probably (actually this time) be writing posts a lot (or working on other parts of my website).
+                <br/>
+                <br/>
+                I don't intend these posts to be so long and detailed, but once I start writing it all starts spilling out. I'm going to try to use this blog to make micro-sized posts more often too.
+                <br/>
+            </p>
+        </div>
+        <script src="/resources/scripts/common.js">
+        </script>
+    </body>
+</html>
