@@ -1,4 +1,20 @@
 images:
+  - path: _8242373.jpg
+    alt: An image of a goose eating a watermelon
+    subtext: Mmm good melon
+    category: birds
+  - path: _8242390.jpg
+    alt: A goose sitting down in a "loaf" shape
+    subtext: Relaxed goose
+    category: birds
+  - path: _8242414.jpg
+    alt: A goose standing up in front of a river
+    subtext: Watchful goose
+    category: birds
+  - path: _8242417.jpg
+    alt: A small goose sitting down in a "loaf" shape
+    subtext: Small relaxed goose
+    category: birds
   - path: stack-7.26.26.jpg
     alt: An image of the site's author sitting in a grassy area with a spotlight over them
     subtext: Me
