@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            2/2/26 OSM Mappin (micro post)
+        </title>
+        <link href="/resources/styles.css" rel="stylesheet"/>
+        <link href="/resources/images/goose_icon_16px.png" rel="icon" sizes="16x16" type="image/png"/>
+        <link href="/resources/images/goose_icon.png" rel="icon" sizes="304x304" type="image/png"/>
+    </head>
+    <body>
+        <div class="writing-style">
+            <h1>
+                OSM Mappin
+            </h1>
+            <p>
+                I've spent this morning doing some mapping for Open Street Maps. There's a nearby suburb in an area called "Cottage Grove" that has some newer constructions that aren't yet mapped. Here's one part I started on this morning:
+                <br/>
+            </p>
+            <img alt="Screenshot of a map. Roads are present, but there are not many houses on the map" src="/resources/blog/2.2.26%20before%20osm.png"/>
+            <p>
+                <i>
+                    All these roads should have houses next to them, but no one has mapped them yet!
+                </i>
+                <br/>
+                <br/>
+                Here's how far I've gotten done so far:
+                <br/>
+            </p>
+            <img alt="Screenshot of a map. In the upper left quadrant there are a lot of houses, but the rest of the map doesn't have many houses" src="/resources/blog/2.2.26%20after%20osm.png"/>
+            <p>
+                <br/>
+                I know it doesn't look like much, but that's a lot of houses! I've also done all the addresses for them. I learned about an extension for my mapping application called "mapping with ai". Despite the name, I don't see any ai present at all. I really don't know where they got the name from. It was made by meta, so maybe they just wanted it to sound cool to shareholders? Who knows. Anyways, the "mapping with ai" plugin allows me to overlay and easily import the US DOT street address information. Here's what that looks like:
+                <br/>
+            </p>
+            <a href="/resources/blog/2.2.26%20DOT%20addresses.png">
+                <img alt='Screenshot of the application "JSOM". A map is shown in the application. The map has points with house numbers. Some of these address points are not on houses' src="/resources/blog/thumb_800_None_1.25x_2.2.26 DOT addresses.png"/>
+            </a>
+            <p>
+                <br/>
+                It's very useful, however some of the data is not quite right (which is why it needs to be manually imported). The image above is an unfinished area, here's what part of my finished area looks like:
+                <br/>
+            </p>
+            <a href="/resources/blog/2.2.26%20finished%20area.png">
+                <img alt="A screenshot of a map. The houses have house numbers, the sidewalks and crosswalks are mapped, and the streets are mapped" src="/resources/blog/thumb_800_None_1.25x_2.2.26 finished area.png"/>
+            </a>
+            <p>
+                <br/>
+                The map with ai plugin also allows me to import building footprints from Microsoft's database (which would be a big time save), but their database is really low quality. I prefer to draw the building footprints on my own instead of importing their not very accurate footprints. After I make the footprint, I just identify which address node corresponds to the house and merge the data in. I even mapped all the sidewalks and crosswalks!
+                <br/>
+                <br/>
+            </p>
+            <h2>
+                Better than Google Maps!
+            </h2>
+            <p>
+                Because this is a new construction, Google Maps is actually yet to catch up and give this area a human touch. Take a look how this area looks in Google Maps:
+                <br/>
+            </p>
+            <a href="/resources/blog/2.2.26%20google%20maps%20view.png">
+                <img alt="Screenshot of google maps. The map doesn't have any sidewalk mapped, the road is mapped a little weird in some areas, there's house footprints missing, all the house footprints are just squares, and there's a street address mapped in a place where there's no building" src="/resources/blog/thumb_800_None_1.25x_2.2.26 google maps view.png"/>
+            </a>
+            <p>
+                <br/>
+                That road is looking kind of weird at the bottom. For some reason, there's a house number right at the end of the road too. There's no building there, what's what house number for?
+                <i>
+                    (edit: I later learned that plots of land
+                </i>
+                do
+                <i>
+                    have their own addresses often, although it is unusual for a turning loop to have an address it's also not wrong).
+                </i>
+                There's also a lot of missing building footprints. It makes it look like there's a bunch of empty land plots! At least they have the addresses in I guess. It looks like they've just blindly imported the same exact US DOT dataset in using without
+                <i>
+                    any
+                </i>
+                human intervention. They haven't even taken the time to associate those imported addresses with the building footprints. Take a look at the house number 6599, it's not even centered on a building! The sidewalk isn't mapped at all either!
+                <br/>
+                <br/>
+                Now here's how that same area on OSM:
+                <br/>
+            </p>
+            <a href="/resources/blog/2.2.26%20osm%20view.png">
+                <img alt="Screenshot of Open Street Maps. It's perfection. All the house numbers are present, the roads aren't wonky, and all the buildings have footprints" src="/resources/blog/thumb_800_None_1.25x_2.2.26 osm view.png"/>
+            </a>
+            <p>
+                <br/>
+                And here's what it looks like in my editor with the satellite view enabled:
+                <br/>
+            </p>
+            <a href="/resources/blog/2.2.26%20sat%20view.png">
+                <img alt="Screenshot of the same area in JOSM" src="/resources/blog/thumb_800_None_1.25x_2.2.26 sat view.png"/>
+            </a>
+            <p>
+                <br/>
+                Take a look at how much more detailed the building footprints are, they actually match the shape of the buildings. The sidewalk is present, all the building footprints are present, the road isn't wonky, there isn't a random floating address in the middle of the street. Because a person used their eyes and looked at it.
+                <br/>
+                <br/>
+                Of course, before today this wasn't mapped at all on OSM. Only the roads and public buildings where mapped. But now this part is mapped, and it really doesn't take very long to do. I plan to keep pushing until all of Cottage Grove is totally mapped. And by the end of it, the best public map of cottage grove will be on Open Street Maps!
+                <br/>
+            </p>
+        </div>
+        <script src="/resources/scripts/common.js">
+        </script>
+    </body>
+</html>
