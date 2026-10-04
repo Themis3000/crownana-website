@@ -1,4 +1,9 @@
 images:
+  - path: _9122785.jpg
+    alt: A furry in a green and black partial taking sunglasses off
+    subtext: Cool dog
+    category: furries
+    info_page: https://www.instagram.com/gg.d0ggy/
   - path: _8242373.jpg
     alt: An image of a goose eating a watermelon
     subtext: Mmm good melon
