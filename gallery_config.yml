@@ -1,4 +1,14 @@
 images:
+  - path: _A103025.jpg
+    alt: A closeup of a furry
+    subtext: Proud owner of one braincell
+    category: furries
+    info_page: https://www.instagram.com/gg.d0ggy/
+  - path: _A103025.jpg
+    alt: A in a partial standing outside during the fall
+    subtext: Fall paws
+    category: furries
+    info_page: https://www.instagram.com/gg.d0ggy/
   - path: _9122785.jpg
     alt: A furry in a green and black partial taking sunglasses off
     subtext: Cool dog
