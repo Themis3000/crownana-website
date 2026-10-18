@@ -4,6 +4,6 @@
         <span class="tearaway-month">{{ blog_entry.entry_meta["month"] }}</span>
         <span class="tearaway-day">{{ blog_entry.entry_meta["day"] }}</span>
         <span class="tearaway-year">{{ blog_entry.entry_meta["year"] }}</span>
-        <span class="tearaway-teaser">{{ blog_entry.teaser }}</span>
+        <span class="tearaway-teaser" {{ "style=font-size:" + blog_entry.entry_meta["font_size"] if "font_size" in blog_entry.entry_meta else "" }}>{{ blog_entry.teaser }}</span>
     </div>
 </a>
